@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { DollarSign, Tag, MonitorSmartphone, ShoppingCart, Users, ArrowRight, Check, X, Play, Rocket, Monitor, ListOrdered, ChevronRight, Zap, Mic } from 'lucide-react';
-import { ASSETS, GlobalStyles, Header, Footer, RevealOnScroll, FeatureModal, FacebookSVG, RedditSVG, PatreonSVG, DiscordSVG, WordpressSVG, UserBrushSVG } from '../../components/SharedUI';
+import { ASSETS, GlobalStyles, Header, Footer, RevealOnScroll, FeatureModal, FacebookSVG, RedditSVG, PatreonSVG, DiscordSVG, WordpressSVG, UserBrushSVG, ScratchSVG } from '../../components/SharedUI';
 
 export default function CreatorsPage() {
   const [pricingInterval, setPricingInterval] = useState('yearly');
@@ -69,12 +69,13 @@ export default function CreatorsPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
-              <RevealOnScroll delay={0} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-gray-800 hover:border-[#1877F2]/80 transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(24,119,242,0.15)] cursor-pointer">
+              <RevealOnScroll delay={0} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#1877F2]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#1877F2]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10 mb-6 text-[#1877F2]"><FacebookSVG size={40} /></div>
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Facebook</h3>
                   <UserBrushSVG className="absolute top-[60%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
+                  <ScratchSVG className="absolute top-[70%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
                 </div>
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium max-w-xl leading-relaxed mb-6">
                   Avoid all the politics, Crossfit workouts, advertisements, and other bullsh*t that annoys you on other social media platforms.
@@ -86,12 +87,13 @@ export default function CreatorsPage() {
                 </div>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={100} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-gray-800 hover:border-[#FF4500]/80 transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(255,69,0,0.15)] cursor-pointer">
+              <RevealOnScroll delay={100} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#FF4500]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-b from-[#D93A00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10 mb-6 text-[#FF4500]"><RedditSVG size={48} /></div>
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Reddit</h3>
                   <UserBrushSVG className="absolute top-[60%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
+                  <ScratchSVG className="absolute top-[70%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
                 </div>
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
                   Tired of the trolls and no way to be rewarded for all your hard work? Get the same sense of community but with added benefits suited specifically to your needs.
@@ -103,12 +105,13 @@ export default function CreatorsPage() {
                 </div>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={200} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-gray-800 hover:border-[#FF424D]/80 transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(255,66,77,0.15)] cursor-pointer">
+              <RevealOnScroll delay={200} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#FF424D]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#FF424D]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10 mb-6 text-[#FF424D]"><PatreonSVG size={40} /></div>
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Patreon</h3>
                   <UserBrushSVG className="absolute top-[60%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
+                  <ScratchSVG className="absolute top-[70%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
                 </div>
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
                   "Thanks for joining us on this platform. Now go download another app to interact with your community and monetize it on the same platform!" Uh, no thanks! Create your community and monetize it on the same platform!
@@ -120,12 +123,13 @@ export default function CreatorsPage() {
                 </div>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={300} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-gray-800 hover:border-[#5865F2]/80 transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(88,101,242,0.15)] cursor-pointer">
+              <RevealOnScroll delay={300} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#5865F2]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-tl from-[#5865F2]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10 mb-6 text-[#5865F2]"><DiscordSVG size={40} /></div>
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Discord</h3>
                   <UserBrushSVG className="absolute top-[60%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
+                  <ScratchSVG className="absolute top-[70%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
                 </div>
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
                   What the F*$% is Discord?! Stop confusing your fans by setting up Spaces or 1-on-1 message without ever leaving the site or having to download and learn a separate (confusing) app.

@@ -73,7 +73,7 @@ export default function FansPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
-              <RevealOnScroll delay={0} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-gray-800 hover:border-[#1877F2]/80 transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(24,119,242,0.15)]">
+              <RevealOnScroll delay={0} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#1877F2]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)]">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#1877F2]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10 mb-6 text-[#1877F2]"><FacebookSVG size={40} /></div>
                 <div className="relative z-10 w-fit mb-4">
@@ -85,7 +85,7 @@ export default function FansPage() {
                 </p>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={100} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-gray-800 hover:border-[#FF4500]/80 transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(255,69,0,0.15)]">
+              <RevealOnScroll delay={100} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#FF4500]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)]">
                 <div className="absolute inset-0 bg-gradient-to-b from-[#D93A00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10 mb-6 text-[#FF4500]"><RedditSVG size={48} /></div>
                 <div className="relative z-10 w-fit mb-4">
@@ -97,7 +97,7 @@ export default function FansPage() {
                 </p>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={200} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-gray-800 hover:border-[#FF424D]/80 transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(255,66,77,0.15)]">
+              <RevealOnScroll delay={200} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#FF424D]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)]">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#FF424D]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10 mb-6 text-[#FF424D]"><PatreonSVG size={40} /></div>
                 <div className="relative z-10 w-fit mb-4">
@@ -109,7 +109,7 @@ export default function FansPage() {
                 </p>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={300} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-gray-800 hover:border-[#5865F2]/80 transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(88,101,242,0.15)]">
+              <RevealOnScroll delay={300} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#5865F2]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)]">
                 <div className="absolute inset-0 bg-gradient-to-tl from-[#5865F2]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10 mb-6 text-[#5865F2]"><DiscordSVG size={40} /></div>
                 <div className="relative z-10 w-fit mb-4">
