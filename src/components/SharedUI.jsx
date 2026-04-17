@@ -253,11 +253,11 @@ export const Header = () => {
             <nav className="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-gray-400 mt-2">
               <Link href="/fans" className="relative group pb-2 pt-1">
                 <span className={`relative z-10 transition-colors ${pathname === '/fans' ? 'text-[#9df01c]' : 'hover:text-white'}`}>For Fans</span>
-                <UserBrushSVG className={`absolute -bottom-1 left-0 w-full h-[8px] origin-left transition-all duration-300 ${pathname === '/fans' ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'}`} />
+                <ScratchSVG className={`absolute -bottom-2 left-0 w-[120%] -ml-[10%] h-[12px] origin-left transition-all duration-300 ${pathname === '/fans' ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'}`} />
               </Link>
               <Link href="/creators" className="relative group pb-2 pt-1">
                 <span className={`relative z-10 transition-colors ${pathname === '/creators' ? 'text-[#9df01c]' : 'hover:text-white'}`}>For Creators</span>
-                <UserBrushSVG className={`absolute -bottom-1 left-0 w-full h-[8px] origin-left transition-all duration-300 ${pathname === '/creators' ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'}`} />
+                <ScratchSVG className={`absolute -bottom-2 left-0 w-[120%] -ml-[10%] h-[12px] origin-left transition-all duration-300 ${pathname === '/creators' ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'}`} />
               </Link>
             </nav>
           )}
