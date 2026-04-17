@@ -214,7 +214,7 @@ export default function CreatorsPage() {
         <section className="relative w-full py-24 md:py-32 overflow-hidden flex items-center">
           <div 
             className="absolute inset-0 bg-fixed bg-center bg-cover opacity-60 filter grayscale mix-blend-luminosity"
-            style={{ backgroundImage: `url('https://beasellout.com/wp-content/uploads/2025/04/wepik-202159-213820.jpeg')` }}
+            style={{ backgroundImage: `url('https://admin.beasellout.com/wp-content/uploads/2025/04/wepik-202159-213820.jpeg')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a] z-0"></div>
           
@@ -267,7 +267,7 @@ export default function CreatorsPage() {
         <section className="relative py-32 px-6 overflow-hidden">
           <div 
             className="absolute inset-0 bg-fixed bg-center bg-cover opacity-40 filter grayscale mix-blend-luminosity"
-            style={{ backgroundImage: `url('https://beasellout.com/wp-content/uploads/2026/01/Super-Bowl-American-Football-Concept-scaled.jpg')` }}
+            style={{ backgroundImage: `url('https://admin.beasellout.com/wp-content/uploads/2026/01/Super-Bowl-American-Football-Concept-scaled.jpg')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/50 to-[#111] z-0"></div>
           

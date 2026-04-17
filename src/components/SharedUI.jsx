@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 export const ASSETS = {
-  heroVideo: "https://beasellout.com/wp-content/uploads/2025/08/All-Sports.mp4",
-  logo: "https://beasellout.com/wp-content/uploads/2025/04/Logo.png"
+  heroVideo: "https://admin.beasellout.com/wp-content/uploads/2025/08/All-Sports.mp4",
+  logo: "https://admin.beasellout.com/wp-content/uploads/2025/04/Logo.png"
 };
 
 // EXPLICITLY REQUESTED SVG
@@ -236,12 +236,24 @@ export const RevealOnScroll = ({ children, className = "", delay = 0, animation 
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isFunnel = pathname === '/';
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    
+    handleScroll();
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 w-full z-50 bg-transparent py-4 pointer-events-none">
-      <div className={`max-w-[1200px] mx-auto px-6 flex justify-between items-center ${isFunnel ? 'opacity-0 translate-y-[-10px]' : 'opacity-100 translate-y-0'} transition-all duration-500 pointer-events-auto`}>
+    <header className={`fixed top-0 w-full z-50 pointer-events-none transition-all duration-300 ${isScrolled ? 'bg-[#050505]/80 backdrop-blur-md py-3 shadow-lg border-b border-white/5' : 'bg-transparent py-5'}`}>
+      <div className={`w-full px-6 md:px-12 flex justify-between items-center ${isFunnel ? 'opacity-0 translate-y-[-10px]' : 'opacity-100 translate-y-0'} transition-all duration-500 pointer-events-auto`}>
         
         <div className="flex items-center gap-8">
           <Link href="/" className="group relative block w-20 md:w-24 focus:outline-none shrink-0">
