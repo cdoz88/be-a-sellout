@@ -38,7 +38,7 @@ export default function CreatorsPage() {
             <RevealOnScroll animation="zoom-in">
               <div className="inline-flex items-center gap-1.5 px-6 py-2 rounded-full border border-gray-700 bg-black/60 backdrop-blur-md shadow-lg mb-6">
                 <Zap size={14} className="text-[#a3e635] fill-[#a3e635]" /> 
-                <span className="text-white text-xs font-bold uppercase tracking-widest">Attention Content Creators</span>
+                <span className="text-white text-xs font-bold uppercase tracking-widest">Your Dynasty Begins</span>
               </div>
             </RevealOnScroll>
 

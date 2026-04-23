@@ -91,7 +91,7 @@ export default function FansPage() {
                 </div>
                 
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium max-w-xl leading-relaxed mb-6">
-                  Avoid all the politics, Crossfit workouts, advertisements, and other bullsh*t that annoys you on other social media platforms.
+                  Avoid all the politics, Crossfit workouts, thirst traps, and other bullsh*t that annoys you on other social media platforms.
                 </p>
                 <div className="relative z-10 mt-auto pt-4">
                   <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
@@ -114,7 +114,7 @@ export default function FansPage() {
                 </div>
                 
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
-                  Tired of the trolls and no way to be rewarded for all your hard work? Get the same sense of community but with added benefits suited specifically to your needs.
+                Tired of the trolls and the "wall of text" layout? Get an improved sense of community with added benefits of being 100% sports centric.
                 </p>
                 <div className="relative z-10 mt-auto pt-4">
                   <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
@@ -137,7 +137,7 @@ export default function FansPage() {
                 </div>
                 
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
-                  Patreon is great for taking your money, but terrible for community. Stop jumping between 3 different apps to connect.
+                  Patreon is great for taking your money, but terrible for community. Stop jumping between 3 different apps to connect with others.
                 </p>
                 <div className="relative z-10 mt-auto pt-4">
                   <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
@@ -160,7 +160,7 @@ export default function FansPage() {
                 </div>
                 
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
-                  What the F*$% is Discord?! Clean, simple, and built for sports. No more messy servers or weird channels.
+                  What the F*$% is Discord?! Forget about it and don't waste your time. Keep it clean and simple with no more messy servers or weird channels.
                 </p>
                 <div className="relative z-10 mt-auto pt-4">
                   <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
@@ -198,28 +198,28 @@ export default function FansPage() {
                   icon: <Star />, 
                   title: "Exclusive Content", 
                   desc: "Access premium content from creators.", 
-                  detailedDesc: "Creators can post articles, videos, and podcasts to their Crowds and Spaces. You decide how you want to customize your community and how access is controlled to your content!",
+                  detailedDesc: "Join Crowds and Spaces to gain access to exclusive articles, videos, and podcasts posted by your favorite creators.",
                   delay: 0 
                 },
                 { 
                   icon: <Trophy />, 
                   title: "Leaderboard", 
                   desc: "Compete as the top sports fanatic!", 
-                  detailedDesc: "Every interaction, post, and correct prediction earns you points. Climb the ranks and show everyone who the ultimate sports fanatic really is!",
+                  detailedDesc: "Every interaction, post, and vote on a poll earns you points. Climb the ranks and show everyone who the ultimate sports fanatic really is!",
                   delay: 100 
                 },
                 { 
                   icon: <Grid />, 
                   title: "Live Scoreboard", 
                   desc: "Track the game while hanging out.", 
-                  detailedDesc: "No need to app-switch. Keep track of live scores and play-by-play action natively while you chat with your community.",
+                  detailedDesc: "No need to app-switch. Keep track of live scores and play-by-play action while you chat about your favorite team.",
                   delay: 200 
                 },
                 { 
                   icon: <ShoppingCart />, 
                   title: "Merch & Gear", 
                   desc: "Shop brand marketplaces for cool merch.", 
-                  detailedDesc: "Support your favorite creators by purchasing their custom merchandise directly through their FanFeed. Secure, fast, and built-in.",
+                  detailedDesc: "Support your favorite creators by purchasing their products, custom merchandise, and more directly through their Crowd. Everything you need without leaving the site!",
                   soon: true, 
                   delay: 300 
                 }
