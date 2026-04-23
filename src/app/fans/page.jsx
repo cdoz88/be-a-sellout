@@ -65,7 +65,7 @@ export default function FansPage() {
           </div>
         </section>
 
-        {/* COMPARISON SECTION - Uses gradient from transparent to #050505 and pulls up over the video fade */}
+        {/* COMPARISON SECTION - Links removed for Fans page */}
         <section className="relative z-20 -mt-40 pt-10 pb-24 px-6 bg-gradient-to-b from-transparent via-[#050505] to-[#050505]">
           <div className="max-w-6xl mx-auto relative z-10">
             <RevealOnScroll className="mb-16 text-center md:text-left">
@@ -77,103 +77,58 @@ export default function FansPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
-              <RevealOnScroll delay={0} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#1877F2]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1877F2]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+              <RevealOnScroll delay={0} className="relative rounded-3xl overflow-hidden bg-[#111] border border-[#1877F2]/50 p-8 md:p-10 flex flex-col justify-start shadow-lg">
                 <div className="relative z-10 mb-6 w-fit text-[#1877F2]">
                   <FacebookSVG size={40} />
-                  {/* Scratch over icon */}
-                  <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[12px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
-
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Ditch the Noise.</h3>
                 </div>
-                
-                <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium max-w-xl leading-relaxed mb-6">
+                <p className="relative z-10 text-base md:text-lg text-gray-400 font-medium max-w-xl leading-relaxed">
                   Avoid all the politics, Crossfit workouts, thirst traps, and other bullsh*t that annoys you on other social media platforms.
                 </p>
-                <div className="relative z-10 mt-auto pt-4">
-                  <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
-                    Why Facebook is Lame <ChevronRight size={14} />
-                  </span>
-                </div>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={100} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#FF4500]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-b from-[#D93A00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+              <RevealOnScroll delay={100} className="relative rounded-3xl overflow-hidden bg-[#111] border border-[#FF4500]/50 p-8 md:p-10 flex flex-col justify-start shadow-lg">
                 <div className="relative z-10 mb-6 w-fit text-[#FF4500]">
                   <RedditSVG size={48} />
-                  {/* Scratch over icon */}
-                  <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[16px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
-
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Lose the Trolls.</h3>
                 </div>
-                
-                <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
+                <p className="relative z-10 text-base md:text-lg text-gray-400 font-medium leading-relaxed">
                 Tired of the trolls and the "wall of text" layout? Get an improved sense of community with added benefits of being 100% sports centric.
                 </p>
-                <div className="relative z-10 mt-auto pt-4">
-                  <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
-                    See why to punt Reddit <ChevronRight size={14} />
-                  </span>
-                </div>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={200} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#FF424D]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#FF424D]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+              <RevealOnScroll delay={200} className="relative rounded-3xl overflow-hidden bg-[#111] border border-[#FF424D]/50 p-8 md:p-10 flex flex-col justify-start shadow-lg">
                 <div className="relative z-10 mb-6 w-fit text-[#FF424D]">
                   <PatreonSVG size={40} />
-                  {/* Scratch over icon */}
-                  <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[16px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
-
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Stop the Hop.</h3>
                 </div>
-                
-                <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
+                <p className="relative z-10 text-base md:text-lg text-gray-400 font-medium leading-relaxed">
                   Patreon is great for taking your money, but terrible for community. Stop jumping between 3 different apps to connect with others.
                 </p>
-                <div className="relative z-10 mt-auto pt-4">
-                  <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
-                    See what Patreon is missing <ChevronRight size={14} />
-                  </span>
-                </div>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={300} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#5865F2]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-tl from-[#5865F2]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+              <RevealOnScroll delay={300} className="relative rounded-3xl overflow-hidden bg-[#111] border border-[#5865F2]/50 p-8 md:p-10 flex flex-col justify-start shadow-lg">
                 <div className="relative z-10 mb-6 w-fit text-[#5865F2]">
                   <DiscordSVG size={40} />
-                  {/* Scratch over icon */}
-                  <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[16px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
-
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">End the Confusion.</h3>
                 </div>
-                
-                <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
+                <p className="relative z-10 text-base md:text-lg text-gray-400 font-medium leading-relaxed">
                   What the F*$% is Discord?! Forget about it and don't waste your time. Keep it clean and simple with no more messy servers or weird channels.
                 </p>
-                <div className="relative z-10 mt-auto pt-4">
-                  <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
-                    See why Discord sucks <ChevronRight size={14} />
-                  </span>
-                </div>
               </RevealOnScroll>
 
             </div>
           </div>
         </section>
 
-        {/* LED DIGITAL TICKER SECTION - Extracted into Component */}
         <SportsTicker />
 
         <section className="py-20 px-4 max-w-6xl mx-auto overflow-hidden">

@@ -309,10 +309,10 @@ export const Footer = () => (
       
       <div className="flex flex-col gap-2 text-xs font-medium text-center md:text-left">
         <h4 className="text-white font-black uppercase tracking-widest mb-1">The Real Truth</h4>
-        <a href="#" className="hover:text-[#a3e635] transition-colors">Why Discord Sucks</a>
-        <a href="#" className="hover:text-[#a3e635] transition-colors">Why Facebook is Lame</a>
-        <a href="#" className="hover:text-[#a3e635] transition-colors">Why Patreon is a Waste of Time</a>
-        <a href="#" className="hover:text-[#a3e635] transition-colors">Why Reddit...Seriously, Why?</a>
+        <Link href="/compare/discord" className="hover:text-[#a3e635] transition-colors">Why Discord Sucks</Link>
+        <Link href="/compare/facebook" className="hover:text-[#a3e635] transition-colors">Why Facebook is Lame</Link>
+        <Link href="/compare/patreon" className="hover:text-[#a3e635] transition-colors">Why Patreon is a Waste of Time</Link>
+        <Link href="/compare/reddit" className="hover:text-[#a3e635] transition-colors">Why Reddit...Seriously, Why?</Link>
       </div>
 
       <div className="flex flex-col items-center md:items-end gap-5">
