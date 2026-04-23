@@ -178,11 +178,11 @@ export default function FacebookComparePage() {
                   </div>
                   
                   <div className="col-span-1 md:col-span-5 flex gap-4 pr-0 md:pr-4 border-b border-gray-800 md:border-b-0 pb-4 md:pb-0 md:border-r">
-                    <div className={`mt-1 shrink-0 p-1.5 rounded-full h-fit ${row.facebookStatus === 'warn' ? 'bg-yellow-500/20' : 'bg-blue-500/20'}`}>
+                    <div className={`mt-1 shrink-0 p-1.5 rounded-full h-fit ${row.facebookStatus === 'warn' ? 'bg-yellow-500/20' : 'bg-red-500/20'}`}>
                       {row.facebookStatus === 'warn' ? (
                         <TriangleAlert size={16} className="text-yellow-500" strokeWidth={3} />
                       ) : (
-                        <X size={16} className="text-[#1877F2]" strokeWidth={3} />
+                        <X size={16} className="text-red-500" strokeWidth={3} />
                       )}
                     </div>
                     <p className="text-sm md:text-base text-gray-400 leading-relaxed font-medium">
@@ -205,7 +205,6 @@ export default function FacebookComparePage() {
         </section>
 
         <section className="bg-[#0a0a0a] py-32 z-0 relative overflow-hidden">
-           {/* UPDATED ADMIN URL */}
            <div 
              className="absolute inset-0 bg-center bg-cover bg-fixed opacity-20 filter grayscale mix-blend-luminosity pointer-events-none z-0"
              style={{ backgroundImage: `url('https://admin.beasellout.com/wp-content/uploads/2026/04/Cage.webp')` }}
@@ -253,7 +252,6 @@ export default function FacebookComparePage() {
         </section>
 
         <section className="relative py-32 px-6 text-center overflow-hidden">
-           {/* UPDATED ADMIN URL */}
            <div 
              className="absolute inset-0 bg-bottom bg-cover"
              style={{ backgroundImage: `url('https://admin.beasellout.com/wp-content/uploads/2026/04/Green-Crowd-scaled-1.webp')` }}
