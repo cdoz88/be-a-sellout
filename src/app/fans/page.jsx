@@ -23,7 +23,7 @@ const FEATURES = [
   { 
     icon: <Grid />, 
     title: "Live Scoreboard", 
-    desc: "No need to app-switch. Keep track of live scores, play-by-play action, and your fantasy matchups while you chat about your favorite team.", 
+    desc: "No need to app-switch. Keep track of live scores and play-by-play action while you chat about your favorite team.", 
     mockup: "https://admin.beasellout.com/wp-content/uploads/2026/04/Live-Scoreboard-e1777003245301.webp",
   },
   { 
@@ -160,7 +160,6 @@ export default function FansPage() {
                 
                 <div className="relative z-10 mb-6 w-fit text-[#1877F2]">
                   <FacebookSVG size={40} />
-                  {/* Scratch over icon */}
                   <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[12px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
 
@@ -178,7 +177,6 @@ export default function FansPage() {
                 
                 <div className="relative z-10 mb-6 w-fit text-[#FF4500]">
                   <RedditSVG size={48} />
-                  {/* Scratch over icon */}
                   <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[16px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
 
@@ -196,7 +194,6 @@ export default function FansPage() {
                 
                 <div className="relative z-10 mb-6 w-fit text-[#FF424D]">
                   <PatreonSVG size={40} />
-                  {/* Scratch over icon */}
                   <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[16px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
 
@@ -214,7 +211,6 @@ export default function FansPage() {
                 
                 <div className="relative z-10 mb-6 w-fit text-[#5865F2]">
                   <DiscordSVG size={40} />
-                  {/* Scratch over icon */}
                   <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[16px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
 
@@ -237,7 +233,7 @@ export default function FansPage() {
         {/* --- UPGRADED PINNED/STICKY SCROLL SECTION --- */}
         <section 
           ref={stickyContainerRef} 
-          className="relative w-full h-[500vh] bg-[#050505]" // 5 items = 500vh for a comfortable scroll distance
+          className="relative w-full h-[300vh] bg-[#050505]" // Reduced from 500vh to 300vh for a more sensitive scroll distance
         >
           <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center pt-16 pb-8 px-4">
              {/* Background glow that follows active index */}
