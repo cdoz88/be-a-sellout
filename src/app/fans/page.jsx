@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Star, Trophy, Grid, ShoppingCart, Newspaper, RefreshCw, Users, 
   ChevronRight, LayoutList, MessageSquare 
@@ -7,9 +7,45 @@ import {
 import { ASSETS, GlobalStyles, Header, Footer, RevealOnScroll, FeatureModal, FacebookSVG, RedditSVG, PatreonSVG, DiscordSVG, ScratchSVG } from '../../components/SharedUI';
 import SportsTicker from '../../components/SportsTicker';
 
+const FEATURES = [
+  { 
+    icon: <LayoutList />, 
+    title: "Your Custom Fanfeed", 
+    desc: "Forget algorithms feeding you rage bait. Your FanFeed will only show the leagues, teams, and creators that you follow. Period.", 
+    mockup: "https://admin.beasellout.com/wp-content/uploads/2026/04/FanFeed-scaled-e1777003279289.webp",
+  },
+  { 
+    icon: <Star />, 
+    title: "Exclusive Content", 
+    desc: "Join Crowds and Spaces to gain access to exclusive articles, videos, and podcasts posted by your favorite creators.", 
+    mockup: "https://admin.beasellout.com/wp-content/uploads/2026/04/Content-Screens.webp",
+  },
+  { 
+    icon: <Grid />, 
+    title: "Live Scoreboard", 
+    desc: "No need to app-switch. Keep track of live scores and play-by-play action while you chat about your favorite team.", 
+    mockup: "https://admin.beasellout.com/wp-content/uploads/2026/04/Live-Scoreboard-e1777003245301.webp",
+  },
+  { 
+    icon: <Trophy />, 
+    title: "Leaderboard", 
+    desc: "Every interaction, post, and vote on a poll earns you points. Climb the ranks and show everyone who the ultimate sports fanatic really is!", 
+    mockup: "https://admin.beasellout.com/wp-content/uploads/2026/04/Leaderboard-tilted.webp",
+  },
+  { 
+    icon: <ShoppingCart />, 
+    title: "Merch & Gear", 
+    desc: "Support your favorite creators by purchasing their products, custom merchandise, and more directly through their Crowd. Everything you need without leaving the site!", 
+    mockup: "https://admin.beasellout.com/wp-content/uploads/2026/04/Marketplace-scaled.webp", 
+    soon: true, 
+  }
+];
+
 export default function FansPage() {
   const [activeModalFeature, setActiveModalFeature] = useState(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
+  const stickyContainerRef = useRef(null);
 
   const handleMouseMove = (e) => {
     if (typeof window !== 'undefined') {
@@ -20,8 +56,45 @@ export default function FansPage() {
     }
   };
 
+  // Sticky Scroll Logic
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!stickyContainerRef.current) return;
+      
+      const { top, bottom, height } = stickyContainerRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Before reaching the container
+      if (top > 0) {
+        setActiveFeatureIndex(0);
+        return;
+      }
+
+      // After passing the container
+      if (bottom < windowHeight) {
+        setActiveFeatureIndex(FEATURES.length - 1);
+        return;
+      }
+
+      // Calculate the progress through the sticky wrapper
+      const scrollDistance = -top;
+      const maxScroll = height - windowHeight;
+      
+      let progress = scrollDistance / maxScroll;
+      progress = Math.max(0, Math.min(1, progress));
+      
+      // Determine which feature should be active based on scroll progress
+      const index = Math.min(Math.floor(progress * FEATURES.length), FEATURES.length - 1);
+      setActiveFeatureIndex(index);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Trigger immediately to set initial state
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="bg-[#0a0a0a] text-gray-200 min-h-screen flex flex-col font-sans selection:bg-[#a3e635] selection:text-black overflow-x-hidden animate-in fade-in slide-in-from-bottom-8 duration-500">
+    <div className="bg-[#0a0a0a] text-gray-200 min-h-screen flex flex-col font-sans selection:bg-[#a3e635] selection:text-black overflow-x-clip animate-in fade-in duration-500">
       <GlobalStyles />
       <Header />
       
@@ -31,12 +104,8 @@ export default function FansPage() {
             <source src={ASSETS.heroVideo} type="video/mp4" />
           </video>
           
-          {/* Base darkening */}
           <div className="absolute inset-0 bg-black/40"></div>
-          
-          {/* Smooth gradient fade to #050505 at the bottom */}
           <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#050505] to-transparent z-10 pointer-events-none"></div>
-          
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#a3e635]/10 rounded-full blur-[100px] mix-blend-screen animate-pulse pointer-events-none"></div>
 
           <div className="relative z-20 text-center px-4 max-w-4xl mx-auto w-full pb-20">
@@ -65,7 +134,7 @@ export default function FansPage() {
           </div>
         </section>
 
-        {/* COMPARISON SECTION - Links removed for Fans page */}
+        {/* COMPARISON SECTION */}
         <section className="relative z-20 -mt-40 pt-10 pb-24 px-6 bg-gradient-to-b from-transparent via-[#050505] to-[#050505]">
           <div className="max-w-6xl mx-auto relative z-10">
             <RevealOnScroll className="mb-16 text-center md:text-left">
@@ -77,49 +146,73 @@ export default function FansPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
-              <RevealOnScroll delay={0} className="relative rounded-3xl overflow-hidden bg-[#111] border border-[#1877F2]/50 p-8 md:p-10 flex flex-col justify-start shadow-lg">
+              <RevealOnScroll delay={0} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#1877F2]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1877F2]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
                 <div className="relative z-10 mb-6 w-fit text-[#1877F2]">
                   <FacebookSVG size={40} />
+                  {/* Scratch over icon */}
+                  <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[12px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
+
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Ditch the Noise.</h3>
                 </div>
+                
                 <p className="relative z-10 text-base md:text-lg text-gray-400 font-medium max-w-xl leading-relaxed">
                   Avoid all the politics, Crossfit workouts, thirst traps, and other bullsh*t that annoys you on other social media platforms.
                 </p>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={100} className="relative rounded-3xl overflow-hidden bg-[#111] border border-[#FF4500]/50 p-8 md:p-10 flex flex-col justify-start shadow-lg">
+              <RevealOnScroll delay={100} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#FF4500]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)]">
+                <div className="absolute inset-0 bg-gradient-to-b from-[#D93A00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
                 <div className="relative z-10 mb-6 w-fit text-[#FF4500]">
                   <RedditSVG size={48} />
+                  {/* Scratch over icon */}
+                  <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[16px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
+
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Lose the Trolls.</h3>
                 </div>
+                
                 <p className="relative z-10 text-base md:text-lg text-gray-400 font-medium leading-relaxed">
                 Tired of the trolls and the "wall of text" layout? Get an improved sense of community with added benefits of being 100% sports centric.
                 </p>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={200} className="relative rounded-3xl overflow-hidden bg-[#111] border border-[#FF424D]/50 p-8 md:p-10 flex flex-col justify-start shadow-lg">
+              <RevealOnScroll delay={200} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#FF424D]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)]">
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#FF424D]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
                 <div className="relative z-10 mb-6 w-fit text-[#FF424D]">
                   <PatreonSVG size={40} />
+                  {/* Scratch over icon */}
+                  <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[16px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
+
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Stop the Hop.</h3>
                 </div>
+                
                 <p className="relative z-10 text-base md:text-lg text-gray-400 font-medium leading-relaxed">
                   Patreon is great for taking your money, but terrible for community. Stop jumping between 3 different apps to connect with others.
                 </p>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={300} className="relative rounded-3xl overflow-hidden bg-[#111] border border-[#5865F2]/50 p-8 md:p-10 flex flex-col justify-start shadow-lg">
+              <RevealOnScroll delay={300} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#5865F2]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)]">
+                <div className="absolute inset-0 bg-gradient-to-tl from-[#5865F2]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
                 <div className="relative z-10 mb-6 w-fit text-[#5865F2]">
                   <DiscordSVG size={40} />
+                  {/* Scratch over icon */}
+                  <ScratchSVG className="absolute top-1/2 left-1/2 w-[140%] -translate-x-1/2 -translate-y-1/2 h-[12px] md:h-[16px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
                 </div>
+
                 <div className="relative z-10 w-fit mb-4">
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">End the Confusion.</h3>
                 </div>
+                
                 <p className="relative z-10 text-base md:text-lg text-gray-400 font-medium leading-relaxed">
                   What the F*$% is Discord?! Forget about it and don't waste your time. Keep it clean and simple with no more messy servers or weird channels.
                 </p>
@@ -129,82 +222,91 @@ export default function FansPage() {
           </div>
         </section>
 
+        {/* LED DIGITAL TICKER SECTION */}
         <SportsTicker />
 
-        <section className="py-20 px-4 max-w-6xl mx-auto overflow-hidden">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-            
-            <RevealOnScroll animation="fade-right" className="lg:w-5/12 text-center lg:text-left relative">
-              <div className="absolute -top-10 -left-10 w-48 h-48 bg-[#a3e635]/10 rounded-full blur-[60px] -z-10 animate-pulse"></div>
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#a3e635] border border-[#a3e635] rounded-2xl shadow-[0_0_30px_rgba(163,230,53,0.4)] transform -rotate-6 mb-6 hover:rotate-0 transition-transform duration-300">
-                <LayoutList size={32} className="text-black" />
-              </div>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-gray-100 leading-tight">
-                YOUR CUSTOM<br/>FANFEED
-              </h2>
-              <p className="text-sm md:text-base text-gray-500 leading-relaxed font-medium">
-                Forget algorithms feeding you rage bait. Your FanFeed will <strong className="text-gray-300">only</strong> show the leagues, teams, and creators that you follow. Period.
-              </p>
-            </RevealOnScroll>
+        {/* --- UPGRADED PINNED/STICKY SCROLL SECTION --- */}
+        <section 
+          ref={stickyContainerRef} 
+          className="relative w-full h-[500vh] bg-[#050505]" // 5 items = 500vh for a comfortable scroll distance
+        >
+          <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center pt-16 pb-8 px-4">
+             {/* Background glow that follows active index */}
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#a3e635]/5 rounded-full blur-[120px] pointer-events-none transition-opacity duration-1000"></div>
 
-            <div className="lg:w-7/12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 gap-4 relative z-10">
-              {[
-                { 
-                  icon: <Star />, 
-                  title: "Exclusive Content", 
-                  desc: "Access premium content from creators.", 
-                  detailedDesc: "Join Crowds and Spaces to gain access to exclusive articles, videos, and podcasts posted by your favorite creators.",
-                  delay: 0 
-                },
-                { 
-                  icon: <Trophy />, 
-                  title: "Leaderboard", 
-                  desc: "Compete as the top sports fanatic!", 
-                  detailedDesc: "Every interaction, post, and vote on a poll earns you points. Climb the ranks and show everyone who the ultimate sports fanatic really is!",
-                  delay: 100 
-                },
-                { 
-                  icon: <Grid />, 
-                  title: "Live Scoreboard", 
-                  desc: "Track the game while hanging out.", 
-                  detailedDesc: "No need to app-switch. Keep track of live scores and play-by-play action while you chat about your favorite team.",
-                  delay: 200 
-                },
-                { 
-                  icon: <ShoppingCart />, 
-                  title: "Merch & Gear", 
-                  desc: "Shop brand marketplaces for cool merch.", 
-                  detailedDesc: "Support your favorite creators by purchasing their products, custom merchandise, and more directly through their Crowd. Everything you need without leaving the site!",
-                  soon: true, 
-                  delay: 300 
-                }
-              ].map((item, i) => (
-                <RevealOnScroll key={i} delay={item.delay} animation="fade-up">
-                  <div className="bg-[#111] border border-gray-800 p-5 rounded-2xl shadow-md hover:border-[#a3e635]/40 transition-colors duration-300 group h-full flex flex-col">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 shrink-0 bg-gray-900 border border-gray-800 rounded-xl flex items-center justify-center group-hover:bg-[#a3e635]/10 group-hover:text-[#a3e635] text-gray-500 transition-colors duration-300">
-                        {React.cloneElement(item.icon, { size: 18 })}
+             <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                
+                {/* LEFT SIDE: Pre-rendered Phone Mockups (Swaps on scroll) */}
+                <div className="w-full md:w-1/2 flex justify-center items-center relative h-[45vh] md:h-[70vh]">
+                   {FEATURES.map((item, index) => (
+                      <div 
+                        key={`mockup-${index}`}
+                        className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex items-center justify-center
+                          ${activeFeatureIndex === index ? 'opacity-100 translate-y-0 scale-100 z-20' : 
+                            activeFeatureIndex > index ? 'opacity-0 -translate-y-16 scale-95 z-0' : 'opacity-0 translate-y-16 scale-95 z-0'
+                          }`}
+                      >
+                         <div className="relative h-full flex items-center justify-center w-full max-w-[320px] md:max-w-[400px]">
+                            {/* Soft glow behind the mockup */}
+                            <div className="absolute inset-0 bg-[#a3e635]/10 blur-[50px] transform scale-90 -z-10"></div>
+                            {item.mockup && (
+                               <img 
+                                 src={item.mockup} 
+                                 alt={item.title} 
+                                 className="h-[95%] md:h-full w-auto object-contain filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]" 
+                               />
+                            )}
+                         </div>
                       </div>
-                      <h4 className="text-base font-black tracking-tight text-gray-200 leading-tight group-hover:text-white transition-colors">{item.title}</h4>
-                    </div>
-                    {item.soon && <span className="inline-block text-[9px] font-black uppercase tracking-widest text-black bg-[#a3e635] px-2 py-1 rounded-sm self-start mb-2 shadow-sm">Coming Soon</span>}
-                    <p className="text-gray-500 text-xs leading-relaxed font-medium flex-1 w-full">
-                      {item.desc}
-                    </p>
-                    <div className="flex items-center justify-end mt-3 w-full">
-                      {item.detailedDesc && (
-                        <button 
-                          onClick={(e) => { e.preventDefault(); setActiveModalFeature(item); }}
-                          className="text-[#a3e635] text-[10px] font-bold uppercase tracking-widest flex items-center gap-1 hover:text-white transition-colors w-fit"
-                        >
-                          Learn More <ChevronRight size={12} />
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                </RevealOnScroll>
-              ))}
-            </div>
+                   ))}
+                </div>
+
+                {/* RIGHT SIDE: Text & Icons (Swaps on scroll) */}
+                <div className="w-full md:w-1/2 relative h-[35vh] md:h-[50vh] flex flex-col justify-center">
+                   {FEATURES.map((item, index) => (
+                      <div 
+                        key={`text-${index}`}
+                        className={`absolute inset-x-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-center text-center md:text-left
+                          ${activeFeatureIndex === index ? 'opacity-100 translate-y-0' : 
+                            activeFeatureIndex > index ? 'opacity-0 -translate-y-12' : 'opacity-0 translate-y-12'
+                          }`}
+                      >
+                        <div className="w-16 h-16 shrink-0 bg-[#111] border border-gray-800 rounded-2xl flex items-center justify-center text-[#a3e635] shadow-lg mb-6 mx-auto md:mx-0">
+                          {React.cloneElement(item.icon, { size: 32 })}
+                        </div>
+                        
+                        <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 text-white leading-[0.9]">
+                          {item.title}
+                        </h2>
+                        
+                        {item.soon && (
+                          <div className="mb-4">
+                            <span className="inline-block text-[10px] font-black uppercase tracking-widest text-black bg-[#a3e635] px-3 py-1 rounded-full shadow-[0_0_15px_rgba(163,230,53,0.3)]">
+                              Coming Soon
+                            </span>
+                          </div>
+                        )}
+                        
+                        <p className="text-base md:text-lg text-gray-400 font-medium leading-relaxed max-w-md mx-auto md:mx-0">
+                          {item.desc}
+                        </p>
+                      </div>
+                   ))}
+                </div>
+
+             </div>
+
+             {/* Sticky Progress Indicator (Dots) */}
+             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30">
+               {FEATURES.map((_, index) => (
+                 <div 
+                   key={`dot-${index}`}
+                   className={`h-2 rounded-full transition-all duration-500 ${
+                     activeFeatureIndex === index ? 'w-8 bg-[#a3e635] shadow-[0_0_10px_rgba(163,230,53,0.8)]' : 'w-2 bg-gray-700 hover:bg-gray-500'
+                   }`}
+                 ></div>
+               ))}
+             </div>
           </div>
         </section>
 
