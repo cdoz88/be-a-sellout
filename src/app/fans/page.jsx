@@ -18,12 +18,12 @@ const FEATURES = [
     icon: <Star />, 
     title: "Exclusive Content", 
     desc: "Join Crowds and Spaces to gain access to exclusive articles, videos, and podcasts posted by your favorite creators.", 
-    mockup: "https://admin.beasellout.com/wp-content/uploads/2026/04/Content-Screens.webp",
+    mockup: "https://admin.beasellout.com/wp-content/uploads/2026/04/Content-Screens-Away.webp",
   },
   { 
     icon: <Grid />, 
     title: "Live Scoreboard", 
-    desc: "No need to app-switch. Keep track of live scores and play-by-play action while you chat about your favorite team.", 
+    desc: "No need to app-switch. Keep track of live scores, play-by-play action, and your fantasy matchups while you chat about your favorite team.", 
     mockup: "https://admin.beasellout.com/wp-content/uploads/2026/04/Live-Scoreboard-e1777003245301.webp",
   },
   { 
@@ -39,6 +39,15 @@ const FEATURES = [
     mockup: "https://admin.beasellout.com/wp-content/uploads/2026/04/Marketplace-scaled.webp", 
     soon: true, 
   }
+];
+
+// 3D Transforms for the phone wrapper to make it "float" and tilt on scroll
+const mockupTransforms = [
+  "perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px) scale(1)",
+  "perspective(1000px) rotateY(-8deg) rotateX(4deg) translateY(-10px) scale(1.02)",
+  "perspective(1000px) rotateY(8deg) rotateX(-4deg) translateY(10px) scale(0.98)",
+  "perspective(1000px) rotateY(-4deg) rotateX(6deg) translateY(-5px) scale(1.04)",
+  "perspective(1000px) rotateY(4deg) rotateX(-2deg) translateY(5px) scale(1.01)",
 ];
 
 export default function FansPage() {
@@ -236,29 +245,40 @@ export default function FansPage() {
 
              <div className="max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center gap-8 md:gap-16">
                 
-                {/* LEFT SIDE: Pre-rendered Phone Mockups (Swaps on scroll) */}
+                {/* LEFT SIDE: Pre-rendered Phone Mockups (Crossfades & Moves) */}
                 <div className="w-full md:w-1/2 flex justify-center items-center relative h-[45vh] md:h-[70vh]">
-                   {FEATURES.map((item, index) => (
-                      <div 
-                        key={`mockup-${index}`}
-                        className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex items-center justify-center
-                          ${activeFeatureIndex === index ? 'opacity-100 translate-y-0 scale-100 z-20' : 
-                            activeFeatureIndex > index ? 'opacity-0 -translate-y-16 scale-95 z-0' : 'opacity-0 translate-y-16 scale-95 z-0'
-                          }`}
-                      >
-                         <div className="relative h-full flex items-center justify-center w-full max-w-[320px] md:max-w-[400px]">
-                            {/* Soft glow behind the mockup */}
-                            <div className="absolute inset-0 bg-[#a3e635]/10 blur-[50px] transform scale-90 -z-10"></div>
-                            {item.mockup && (
+                   
+                   {/* This parent div handles the 3D translation/rotation */}
+                   <div 
+                     className="relative h-full flex items-center justify-center w-full max-w-[320px] md:max-w-[400px] transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                     style={{ transform: mockupTransforms[activeFeatureIndex] }}
+                   >
+                      {/* Soft glow behind the mockup */}
+                      <div className="absolute inset-0 bg-[#a3e635]/15 blur-[60px] transform scale-75 -z-10 transition-opacity duration-700"></div>
+                      
+                      {/* These child divs handle the crossfading of the actual images */}
+                      {FEATURES.map((item, index) => (
+                         <div 
+                           key={`mockup-${index}`}
+                           className={`absolute inset-0 transition-opacity duration-700 ease-in-out flex items-center justify-center
+                             ${activeFeatureIndex === index ? 'opacity-100 z-20' : 'opacity-0 z-0'}`}
+                         >
+                            {item.mockup ? (
                                <img 
                                  src={item.mockup} 
                                  alt={item.title} 
                                  className="h-[95%] md:h-full w-auto object-contain filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.6)]" 
                                />
+                            ) : (
+                               // Fallback for missing mockups so the transition doesn't break
+                               <div className="w-[260px] h-[550px] md:w-[300px] md:h-[620px] border-4 border-dashed border-gray-800 rounded-[3rem] flex flex-col items-center justify-center bg-[#0a0a0a] shadow-2xl">
+                                 <ShoppingCart size={56} className="text-gray-700 mb-6" />
+                                 <span className="text-gray-500 font-black uppercase tracking-widest text-center px-4 leading-tight">Storefront<br/>Pending</span>
+                               </div>
                             )}
                          </div>
-                      </div>
-                   ))}
+                      ))}
+                   </div>
                 </div>
 
                 {/* RIGHT SIDE: Text & Icons (Swaps on scroll) */}
