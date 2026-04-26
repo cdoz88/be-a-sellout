@@ -177,9 +177,18 @@ export const FeatureModal = ({ feature, onClose }) => {
             {React.cloneElement(feature.icon, { size: 36 })}
          </div>
          
-         <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-4 leading-none uppercase">{feature.title}</h3>
+         <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-2 leading-none uppercase">{feature.title}</h3>
          
-         <div className="w-16 h-1.5 bg-[#a3e635] rounded-full mb-6"></div>
+         {/* Added Coming Soon badge explicitly inside the modal */}
+         {feature.soon && (
+            <div className="mb-4">
+              <span className="inline-block text-[10px] font-black uppercase tracking-widest text-black bg-[#a3e635] px-3 py-1 rounded-full shadow-[0_0_15px_rgba(163,230,53,0.3)]">
+                Coming Soon
+              </span>
+            </div>
+         )}
+         
+         <div className="w-16 h-1.5 bg-[#a3e635] rounded-full mb-6 mt-2"></div>
          
          <p className="text-gray-300 text-lg leading-relaxed font-medium">
            {feature.detailedDesc}
@@ -336,7 +345,7 @@ export const Footer = () => (
         
         <div className="flex items-center gap-3">
             <Link href="/">
-              <img src={ASSETS.logo} alt="Sellout Crowds" className="h-6 w-auto opacity-50 hover:opacity-100 transition-opacity cursor-pointer" />
+              <img src="https://admin.beasellout.com/wp-content/uploads/2025/04/Mark.webp" alt="Sellout Crowds Mark" className="h-8 w-auto opacity-50 hover:opacity-100 transition-opacity cursor-pointer" />
             </Link>
             <p className="text-[10px] uppercase tracking-widest opacity-60 border-l border-gray-800 pl-3">&copy; {new Date().getFullYear()} Sellout Crowds. All Rights Reserved.</p>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import { DollarSign, Tag, MonitorSmartphone, ShoppingCart, Users, ArrowRight, Check, X, Play, Rocket, Monitor, ListOrdered, ChevronRight, Zap, Mic } from 'lucide-react';
+import Link from 'next/link';
+import { DollarSign, Tag, MonitorSmartphone, ShoppingCart, Users, ArrowRight, Check, X, Play, ListOrdered, ChevronRight, Zap } from 'lucide-react';
 import { ASSETS, GlobalStyles, Header, Footer, RevealOnScroll, FeatureModal, FacebookSVG, RedditSVG, PatreonSVG, DiscordSVG, WordpressSVG, UserBrushSVG, ScratchSVG } from '../../components/SharedUI';
 
 export default function CreatorsPage() {
@@ -57,7 +58,7 @@ export default function CreatorsPage() {
           </div>
         </section>
 
-        {/* COMPARISON SECTION - Uses gradient from transparent to #050505 and pulls up over the video fade */}
+        {/* COMPARISON SECTION */}
         <section className="relative z-20 -mt-40 pt-10 pb-24 px-6 bg-gradient-to-b from-transparent via-[#050505] to-[#050505]">
           <div className="max-w-6xl mx-auto relative z-10">
             <RevealOnScroll className="mb-16 text-center md:text-left">
@@ -81,9 +82,9 @@ export default function CreatorsPage() {
                   Avoid all the politics, Crossfit workouts, advertisements, and other bullsh*t that annoys you on other social media platforms.
                 </p>
                 <div className="relative z-10 mt-auto pt-4">
-                  <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
+                  <Link href="/compare/facebook" className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all before:absolute before:inset-0">
                     Why Facebook is Lame <ArrowRight size={14} />
-                  </span>
+                  </Link>
                 </div>
               </RevealOnScroll>
 
@@ -99,9 +100,9 @@ export default function CreatorsPage() {
                   Tired of the trolls and no way to be rewarded for all your hard work? Get the same sense of community but with added benefits suited specifically to your needs.
                 </p>
                 <div className="relative z-10 mt-auto pt-4">
-                  <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
+                  <Link href="/compare/reddit" className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all before:absolute before:inset-0">
                     See why to punt Reddit <ArrowRight size={14} />
-                  </span>
+                  </Link>
                 </div>
               </RevealOnScroll>
 
@@ -117,9 +118,9 @@ export default function CreatorsPage() {
                   "Thanks for joining us on this platform. Now go download another app to interact with your community and monetize it on the same platform!" Uh, no thanks! Create your community and monetize it on the same platform!
                 </p>
                 <div className="relative z-10 mt-auto pt-4">
-                  <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
+                  <Link href="/compare/patreon" className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all before:absolute before:inset-0">
                     See what Patreon is missing <ArrowRight size={14} />
-                  </span>
+                  </Link>
                 </div>
               </RevealOnScroll>
 
@@ -135,9 +136,9 @@ export default function CreatorsPage() {
                   What the F*$% is Discord?! Stop confusing your fans by setting up Spaces or 1-on-1 message without ever leaving the site or having to download and learn a separate (confusing) app.
                 </p>
                 <div className="relative z-10 mt-auto pt-4">
-                  <span className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
+                  <Link href="/compare/discord" className="text-[#a3e635] font-bold uppercase tracking-widest text-xs flex items-center gap-2 group-hover:gap-3 transition-all before:absolute before:inset-0">
                     See why Discord sucks <ArrowRight size={14} />
-                  </span>
+                  </Link>
                 </div>
               </RevealOnScroll>
 
@@ -161,29 +162,53 @@ export default function CreatorsPage() {
                 icon: <DollarSign />, 
                 title: "Monetize", 
                 desc: "Create a paywall for your fans to gain access to you and your expertise.", 
-                detailedDesc: "Turn your passion into profit. Set your own monthly or annual subscription prices and keep the lion's share of your revenue.",
+                detailedDesc: (
+                  <>
+                    Turn your passion into profit. Set your own monthly or annual subscription prices and keep the lion's share of your revenue.
+                    <br /><br />
+                    It's your franchise, build it your way! Crowds and Spaces are customizable and can be structured however fits your business model best. You choose how to build it out and when and where your fans will have to pay admission.
+                  </>
+                ),
                 delay: 0 
               },
               { 
                 icon: <Tag />, 
                 title: "Exclusive Content", 
                 desc: "Post exclusive content within your Crowd so that only your fans can view it!", 
-                detailedDesc: "Creators can post articles, videos, and podcasts to their Crowds and Spaces. You decide how you want to customize your community and how access is controlled to your content!",
+                detailedDesc: (
+                  <>
+                    Post articles, videos, and podcasts directly to your Crowds and Spaces. You have total control over how your community is customized and who gets access to your premium content.
+                    <br /><br />
+                    We also offer built-in tools—like automatic YouTube syncing and WordPress integration—to make dropping new content into your community completely effortless.
+                  </>
+                ),
                 delay: 100 
               },
               { 
                 icon: <ShoppingCart />, 
                 title: "Sell Stuff", 
                 desc: "Utilize the marketplace to sell your merchandise.", 
-                detailedDesc: "Launch your own digital storefront within your Crowd. Sell merchandise, draft guides, or custom shoutouts with zero hassle.",
+                detailedDesc: (
+                  <>
+                    Why send your fans to a third-party site? Launch your own digital storefront directly inside your Crowd.
+                    <br /><br />
+                    Whether you're selling custom apparel, premium draft guides, or personalized shoutouts, you keep your fans in one place and the profits in your pocket. Selling out has never been easier.
+                  </>
+                ),
                 soon: true, 
                 delay: 200 
               },
               { 
                 icon: <MonitorSmartphone />, 
-                title: "Ad Space", 
+                title: "Sell Ad Space", 
                 desc: "Leverage your audience and sell ad space within your Crowd.", 
-                detailedDesc: "You own your audience. Partner with relevant brands and feature their advertisements directly in your feed, keeping 100% of the ad revenue.",
+                detailedDesc: (
+                  <>
+                    You own your audience, which means you own the ad space. Whether you're pushing an affiliate deal, dropping new merch, or featuring a brand sponsor, you can place custom ads directly in front of your fans.
+                    <br /><br />
+                    The best part? You keep 100% of your ad revenue. Go ahead, be a sellout.
+                  </>
+                ),
                 delay: 300 
               }
             ].map((item, i) => (
@@ -198,7 +223,7 @@ export default function CreatorsPage() {
                   <div className="flex flex-col items-center gap-3 mt-4 w-full">
                     {item.detailedDesc && (
                       <button 
-                        onClick={(e) => { e.preventDefault(); onOpenModal(item); }}
+                        onClick={(e) => { e.preventDefault(); setActiveModalFeature(item); }}
                         className="text-[#a3e635] text-[10px] font-bold uppercase tracking-widest flex items-center gap-1 hover:text-white transition-colors"
                       >
                         Learn More <ChevronRight size={12} />
@@ -211,14 +236,16 @@ export default function CreatorsPage() {
           </div>
         </section>
 
+        {/* GAME PLAN SECTION (Fades to #111 at the bottom) */}
         <section className="relative w-full py-24 md:py-32 overflow-hidden flex items-center">
           <div 
             className="absolute inset-0 bg-fixed bg-center bg-cover opacity-60 filter grayscale mix-blend-luminosity"
             style={{ backgroundImage: `url('https://admin.beasellout.com/wp-content/uploads/2025/04/wepik-202159-213820.jpeg')` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a] z-0"></div>
+          {/* Gradient fades from top (#0a0a0a) to bottom (#111) to connect with the Pricing section */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#111] z-0"></div>
           
-          <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center">
             <RevealOnScroll>
               <h2 className="text-5xl md:text-7xl lg:text-[90px] font-black uppercase tracking-tighter leading-[0.9] text-[#a3e635] mb-4 drop-shadow-2xl">
                 WE'RE<br/>ROOTING<br/>FOR YOU!
@@ -230,46 +257,47 @@ export default function CreatorsPage() {
           </div>
         </section>
 
-        <section className="py-24 px-6 max-w-6xl mx-auto text-center">
-          <RevealOnScroll className="mb-16">
-            <h2 className="text-[#a3e635] text-3xl md:text-4xl font-black uppercase tracking-tighter mb-2 drop-shadow-md">
-              MORE FEATURES TO HELP YOU WIN
-            </h2>
-          </RevealOnScroll>
+        {/* MORE FEATURES SECTION (Using #111 background) */}
+        <section className="py-24 px-6 w-full bg-[#111] text-center">
+          <div className="max-w-6xl mx-auto">
+            <RevealOnScroll className="mb-16">
+              <h2 className="text-[#a3e635] text-3xl md:text-4xl font-black uppercase tracking-tighter mb-2 drop-shadow-md">
+                MORE FEATURES TO HELP YOU WIN
+              </h2>
+            </RevealOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: <Users size={24} color="currentColor" />, title: "Niche Audience", desc: "This is a platform for sports fans, which means they are all your target audience! You don't have to try to get noticed through all those dance challenges." },
-              { icon: <Play size={24} color="currentColor" fill="currentColor" />, title: "Automatic Video Sync", desc: "Automatically sync your YouTube videos to your Crowd. No need to post twice." },
-              { icon: <WordpressSVG size={28} className="text-currentColor" />, title: "Post from WordPress", desc: "Install our WordPress plugin to post articles directly from your WordPress site, saving you precious time." },
-              { icon: <Mic size={24} color="currentColor" />, title: "Embed Podcasts", desc: "Embed all your podcasts so all your fans can listen and converse. (Coming Soon)" },
-              { icon: <DollarSign size={24} color="currentColor" />, title: "Keep Your Money", desc: "No cash out requests or minimum payouts. Connect your Stripe account and take direct payments from your fans!" },
-              { icon: <Monitor size={24} color="currentColor" />, title: "Website", desc: "Use Sellout Crowds as your website! Post articles, videos and podcasts for your fans!" },
-              { icon: <Rocket size={24} color="currentColor" />, title: "Flexible Pricing", desc: "We offer multiple pricing plans so you can choose what works for you. Change your plan as your Crowd grows!" },
-              { icon: <Users size={24} color="currentColor" />, title: "Add Existing Subscribers", desc: "Give access to your existing WordPress subscribers. (Coming Soon)" },
-              { icon: <ListOrdered size={24} color="currentColor" />, title: "Challenge Your Fans", desc: "Encourage your fans to be active and climb your Crowd's leaderboard." }
-            ].map((feat, i) => (
-              <RevealOnScroll key={i} delay={i * 50}>
-                <div className="bg-[#111] border border-gray-800 hover:border-gray-600 rounded-2xl p-6 transition-all duration-300 flex items-start gap-4 group hover:-translate-y-1 shadow-lg text-left h-full">
-                  <div className="w-12 h-12 rounded-full bg-[#1a1a1a] flex items-center justify-center shrink-0 border border-gray-700 group-hover:border-[#a3e635] group-hover:text-[#a3e635] text-gray-400 transition-colors shadow-inner">
-                    {feat.icon}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: <Users size={24} color="currentColor" />, title: "Home-Field Advantage", desc: "This is a platform for sports fans, which means they are all your target audience! You don't have to try to get noticed through all those dance challenges." },
+                { icon: <Play size={24} color="currentColor" fill="currentColor" />, title: "Automatic Video Sync", desc: "Automatically sync your YouTube videos to your Crowd. No need to post twice." },
+                { icon: <WordpressSVG size={28} className="text-currentColor" />, title: "Post from WordPress", desc: "Install our WordPress plugin to post articles directly from your WordPress site, saving you precious time." },
+                { icon: <DollarSign size={24} color="currentColor" />, title: "Keep Your Money", desc: "No cash out requests or minimum payouts. Connect your Stripe account and take direct payments from your fans!" },
+                { icon: <Users size={24} color="currentColor" />, title: "Add Existing Subscribers", desc: "Give access to your existing WordPress subscribers. (Coming Soon)" },
+                { icon: <ListOrdered size={24} color="currentColor" />, title: "Challenge Your Fans", desc: "Encourage your fans to be active and climb your Crowd's leaderboard." }
+              ].map((feat, i) => (
+                <RevealOnScroll key={i} delay={i * 50}>
+                  <div className="bg-[#1a1a1a] border border-gray-800 hover:border-gray-600 rounded-2xl p-6 transition-all duration-300 flex items-start gap-4 group hover:-translate-y-1 shadow-lg text-left h-full">
+                    <div className="w-12 h-12 rounded-full bg-[#111] flex items-center justify-center shrink-0 border border-gray-700 group-hover:border-[#a3e635] group-hover:text-[#a3e635] text-gray-400 transition-colors shadow-inner">
+                      {feat.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-black tracking-tight mb-2 text-white group-hover:text-[#a3e635] transition-colors">{feat.title}</h4>
+                      <p className="text-[13px] text-gray-400 leading-relaxed font-medium">{feat.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-lg font-black tracking-tight mb-2 text-white group-hover:text-[#a3e635] transition-colors">{feat.title}</h4>
-                    <p className="text-[13px] text-gray-400 leading-relaxed font-medium">{feat.desc}</p>
-                  </div>
-                </div>
-              </RevealOnScroll>
-            ))}
+                </RevealOnScroll>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="relative py-32 px-6 overflow-hidden">
+        {/* ROADMAP SECTION */}
+        <section className="relative w-full py-32 px-6 overflow-hidden">
           <div 
             className="absolute inset-0 bg-fixed bg-center bg-cover opacity-40 filter grayscale mix-blend-luminosity"
             style={{ backgroundImage: `url('https://admin.beasellout.com/wp-content/uploads/2026/01/Super-Bowl-American-Football-Concept-scaled.jpg')` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/50 to-[#111] z-0"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#111] via-[#0a0a0a]/50 to-[#111] z-0"></div>
           
           <RevealOnScroll delay={100} className="relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto">
             <h3 className="text-3xl font-black uppercase text-white mb-4 drop-shadow-md">The Game Plan</h3>
@@ -280,146 +308,149 @@ export default function CreatorsPage() {
           </RevealOnScroll>
         </section>
 
-        <section className="bg-[#111] py-24 px-4 text-center max-w-7xl mx-auto relative shadow-2xl">
-          <RevealOnScroll>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-white">
-              YOUR FANS ARE WAITING
-            </h2>
-            <p className="text-gray-400 mb-8 max-w-2xl mx-auto font-medium text-sm md:text-base">
-              Build your Crowd. Build your income. Choose the plan that gives you the tools to grow, engage, and monetize your fans.
-            </p>
-            <div className="inline-block bg-[#a3e635]/10 text-[#a3e635] border border-[#a3e635]/50 px-4 py-1.5 rounded-full font-bold text-[10px] uppercase tracking-widest mb-12 shadow-sm">
-              Commit for a year and save 14-33%
-            </div>
-          </RevealOnScroll>
-
-          <RevealOnScroll delay={100}>
-            <div className="flex justify-center items-center gap-2 mb-12 bg-gray-900 p-1.5 rounded-full inline-flex border border-gray-800">
-              <button 
-                onClick={() => setPricingInterval('yearly')}
-                className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${pricingInterval === 'yearly' ? 'bg-[#a3e635] text-black shadow-md' : 'text-gray-500 hover:text-white'}`}
-              >
-                Yearly
-              </button>
-              <button 
-                onClick={() => setPricingInterval('monthly')}
-                className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${pricingInterval === 'monthly' ? 'bg-[#a3e635] text-black shadow-md' : 'text-gray-500 hover:text-white'}`}
-              >
-                Monthly
-              </button>
-            </div>
-          </RevealOnScroll>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-left relative z-10">
-            
-            <RevealOnScroll delay={0} className="relative z-20 transform md:-translate-y-4">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#a3e635] text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-md whitespace-nowrap z-30">
-                Most Valuable
-              </div>
-              <div className="bg-[#1a1a1a] border-2 border-[#a3e635] rounded-2xl p-6 flex flex-col h-full shadow-[0_10px_30px_rgba(163,230,53,0.1)] relative overflow-hidden">
-                <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">H.O.F.</h3>
-                <div className="text-4xl font-black text-[#a3e635] mb-6 flex items-baseline">
-                  ${pricingInterval === 'yearly' ? '85' : '100'}
-                  <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
-                </div>
-                <ul className="space-y-3 mb-2 flex-1">
-                  {[
-                    "Brand Badge", "Unlimited Crowds", "6% commissions", "Place Ads in Crowd", "WordPress Plugin", "YouTube Auto-Import", "Sell on marketplace", "Onboarding setup"
-                  ].map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs font-medium text-gray-300">
-                      <Check size={14} className="text-[#a3e635] shrink-0 mt-0.5 font-bold" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+        {/* PRICING SECTION - Now wrapped in a w-full block with bg-[#111] */}
+        <section className="w-full bg-[#111] py-24 px-4 relative shadow-2xl">
+          <div className="max-w-7xl mx-auto text-center">
+            <RevealOnScroll>
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-white">
+                YOUR FANS ARE WAITING
+              </h2>
+              <p className="text-gray-400 mb-8 max-w-2xl mx-auto font-medium text-sm md:text-base">
+                Build your Crowd. Build your income. Choose the plan that gives you the tools to grow, engage, and monetize your fans.
+              </p>
+              <div className="inline-block bg-[#a3e635]/10 text-[#a3e635] border border-[#a3e635]/50 px-4 py-1.5 rounded-full font-bold text-[10px] uppercase tracking-widest mb-12 shadow-sm">
+                Commit for a year and save 14-33%
               </div>
             </RevealOnScroll>
 
             <RevealOnScroll delay={100}>
-              <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">All-Star</h3>
-                <div className="text-3xl font-black text-white mb-6 flex items-baseline">
-                  ${pricingInterval === 'yearly' ? '42' : '50'}
-                  <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
-                </div>
-                <ul className="space-y-3 mb-2 flex-1">
-                  {[
-                    "Brand Badge", "Unlimited Crowds", "8% commissions", "Place Ads in Crowd", "WordPress Plugin", "YouTube Auto-Import", "Sell on marketplace", "Onboarding setup"
-                  ].map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs font-medium text-gray-400">
-                      <Check size={14} className="text-white shrink-0 mt-0.5" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex justify-center items-center gap-2 mb-12 bg-gray-900 p-1.5 rounded-full inline-flex border border-gray-800">
+                <button 
+                  onClick={() => setPricingInterval('yearly')}
+                  className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${pricingInterval === 'yearly' ? 'bg-[#a3e635] text-black shadow-md' : 'text-gray-500 hover:text-white'}`}
+                >
+                  Yearly
+                </button>
+                <button 
+                  onClick={() => setPricingInterval('monthly')}
+                  className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${pricingInterval === 'monthly' ? 'bg-[#a3e635] text-black shadow-md' : 'text-gray-500 hover:text-white'}`}
+                >
+                  Monthly
+                </button>
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={200}>
-              <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Rookie</h3>
-                <div className="text-3xl font-black text-white mb-6 flex items-baseline">
-                  ${pricingInterval === 'yearly' ? '16' : '19'}
-                  <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-left relative z-10">
+              
+              <RevealOnScroll delay={0} className="relative z-20 transform md:-translate-y-4">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#a3e635] text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-md whitespace-nowrap z-30">
+                  Most Valuable
                 </div>
-                <ul className="space-y-3 mb-2 flex-1">
-                  {[
-                    {text: "Brand Badge", available: true},
-                    {text: "Unlimited Crowds", available: true},
-                    {text: "10% commissions", available: true},
-                    {text: "Place Ads in Crowd", available: false},
-                    {text: "WordPress Plugin", available: false},
-                    {text: "YouTube Auto-Import", available: false},
-                  ].map((feature, i) => (
-                    <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
-                      <div className="shrink-0 mt-0.5">
-                        {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
-                      </div>
-                      <span>{feature.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll delay={300}>
-              <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Teammate</h3>
-                <div className="text-3xl font-black text-white mb-6 flex items-baseline">
-                  $2
-                  <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+                <div className="bg-[#1a1a1a] border-2 border-[#a3e635] rounded-2xl p-6 flex flex-col h-full shadow-[0_10px_30px_rgba(163,230,53,0.1)] relative overflow-hidden">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">H.O.F.</h3>
+                  <div className="text-4xl font-black text-[#a3e635] mb-6 flex items-baseline">
+                    ${pricingInterval === 'yearly' ? '85' : '100'}
+                    <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+                  </div>
+                  <ul className="space-y-3 mb-2 flex-1">
+                    {[
+                      "Brand Badge", "Unlimited Crowds", "6% commissions", "Place Ads in Crowd", "WordPress Plugin", "YouTube Auto-Import", "Sell on marketplace", "Onboarding setup"
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs font-medium text-gray-300">
+                        <Check size={14} className="text-[#a3e635] shrink-0 mt-0.5 font-bold" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-3 mb-2 flex-1">
-                  {[
-                    {text: "Brand Badge", available: true},
-                    {text: "Post Content", available: true},
-                    {text: "No Crowds", available: false},
-                    {text: "No Monetization", available: false},
-                    {text: "No Tools", available: false}
-                  ].map((feature, i) => (
-                    <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
-                      <div className="shrink-0 mt-0.5">
-                        {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
-                      </div>
-                      <span>{feature.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </RevealOnScroll>
+              </RevealOnScroll>
 
+              <RevealOnScroll delay={100}>
+                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">All-Star</h3>
+                  <div className="text-3xl font-black text-white mb-6 flex items-baseline">
+                    ${pricingInterval === 'yearly' ? '42' : '50'}
+                    <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+                  </div>
+                  <ul className="space-y-3 mb-2 flex-1">
+                    {[
+                      "Brand Badge", "Unlimited Crowds", "8% commissions", "Place Ads in Crowd", "WordPress Plugin", "YouTube Auto-Import", "Sell on marketplace", "Onboarding setup"
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs font-medium text-gray-400">
+                        <Check size={14} className="text-white shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </RevealOnScroll>
+
+              <RevealOnScroll delay={200}>
+                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Rookie</h3>
+                  <div className="text-3xl font-black text-white mb-6 flex items-baseline">
+                    ${pricingInterval === 'yearly' ? '16' : '19'}
+                    <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+                  </div>
+                  <ul className="space-y-3 mb-2 flex-1">
+                    {[
+                      {text: "Brand Badge", available: true},
+                      {text: "Unlimited Crowds", available: true},
+                      {text: "10% commissions", available: true},
+                      {text: "Place Ads in Crowd", available: false},
+                      {text: "WordPress Plugin", available: false},
+                      {text: "YouTube Auto-Import", available: false},
+                    ].map((feature, i) => (
+                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
+                        <div className="shrink-0 mt-0.5">
+                          {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
+                        </div>
+                        <span>{feature.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </RevealOnScroll>
+
+              <RevealOnScroll delay={300}>
+                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Teammate</h3>
+                  <div className="text-3xl font-black text-white mb-6 flex items-baseline">
+                    $2
+                    <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+                  </div>
+                  <ul className="space-y-3 mb-2 flex-1">
+                    {[
+                      {text: "Brand Badge", available: true},
+                      {text: "Post Content", available: true},
+                      {text: "No Crowds", available: false},
+                      {text: "No Monetization", available: false},
+                      {text: "No Tools", available: false}
+                    ].map((feature, i) => (
+                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
+                        <div className="shrink-0 mt-0.5">
+                          {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
+                        </div>
+                        <span>{feature.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </RevealOnScroll>
+
+            </div>
+
+            <RevealOnScroll delay={400} className="mt-12 flex justify-center relative z-10">
+              <a 
+                href="https://www.selloutcrowds.com/create-crowd-profile" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#a3e635] text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-colors shadow-[0_0_20px_rgba(163,230,53,0.4)] hover:shadow-[0_0_30px_rgba(163,230,53,0.6)] flex items-center gap-2 hover:-translate-y-1"
+              >
+                Build Your Crowd <ArrowRight size={18}/>
+              </a>
+            </RevealOnScroll>
           </div>
-
-          <RevealOnScroll delay={400} className="mt-12 flex justify-center relative z-10">
-            <a 
-              href="https://www.selloutcrowds.com/create-crowd-profile" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#a3e635] text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-colors shadow-[0_0_20px_rgba(163,230,53,0.4)] hover:shadow-[0_0_30px_rgba(163,230,53,0.6)] flex items-center gap-2 hover:-translate-y-1"
-            >
-              Build Your Crowd <ArrowRight size={18}/>
-            </a>
-          </RevealOnScroll>
         </section>
       </main>
 
