@@ -25,7 +25,10 @@ const FoamFingerSVG = ({ size = 42, className = "" }) => (
   </svg>
 );
 
+// Our SVG Paths Collection
 const chalkArrowPath = "m20.3547 24.1532c1.9932 3.4623 4.9029 7.1202 6.2527 10.5277.6068 1.5318-.4089 3.11-1.8376 3.4008-1.9171.3902-3.1918-1.4908-4.1923-2.8791-1.7336-2.4057-3.5559-4.7475-5.4618-7.0191-.8522-1.0157-1.8188-2.0859-2.5592-3.1734-.9053-1.3297-1.6584-2.6312-1.5427-3.9623.2609-2.8172 6.514-4.9255 8.5834-6.1083 4.0635-2.3226 7.4042-5.6254 10.8337-8.7838 1.1135-1.0255 2.3852-1.6273 3.963-1.4811 1.5711.1457 2.6279 2.0935 1.8616 3.4817-2.5931 4.0981-6.8605 6.5947-10.2581 9.9603 2.6688.0215 6.3441.2827 9.5691 1.1022 10.1425 2.5772 14.7686 10.674 16.2329 16.0098 1.0592 3.8595 2.14 10.0946-.1805 16.6378-.6299 1.7761-1.2446 3.524-2.6069 4.8646-.7157.7039-3.2245 2.9779-4.3302 2.5668-2.1144-.7912 1.3622-6.9904 1.8153-8.2754 1.5587-4.4202 1.7915-9.7959.152-14.2287-1.8227-4.9285-6.9323-9.7772-11.9069-11.3818-4.7249-1.524-9.6509-1.205-14.3875-1.2587z";
+const chalkStraightArrowPath = "M81.3,16.5c-1.2-1.2-3.1-1.2-4.2,0L25.3,68.3l0.8-17.7c0.1-1.7-1.2-3.1-2.9-3.2c-1.7-0.1-3.1,1.2-3.2,2.9l-1.2,25.4c0,0.8,0.3,1.6,0.8,2.2c0.6,0.6,1.4,0.9,2.2,0.9l25.4-1.2c1.7-0.1,3-1.5,2.9-3.2c-0.1-1.7-1.5-3-3.2-2.9l-17.7,0.8L81.3,20.7C82.5,19.6,82.5,17.7,81.3,16.5z";
+const chalkCurvedArrow2Path = "m87.82 42.7c-.45-7.06-1.84-14.49-7-19.76-4.71-4.85-11.51-6.89-18.09-7.42-9.14-.74-18.17 1.7-27.3 1.64-2.76 0-2.76 4.26 0 4.27 8 .06 15.79-1.73 23.74-1.77 5.85 0 12.24 1.08 17 4.79 5.23 4.1 6.8 10.77 7.3 17.09a203.67 203.67 0 0 1 .21 23.57 255.53 255.53 0 0 1 -2.53 27.2 2.19 2.19 0 0 0 1.49 2.62 2.15 2.15 0 0 0 2.63-1.49 242 242 0 0 0 2.55-50.74zm-49.33-6c-4-2.8-8-5.68-11.85-8.7-1.88-1.47-3.75-3-5.59-4.48l-2.93-2.52c-.45-.38-1.09-.8-1.61-1.27l1-.67 1.91-1.31q2.19-1.5 4.41-3 4.34-2.89 8.72-5.71c2.3-1.48.16-5.18-2.16-3.69q-6 3.87-12 7.91l-3.06 2.1a13.7 13.7 0 0 0 -2.71 2.07 3.18 3.18 0 0 0 -.54 3.57 7 7 0 0 0 2 2.2 273.83 273.83 0 0 0 22.25 17.15 2.14 2.14 0 1 0 2.16-3.69z";
 
 // Modular configuration for each play/card with custom SVG rendering support
 const gamePlanFeatures = [
@@ -35,11 +38,12 @@ const gamePlanFeatures = [
     desc: "This is a platform for sports fans, which means they are all your target audience! You don't have to try to get noticed through all those dance challenges.", 
     mark: 'X',
     arrow: {
-      classes: "left-[-5%] md:left-[-15%] top-[70%] md:top-[80%] w-32 h-40 md:w-56 md:h-64",
+      classes: "left-[60%] md:left-[65%] top-[75%] md:top-[70%] w-40 h-48 md:w-64 md:h-64", 
       render: () => (
-        <svg viewBox="0 0 64 64" width="100%" height="100%" preserveAspectRatio="none">
-          <g transform="matrix(0,-1,1,0,0,64)">
-            <path d={chalkArrowPath} fill="#ffffff" opacity="0.9" />
+        <svg viewBox="0 0 156 156" width="100%" height="100%" preserveAspectRatio="none">
+          <g transform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,155.86315155029297,-0.1010284423828125)">
+            <path d="m116.49 80.92c-1.67-11.36-14.27-21.45-24-26-10.29-4.8-22-5.57-33-3.23-24.26 5.15-37.36 29.28-29 52.48a2 2 0 0 0 3.81-1.05c-4.05-21.45 5.27-39.12 27.15-44.43a44.15 44.15 0 0 1 28.71 3.21 41.19 41.19 0 0 1 11.59 8.44c4 4.07 5.91 9.34 9.43 13.67 2.26 2.78 5.71-.35 5.31-3.09z" fill="#ffffff" opacity="0.9" />
+            <path d="m127.57 73.53c-.45-1.4-2.57-2.35-3.64-1-2.06 2.66-1.82 6.44-2.15 9.67a57.55 57.55 0 0 1 -2.12 12.19 138.67 138.67 0 0 1 -18.52-10.81c-1.68-1.21-3.11 1.26-2 2.62 5.09 6.42 13.41 10.72 20.6 14.31 1.22.61 3.09.44 3.73-1a45.48 45.48 0 0 0 3.28-13.11c.47-3.68 1.98-9.24.82-12.87z" fill="#ffffff" opacity="0.9" />
           </g>
         </svg>
       )
@@ -51,11 +55,11 @@ const gamePlanFeatures = [
     desc: "No cash out requests or minimum payouts. Connect your Stripe account and take direct payments from your fans!", 
     mark: 'O',
     arrow: {
-      classes: "right-[-5%] md:right-[-15%] top-[70%] md:top-[80%] w-32 h-40 md:w-56 md:h-64 transform -scale-x-100",
+      classes: "left-[-3%] md:left-[-20%] top-[85%] md:top-[85%] w-24 h-32 md:w-56 md:h-64 rotate-12", // Kept on screen for mobile, pushed out for desktop
       render: () => (
-        <svg viewBox="0 0 64 64" width="100%" height="100%" preserveAspectRatio="none">
-          <g transform="matrix(0,-1,1,0,0,64)">
-            <path d={chalkArrowPath} fill="#ffffff" opacity="0.9" />
+        <svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="none">
+          <g transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,99.94363784790039,100.0075159072876)">
+            <path d={chalkCurvedArrow2Path} fill="#ffffff" opacity="0.9" />
           </g>
         </svg>
       )
@@ -67,7 +71,7 @@ const gamePlanFeatures = [
     desc: "Design your Crowd to match your brand. Choose your layout and content organization to give fans a premium experience.", 
     mark: 'X',
     arrow: {
-      classes: "left-1/2 -translate-x-1/2 top-[65%] md:top-[70%] w-48 h-56 md:w-72 md:h-72", // Larger, higher up, and natively pointing left
+      classes: "left-1/2 -translate-x-1/2 top-[65%] md:top-[70%] w-48 h-56 md:w-72 md:h-72", 
       render: () => (
         <svg viewBox="0 0 156 156" width="100%" height="100%" preserveAspectRatio="none">
           <g transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,155.99546432495117,155.9603729248047)">
