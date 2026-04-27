@@ -38,7 +38,7 @@ const gamePlanFeatures = [
     desc: "This is a platform for sports fans, which means they are all your target audience! You don't have to try to get noticed through all those dance challenges.", 
     mark: 'X',
     arrow: {
-      classes: "left-[60%] md:left-[65%] top-[75%] md:top-[70%] w-40 h-48 md:w-64 md:h-64", 
+      classes: "left-[60%] md:left-[65%] top-[70%] md:top-[80%] w-40 h-48 md:w-64 md:h-64", 
       render: () => (
         <svg viewBox="0 0 156 156" width="100%" height="100%" preserveAspectRatio="none">
           <g transform="matrix(6.123233995736766e-17,1,-1,6.123233995736766e-17,155.86315155029297,-0.1010284423828125)">
@@ -55,7 +55,7 @@ const gamePlanFeatures = [
     desc: "No cash out requests or minimum payouts. Connect your Stripe account and take direct payments from your fans!", 
     mark: 'O',
     arrow: {
-      classes: "left-[-3%] md:left-[-20%] top-[85%] md:top-[85%] w-24 h-32 md:w-56 md:h-64 rotate-12", // Kept on screen for mobile, pushed out for desktop
+      classes: "left-[5%] md:left-[-20%] top-[75%] md:top-[85%] w-24 h-32 md:w-56 md:h-64 rotate-12",
       render: () => (
         <svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="none">
           <g transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,99.94363784790039,100.0075159072876)">
@@ -88,11 +88,12 @@ const gamePlanFeatures = [
     desc: "Sports fans love a good rivalry. Every Crowd features built-in leaderboards to tap into that competitive spirit, encouraging your audience to interact, engage, and battle it out for the top spot.", 
     mark: 'O',
     arrow: {
-      classes: "right-[-5%] md:right-[-15%] top-[70%] md:top-[80%] w-32 h-40 md:w-56 md:h-64 transform -scale-x-100",
+      classes: "left-[-5%] md:left-[-15%] top-[70%] md:top-[80%] w-40 h-48 md:w-64 md:h-64 transform -scale-x-100", // Flipped horizontally and adjusted position to anchor to the left side
       render: () => (
-        <svg viewBox="0 0 64 64" width="100%" height="100%" preserveAspectRatio="none">
-          <g transform="matrix(0,-1,1,0,0,64)">
-            <path d={chalkArrowPath} fill="#ffffff" opacity="0.9" />
+        <svg viewBox="0 0 156 156" width="100%" height="100%" preserveAspectRatio="none">
+          <g transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,155.98687744140625,155.99053192138672)">
+            <path d="m99 32.11c-25.22-10.36-50.8 2-62.67 25.2-12.08 23.62-10.59 54.9 2.06 77.91 2.64 4.79 9.33.59 7.19-4.2-9.34-20.93-11.15-45.7-2-67a47.94 47.94 0 0 1 19.26-22.3c11.25-6.91 23-5.86 35.47-4.79 3 .26 2.99-3.86.69-4.82z" fill="#ffffff" opacity="0.9" />
+            <path d="m126.56 36.18c-10.17-6.91-21-15.32-33.42-17.48a1.75 1.75 0 0 0 -.93 3.37c10.44 4.1 19.32 10.16 28.2 16.77-5.64 4.49-12.15 8.18-17 13.46a2.71 2.71 0 0 0 3.27 4.23 92.87 92.87 0 0 0 20.44-15.75 3 3 0 0 0 -.56-4.6z" fill="#ffffff" opacity="0.9" />
           </g>
         </svg>
       )
