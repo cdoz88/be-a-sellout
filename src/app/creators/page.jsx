@@ -25,12 +25,7 @@ const FoamFingerSVG = ({ size = 42, className = "" }) => (
   </svg>
 );
 
-// Our SVG Paths Collection
-const chalkArrowPath = "m20.3547 24.1532c1.9932 3.4623 4.9029 7.1202 6.2527 10.5277.6068 1.5318-.4089 3.11-1.8376 3.4008-1.9171.3902-3.1918-1.4908-4.1923-2.8791-1.7336-2.4057-3.5559-4.7475-5.4618-7.0191-.8522-1.0157-1.8188-2.0859-2.5592-3.1734-.9053-1.3297-1.6584-2.6312-1.5427-3.9623.2609-2.8172 6.514-4.9255 8.5834-6.1083 4.0635-2.3226 7.4042-5.6254 10.8337-8.7838 1.1135-1.0255 2.3852-1.6273 3.963-1.4811 1.5711.1457 2.6279 2.0935 1.8616 3.4817-2.5931 4.0981-6.8605 6.5947-10.2581 9.9603 2.6688.0215 6.3441.2827 9.5691 1.1022 10.1425 2.5772 14.7686 10.674 16.2329 16.0098 1.0592 3.8595 2.14 10.0946-.1805 16.6378-.6299 1.7761-1.2446 3.524-2.6069 4.8646-.7157.7039-3.2245 2.9779-4.3302 2.5668-2.1144-.7912 1.3622-6.9904 1.8153-8.2754 1.5587-4.4202 1.7915-9.7959.152-14.2287-1.8227-4.9285-6.9323-9.7772-11.9069-11.3818-4.7249-1.524-9.6509-1.205-14.3875-1.2587z";
-const chalkStraightArrowPath = "M81.3,16.5c-1.2-1.2-3.1-1.2-4.2,0L25.3,68.3l0.8-17.7c0.1-1.7-1.2-3.1-2.9-3.2c-1.7-0.1-3.1,1.2-3.2,2.9l-1.2,25.4c0,0.8,0.3,1.6,0.8,2.2c0.6,0.6,1.4,0.9,2.2,0.9l25.4-1.2c1.7-0.1,3-1.5,2.9-3.2c-0.1-1.7-1.5-3-3.2-2.9l-17.7,0.8L81.3,20.7C82.5,19.6,82.5,17.7,81.3,16.5z";
-const chalkCurvedArrow2Path = "m87.82 42.7c-.45-7.06-1.84-14.49-7-19.76-4.71-4.85-11.51-6.89-18.09-7.42-9.14-.74-18.17 1.7-27.3 1.64-2.76 0-2.76 4.26 0 4.27 8 .06 15.79-1.73 23.74-1.77 5.85 0 12.24 1.08 17 4.79 5.23 4.1 6.8 10.77 7.3 17.09a203.67 203.67 0 0 1 .21 23.57 255.53 255.53 0 0 1 -2.53 27.2 2.19 2.19 0 0 0 1.49 2.62 2.15 2.15 0 0 0 2.63-1.49 242 242 0 0 0 2.55-50.74zm-49.33-6c-4-2.8-8-5.68-11.85-8.7-1.88-1.47-3.75-3-5.59-4.48l-2.93-2.52c-.45-.38-1.09-.8-1.61-1.27l1-.67 1.91-1.31q2.19-1.5 4.41-3 4.34-2.89 8.72-5.71c2.3-1.48.16-5.18-2.16-3.69q-6 3.87-12 7.91l-3.06 2.1a13.7 13.7 0 0 0 -2.71 2.07 3.18 3.18 0 0 0 -.54 3.57 7 7 0 0 0 2 2.2 273.83 273.83 0 0 0 22.25 17.15 2.14 2.14 0 1 0 2.16-3.69z";
-
-// Modular configuration for each play/card with custom SVG rendering support
+// Modular configuration for each play/card with custom SVG rendering support inside the objects
 const gamePlanFeatures = [
   { 
     icon: <FoamFingerSVG size={42} className="text-currentColor" />, 
@@ -59,7 +54,7 @@ const gamePlanFeatures = [
       render: () => (
         <svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="none">
           <g transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,99.94363784790039,100.0075159072876)">
-            <path d={chalkCurvedArrow2Path} fill="#ffffff" opacity="0.9" />
+            <path d="m87.82 42.7c-.45-7.06-1.84-14.49-7-19.76-4.71-4.85-11.51-6.89-18.09-7.42-9.14-.74-18.17 1.7-27.3 1.64-2.76 0-2.76 4.26 0 4.27 8 .06 15.79-1.73 23.74-1.77 5.85 0 12.24 1.08 17 4.79 5.23 4.1 6.8 10.77 7.3 17.09a203.67 203.67 0 0 1 .21 23.57 255.53 255.53 0 0 1 -2.53 27.2 2.19 2.19 0 0 0 1.49 2.62 2.15 2.15 0 0 0 2.63-1.49 242 242 0 0 0 2.55-50.74zm-49.33-6c-4-2.8-8-5.68-11.85-8.7-1.88-1.47-3.75-3-5.59-4.48l-2.93-2.52c-.45-.38-1.09-.8-1.61-1.27l1-.67 1.91-1.31q2.19-1.5 4.41-3 4.34-2.89 8.72-5.71c2.3-1.48.16-5.18-2.16-3.69q-6 3.87-12 7.91l-3.06 2.1a13.7 13.7 0 0 0 -2.71 2.07 3.18 3.18 0 0 0 -.54 3.57 7 7 0 0 0 2 2.2 273.83 273.83 0 0 0 22.25 17.15 2.14 2.14 0 1 0 2.16-3.69z" fill="#ffffff" opacity="0.9" />
           </g>
         </svg>
       )
@@ -88,7 +83,7 @@ const gamePlanFeatures = [
     desc: "Sports fans love a good rivalry. Every Crowd features built-in leaderboards to tap into that competitive spirit, encouraging your audience to interact, engage, and battle it out for the top spot.", 
     mark: 'O',
     arrow: {
-      classes: "left-[-5%] md:left-[-15%] top-[70%] md:top-[80%] w-40 h-48 md:w-64 md:h-64 transform -scale-x-100", // Flipped horizontally and adjusted position to anchor to the left side
+      classes: "left-[-5%] md:left-[-15%] top-[70%] md:top-[80%] w-40 h-48 md:w-64 md:h-64 transform -scale-x-100",
       render: () => (
         <svg viewBox="0 0 156 156" width="100%" height="100%" preserveAspectRatio="none">
           <g transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,155.98687744140625,155.99053192138672)">
@@ -207,12 +202,14 @@ export default function CreatorsPage() {
               
               <RevealOnScroll delay={0} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#1877F2]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#1877F2]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10 mb-6 text-[#1877F2]"><FacebookSVG size={40} /></div>
-                <div className="relative z-10 w-fit mb-4">
+                
+                <div className="relative z-10 w-fit flex items-center gap-4 mb-6">
+                  <div className="text-[#1877F2] relative z-10"><FacebookSVG size={40} /></div>
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Facebook</h3>
-                  <UserBrushSVG className="absolute top-[60%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
-                  <ScratchSVG className="absolute top-[70%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
+                  <UserBrushSVG className="absolute top-[50%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
+                  <ScratchSVG className="absolute top-[60%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
                 </div>
+
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium max-w-xl leading-relaxed mb-6">
                   Avoid all the politics, Crossfit workouts, advertisements, and other bullsh*t that annoys you on other social media platforms.
                 </p>
@@ -225,12 +222,14 @@ export default function CreatorsPage() {
 
               <RevealOnScroll delay={100} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#FF4500]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-b from-[#D93A00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10 mb-6 text-[#FF4500]"><RedditSVG size={48} /></div>
-                <div className="relative z-10 w-fit mb-4">
+                
+                <div className="relative z-10 w-fit flex items-center gap-4 mb-6">
+                  <div className="text-[#FF4500] relative z-10"><RedditSVG size={48} /></div>
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Reddit</h3>
-                  <UserBrushSVG className="absolute top-[60%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
-                  <ScratchSVG className="absolute top-[70%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
+                  <UserBrushSVG className="absolute top-[50%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
+                  <ScratchSVG className="absolute top-[60%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
                 </div>
+
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
                   Tired of the trolls and no way to be rewarded for all your hard work? Get the same sense of community but with added benefits suited specifically to your needs.
                 </p>
@@ -243,12 +242,14 @@ export default function CreatorsPage() {
 
               <RevealOnScroll delay={200} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#FF424D]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#FF424D]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10 mb-6 text-[#FF424D]"><PatreonSVG size={40} /></div>
-                <div className="relative z-10 w-fit mb-4">
+                
+                <div className="relative z-10 w-fit flex items-center gap-4 mb-6">
+                  <div className="text-[#FF424D] relative z-10"><PatreonSVG size={40} /></div>
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Patreon</h3>
-                  <UserBrushSVG className="absolute top-[60%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
-                  <ScratchSVG className="absolute top-[70%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
+                  <UserBrushSVG className="absolute top-[50%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
+                  <ScratchSVG className="absolute top-[60%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
                 </div>
+
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
                   "Thanks for joining us on this platform. Now go download another app to interact with your community and monetize it on the same platform!" Uh, no thanks! Create your community and monetize it on the same platform!
                 </p>
@@ -261,12 +262,14 @@ export default function CreatorsPage() {
 
               <RevealOnScroll delay={300} className="relative group rounded-3xl overflow-hidden bg-[#111] border border-[#5865F2]/50 hover:border-[#a3e635] transition-all duration-300 p-8 md:p-10 flex flex-col justify-start shadow-lg hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-tl from-[#5865F2]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative z-10 mb-6 text-[#5865F2]"><DiscordSVG size={40} /></div>
-                <div className="relative z-10 w-fit mb-4">
+                
+                <div className="relative z-10 w-fit flex items-center gap-4 mb-6">
+                  <div className="text-[#5865F2] relative z-10"><DiscordSVG size={40} /></div>
                   <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight relative z-10">Discord</h3>
-                  <UserBrushSVG className="absolute top-[60%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
-                  <ScratchSVG className="absolute top-[70%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
+                  <UserBrushSVG className="absolute top-[50%] left-0 w-[110%] -ml-[5%] -translate-y-1/2 h-[16px] md:h-[20px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-20" />
+                  <ScratchSVG className="absolute top-[60%] left-0 w-[115%] -ml-[7.5%] -translate-y-1/2 h-[20px] md:h-[24px] origin-left scale-x-0 opacity-0 transition-all duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100 pointer-events-none z-30" />
                 </div>
+
                 <p className="relative z-10 text-base md:text-lg text-gray-300 font-medium leading-relaxed mb-6">
                   What the F*$% is Discord?! Stop confusing your fans by setting up Spaces or 1-on-1 message without ever leaving the site or having to download and learn a separate (confusing) app.
                 </p>
@@ -471,6 +474,18 @@ export default function CreatorsPage() {
                })}
             </div>
 
+            {/* Playbook CTA - Fades in gracefully with the final card */}
+            <div 
+              className={`absolute bottom-24 md:bottom-20 left-1/2 -translate-x-1/2 transition-all duration-1000 ease-out w-[90%] md:w-auto flex flex-col items-center text-center z-40 ${
+                activeGamePlanIndex === 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12 pointer-events-none'
+              }`}
+            >
+              <p className="text-base md:text-xl font-medium mb-4 text-white drop-shadow-lg">Want to see what we are drawing up and even suggest more features?</p>
+              <a href="https://playbook.selloutcrowds.com" target="_blank" rel="noopener noreferrer" className="bg-[#a3e635] text-black px-8 py-3.5 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-all duration-300 shadow-[0_0_30px_rgba(163,230,53,0.3)] hover:shadow-[0_0_40px_rgba(163,230,53,0.6)] flex items-center gap-2 hover:-translate-y-1">
+                View Playbook <ArrowRight size={18}/>
+              </a>
+            </div>
+
             {/* Progress Indicator Dots */}
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30">
               {gamePlanFeatures.map((_, index) => (
@@ -486,28 +501,30 @@ export default function CreatorsPage() {
           </div>
         </section>
 
-        {/* The Playbook Button Section (Scrolls up normally after the sticky Game Plan) */}
-        <section className="w-full bg-[#111] py-20 px-6 relative z-30">
-          <RevealOnScroll className="flex flex-col items-center text-center max-w-2xl mx-auto">
-            <p className="text-xl font-medium mb-8 text-gray-300">Want to see what we are drawing up and even suggest more features?</p>
-            <a href="https://playbook.selloutcrowds.com" target="_blank" rel="noopener noreferrer" className="bg-[#a3e635] text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-colors shadow-[0_0_20px_rgba(163,230,53,0.4)] flex items-center gap-2 hover:-translate-y-1">
-              View Playbook <ArrowRight size={18}/>
-            </a>
-          </RevealOnScroll>
-        </section>
-
         {/* TEAMMATE / TOOLS SECTION */}
         <section className="relative w-full py-24 md:py-32 overflow-hidden flex flex-col items-center bg-[#111] border-t border-white/5">
+          {/* Background Image with Parallax (bg-fixed) */}
+          <div 
+            className="absolute inset-0 bg-center bg-cover bg-fixed opacity-30 grayscale mix-blend-luminosity"
+            style={{ backgroundImage: `url('https://admin.beasellout.com/wp-content/uploads/2025/04/wepik-202159-213820.webp')` }}
+          />
+          
+          {/* Green Overlay */}
+          <div className="absolute inset-0 bg-[#a3e635]/15 pointer-events-none mix-blend-color"></div>
+
+          {/* Gradient to blend with top and bottom sections */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#111] via-transparent to-[#111] pointer-events-none"></div>
+
           {/* Subtle abstract background graphic */}
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#a3e635]/5 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
           
           <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center mb-16">
             <RevealOnScroll>
               <h2 className="text-5xl md:text-7xl lg:text-[90px] font-black uppercase tracking-tighter leading-[0.9] text-[#a3e635] mb-4 drop-shadow-2xl">
-                WE'RE<br/>ROOTING<br/>FOR YOU!
+                WE'RE <br className="md:hidden" />ROOTING <br className="md:hidden" />FOR YOU!
               </h2>
               <p className="text-white font-black uppercase tracking-widest text-sm md:text-xl drop-shadow-md">
-                WE ARE YOUR TEAMMATE. HERE ARE THE TOOLS TO PROVE IT.
+                LIKE ANY GOOD TEAMMATE, WE WILL HELP YOU SUCCEED
               </p>
             </RevealOnScroll>
           </div>
