@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { 
-  DollarSign, Tag, MonitorSmartphone, ShoppingCart, Users, ArrowRight, Check, X, 
+  Tag, MonitorSmartphone, ShoppingCart, Users, ArrowRight, Check, X, 
   Play, Rocket, Monitor, ListOrdered, ChevronRight, Zap, Mic, Link2, Contact, Book, Mail, Send,
   LayoutDashboard, BarChart3
 } from 'lucide-react';
@@ -22,6 +22,20 @@ const FoamFingerSVG = ({ size = 42, className = "" }) => (
       <path d="M9.34,101.74c.79-.78,1.7-1.38,2.67-1.79,2.94-1.25,6.43-.75,8.95,1.42l15.5,15.72c.15.15.3.29.46.43,1.35,1.57,2.09,3.55,2.08,5.65-.02,2.29-.92,4.44-2.56,6.05-1.63,1.61-3.79,2.49-6.09,2.47-2.29-.02-4.44-.92-6.05-2.56l-15.05-15.26c-1.61-1.63-2.49-3.79-2.47-6.09.02-2.29.92-4.44,2.56-6.05Z" fill="currentColor"/>
       <path d="M5.16,123.1c3.54,6.79,9.87,20.48,16.51,28.63,2.56,3.15,6.18,6.08,9.25,9.01,1.2,1.14,2.12,2.53,2.74,4.07l8.63,20.08,70.04-29.64-4.61-11.26c-.66-1.62-.64-3.44.11-5.03,7.54-16.05.9-40.48-2.78-51.29-2.24-6.59-7.56-11.74-14.22-13.77l-6.23-1.9L58.79,11.01C54.82,1.64,43.8-2.65,34.49,1.71c-8.85,4.15-12.59,14.78-8.78,23.78l12.9,30.48c-2.01.06-4.04.49-5.98,1.31h0c-1.92.81-4.12,1.97-5.61,3.44-3.13,3.08-4.75,6.69-4.78,11.08,0,1.13.47,2.75.69,3.84-.46.15-.93.31-1.38.51h0c-1.91.81-3.64,1.97-5.13,3.44-3.63,3.58-4.38,7.87-3.97,12.59-1.55.1-6.1,2.62-8.54,4.84-9.11,8.3.46,24.58,1.25,26.1ZM4.38,112.85s0,0,0,0c-.72-1.57-1.1-3.29-1.09-5.07.02-3.23,1.3-6.25,3.6-8.51,2.71-2.68,6.38-3.79,9.9-3.38-.6-1.47-.92-3.05-.91-4.69.02-3.23,1.3-6.25,3.6-8.51,2.52-2.49,5.87-3.62,9.16-3.44-3.15-4.89-2.71-11.33,1.39-15.37,4.61-4.55,12.17-4.41,17.11.19L29.56,23.38c-2.94-6.95.32-15,7.27-17.94,6.95-2.94,15,.32,17.94,7.27l26.6,62.87,8.18,2.5c5.32,1.62,9.57,5.74,11.36,11,3.38,9.93,10.33,34.67,1.94,49.88-.7,1.26-.79,2.72-.26,4l4.07,9.94-62.62,26.5-7.21-17.03c-.76-1.79-1.63-3.04-2.74-3.93-7.26-5.82-18.31-18.46-29.71-45.59Z" fill="currentColor"/>
     </g>
+  </svg>
+);
+
+// Custom SVG Icon for Gear / Settings
+const GearSVG = ({ size = 32, className = "" }) => (
+  <svg viewBox="0 0 908.77 908.77" width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+    <path d="M852.92,398.53c-27.04,0-49.58,19.21-54.74,44.73h-105.96c-2.64-57.36-25.57-109.43-61.79-149.18l74.92-74.92c21.69,14.39,51.22,12.04,70.33-7.08,21.81-21.81,21.81-57.18,0-78.99s-57.18-21.81-78.99,0c-19.12,19.12-21.48,48.64-7.08,70.33l-74.92,74.92c-39.75-36.22-91.82-59.15-149.18-61.79v-105.96c25.52-5.16,44.73-27.7,44.73-54.74,0-30.85-25.01-55.85-55.85-55.85s-55.85,25.01-55.85,55.85c0,27.04,19.21,49.58,44.73,54.74v105.96c-57.36,2.64-109.43,25.57-149.18,61.79l-74.92-74.92c14.39-21.69,12.04-51.22-7.08-70.33-21.81-21.81-57.18-21.81-78.99,0-21.81,21.81-21.81,57.18,0,78.99,19.12,19.12,48.64,21.48,70.33,7.08l74.92,74.92c-36.22,39.75-59.15,91.82-61.79,149.18h-105.96c-5.16-25.52-27.7-44.73-54.74-44.73-30.85,0-55.85,25.01-55.85,55.85s25.01,55.85,55.85,55.85c27.04,0,49.58-19.21,54.74-44.73h105.96c2.64,57.36,25.57,109.43,61.79,149.18l-74.92,74.92c-21.69-14.39-51.22-12.04-70.33,7.08-21.81,21.81-21.81,57.18,0,78.99,21.81,21.81,57.18,21.81,78.99,0,19.12-19.12,21.48-48.64,7.08-70.33l74.92-74.92c39.75,36.22,91.82,59.15,149.18,61.79v105.96c-25.52,5.16-44.73,27.7-44.73,54.74,0,30.85,25.01,55.85,55.85,55.85s55.85-25.01,55.85-55.85c0-27.04-19.21-49.58-44.73-54.74v-105.96c57.36-2.64,109.43-25.57,149.18-61.79l74.92,74.92c-14.4,21.69-12.04,51.22,7.08,70.33,21.81,21.81,57.18,21.81,78.99,0,21.81-21.81,21.81-57.18,0-78.99-19.12-19.12-48.64-21.48-70.33-7.08l-74.92-74.92c36.22-39.75,59.15-91.82,61.79-149.18h105.96c5.16,25.52,27.7,44.73,54.74,44.73,30.85,0,55.85-25.01,55.85-55.85s-25.01-55.85-55.85-55.85Z"/>
+  </svg>
+);
+
+// Custom SVG Icon for Keep Your Money
+const KeepYourMoneySVG = ({ size = 24, className = "" }) => (
+  <svg viewBox="0 0 512 512" width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+    <path d="m455.3461 180.7954c-6.4312-14.0732-14.8675-27.3652-25.1858-39.6744-1.1122-19.0046 6.4995-38.9162 20.0605-51.783l13.1992-12.5226-14.1088-11.4881c-19.5382-15.9088-44.8597-22.9185-71.3002-19.7442-22.8897 2.7496-44.1606 12.713-58.9494 27.2719-20.2549-5.3034-41.287-7.9871-62.6662-7.9871-56.5299 0-109.7941 18.6306-149.9797 52.4597-17.1752 14.4583-31.1022 30.9614-41.503 48.8727-14.9119-2.5488-22.89-11.1653-27.0749-18.5846-7.5126-13.3203-7.7704-31.5828-.6127-43.4239l-27.3816-16.5513c-13.1709 21.7888-13.1202 52.2073.1264 75.6931 9.1166 16.164 23.6512 27.3998 41.4146 32.5037-5.6032 16.4445-8.5156 33.6749-8.5156 51.3098 0 54.8285 28.1014 105.6917 77.3403 140.422l21.4598 79.5949h55.7819l26.4424-39.8672c21.5535 2.7926 43.4688 2.7916 64.9774.002l26.442 39.8653h55.7805l21.4612-79.569c28.1434-19.8692 49.6261-45.2405 62.7965-74.0957h32.7618l23.8873-132.704zm6.0167 100.7085h-27.7328l-3.9052 10.3506c-10.7841 28.5847-31.5081 53.6729-59.9317 72.5529l-5.0232 3.3369-18.1858 67.4243h-14.0995l-28.3553-42.7502-10.2856 1.7771c-24.6268 4.2562-50.2256 4.2592-74.93-.001l-10.2822-1.7727-28.3528 42.7467h-14.0985l-18.1863-67.455-5.0281-3.3374c-43.2794-28.7292-68.1014-71.4579-68.1014-117.2291 0-82.8669 81.4345-150.2838 181.5313-150.2838 21.7195 0 42.9937 3.168 63.232 9.4151l10.705 3.3047 6.7656-8.9308c9.0763-11.9817 26.6338-21.1283 44.7293-23.3023 11.7976-1.4183 23.1758.1162 33.2232 4.3534-13.2696 19.6871-19.3478 44.3583-16.1754 68.1371l.6464 4.846 3.2446 3.6567c11.9026 13.4131 20.9735 28.2513 26.9609 44.103l3.9076 10.3447h40.0962zm-224.1617-65.4646c0 8.9557 1.8015 11.0897 22.486 15.4387 9.6422 2.0271 20.5707 4.3251 29.7071 10.3466 8.2986 5.4699 18.1912 16.2257 18.1912 36.4024 0 20.8336-14.7791 38.5398-35.1921 44.7369v21.5035h-31.9954v-21.5035c-20.413-6.1971-35.1922-23.9033-35.1922-44.7369h31.9954c0 8.1907 8.7902 15.1101 19.1945 15.1101 10.4042 0 19.1945-6.9194 19.1945-15.1101 0-8.9557-1.8015-11.0897-22.486-15.4387-9.6422-2.0271-20.5707-4.3251-29.7071-10.3466-8.2986-5.4699-18.1912-16.2257-18.1912-36.4024 0-20.8336 14.7791-38.5398 35.1922-44.7369v-21.503h31.9954v21.503c20.4131 6.1971 35.1921 23.9033 35.1921 44.7369h-31.9955c0-8.1907-8.7903-15.1101-19.1945-15.1101s-19.1944 6.9194-19.1944 15.1101z"/>
   </svg>
 );
 
@@ -45,20 +59,6 @@ const SellAdSpaceSVG = ({ size = 24, className = "" }) => (
       <path d="m867.4 423.7h60v116.9h-60z" transform="matrix(.072 .997 -.997 .072 1313.882 -447.524)"/>
       <path d="m422 882.1h-9.5c-70.1 0-127.2-57.1-127.2-127.2v-25.2l263.9-55.8v81c0 70.1-57.1 127.2-127.2 127.2zm-72.8-104.6c9.3 26 34.2 44.6 63.3 44.6h9.5c37.1 0 67.2-30.1 67.2-67.2v-7z"/>
     </g>
-  </svg>
-);
-
-// Custom SVG Icon for Gear / Settings
-const GearSVG = ({ size = 32, className = "" }) => (
-  <svg viewBox="0 0 908.77 908.77" width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-    <path d="M852.92,398.53c-27.04,0-49.58,19.21-54.74,44.73h-105.96c-2.64-57.36-25.57-109.43-61.79-149.18l74.92-74.92c21.69,14.39,51.22,12.04,70.33-7.08,21.81-21.81,21.81-57.18,0-78.99s-57.18-21.81-78.99,0c-19.12,19.12-21.48,48.64-7.08,70.33l-74.92,74.92c-39.75-36.22-91.82-59.15-149.18-61.79v-105.96c25.52-5.16,44.73-27.7,44.73-54.74,0-30.85-25.01-55.85-55.85-55.85s-55.85,25.01-55.85,55.85c0,27.04,19.21,49.58,44.73,54.74v105.96c-57.36,2.64-109.43,25.57-149.18,61.79l-74.92-74.92c14.39-21.69,12.04-51.22-7.08-70.33-21.81-21.81-57.18-21.81-78.99,0-21.81,21.81-21.81,57.18,0,78.99,19.12,19.12,48.64,21.48,70.33,7.08l74.92,74.92c-36.22,39.75-59.15,91.82-61.79,149.18h-105.96c-5.16-25.52-27.7-44.73-54.74-44.73-30.85,0-55.85,25.01-55.85,55.85s25.01,55.85,55.85,55.85c27.04,0,49.58-19.21,54.74-44.73h105.96c2.64,57.36,25.57,109.43,61.79,149.18l-74.92,74.92c-21.69-14.39-51.22-12.04-70.33,7.08-21.81,21.81-21.81,57.18,0,78.99,21.81,21.81,57.18,21.81,78.99,0,19.12-19.12,21.48-48.64,7.08-70.33l74.92-74.92c39.75,36.22,91.82,59.15,149.18,61.79v105.96c-25.52,5.16-44.73,27.7-44.73,54.74,0,30.85,25.01,55.85,55.85,55.85s55.85-25.01,55.85-55.85c0-27.04-19.21-49.58-44.73-54.74v-105.96c57.36-2.64,109.43-25.57,149.18-61.79l74.92,74.92c-14.4,21.69-12.04,51.22,7.08,70.33,21.81,21.81,57.18,21.81,78.99,0,21.81-21.81,21.81-57.18,0-78.99-19.12-19.12-48.64-21.48-70.33-7.08l-74.92-74.92c36.22-39.75,59.15-91.82,61.79-149.18h105.96c5.16,25.52,27.7,44.73,54.74,44.73,30.85,0,55.85-25.01,55.85-55.85s-25.01-55.85-55.85-55.85Z"/>
-  </svg>
-);
-
-// Custom SVG Icon for Keep Your Money
-const KeepYourMoneySVG = ({ size = 24, className = "" }) => (
-  <svg viewBox="0 0 512 512" width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-    <path d="m455.3461 180.7954c-6.4312-14.0732-14.8675-27.3652-25.1858-39.6744-1.1122-19.0046 6.4995-38.9162 20.0605-51.783l13.1992-12.5226-14.1088-11.4881c-19.5382-15.9088-44.8597-22.9185-71.3002-19.7442-22.8897 2.7496-44.1606 12.713-58.9494 27.2719-20.2549-5.3034-41.287-7.9871-62.6662-7.9871-56.5299 0-109.7941 18.6306-149.9797 52.4597-17.1752 14.4583-31.1022 30.9614-41.503 48.8727-14.9119-2.5488-22.89-11.1653-27.0749-18.5846-7.5126-13.3203-7.7704-31.5828-.6127-43.4239l-27.3816-16.5513c-13.1709 21.7888-13.1202 52.2073.1264 75.6931 9.1166 16.164 23.6512 27.3998 41.4146 32.5037-5.6032 16.4445-8.5156 33.6749-8.5156 51.3098 0 54.8285 28.1014 105.6917 77.3403 140.422l21.4598 79.5949h55.7819l26.4424-39.8672c21.5535 2.7926 43.4688 2.7916 64.9774.002l26.442 39.8653h55.7805l21.4612-79.569c28.1434-19.8692 49.6261-45.2405 62.7965-74.0957h32.7618l23.8873-132.704zm6.0167 100.7085h-27.7328l-3.9052 10.3506c-10.7841 28.5847-31.5081 53.6729-59.9317 72.5529l-5.0232 3.3369-18.1858 67.4243h-14.0995l-28.3553-42.7502-10.2856 1.7771c-24.6268 4.2562-50.2256 4.2592-74.93-.001l-10.2822-1.7727-28.3528 42.7467h-14.0985l-18.1863-67.455-5.0281-3.3374c-43.2794-28.7292-68.1014-71.4579-68.1014-117.2291 0-82.8669 81.4345-150.2838 181.5313-150.2838 21.7195 0 42.9937 3.168 63.232 9.4151l10.705 3.3047 6.7656-8.9308c9.0763-11.9817 26.6338-21.1283 44.7293-23.3023 11.7976-1.4183 23.1758.1162 33.2232 4.3534-13.2696 19.6871-19.3478 44.3583-16.1754 68.1371l.6464 4.846 3.2446 3.6567c11.9026 13.4131 20.9735 28.2513 26.9609 44.103l3.9076 10.3447h40.0962zm-224.1617-65.4646c0 8.9557 1.8015 11.0897 22.486 15.4387 9.6422 2.0271 20.5707 4.3251 29.7071 10.3466 8.2986 5.4699 18.1912 16.2257 18.1912 36.4024 0 20.8336-14.7791 38.5398-35.1921 44.7369v21.5035h-31.9954v-21.5035c-20.413-6.1971-35.1922-23.9033-35.1922-44.7369h31.9954c0 8.1907 8.7902 15.1101 19.1945 15.1101 10.4042 0 19.1945-6.9194 19.1945-15.1101 0-8.9557-1.8015-11.0897-22.486-15.4387-9.6422-2.0271-20.5707-4.3251-29.7071-10.3466-8.2986-5.4699-18.1912-16.2257-18.1912-36.4024 0-20.8336 14.7791-38.5398 35.1922-44.7369v-21.503h31.9954v21.503c20.4131 6.1971 35.1921 23.9033 35.1921 44.7369h-31.9955c0-8.1907-8.7903-15.1101-19.1945-15.1101s-19.1944 6.9194-19.1944 15.1101z"/>
   </svg>
 );
 
@@ -178,6 +178,22 @@ const clockFeatures = [
   }
 ];
 
+// Data for the Enterprise Section
+const enterpriseFeatures = [
+  "Brand Badge",
+  "Unlimited Crowds",
+  "Sync Existing Subscribers",
+  "No commissions - pay per fan",
+  "Pay per Teammate",
+  "Place Ads in Crowd",
+  "WordPress Plugin",
+  "YouTube Auto-Import",
+  "Sell on Marketplace",
+  "Access to All Business Tools",
+  "White Glove Setup",
+  "VIP Contact Form"
+];
+
 // Calculate absolute positions for a 12-hour clock face
 const clockPositions = [
   { pos: 12, top: '0%', left: '50%' },
@@ -197,6 +213,7 @@ const clockPositions = [
 export default function CreatorsPage() {
   const [pricingInterval, setPricingInterval] = useState('yearly');
   const [activeModalFeature, setActiveModalFeature] = useState(null);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [activeGameStep, setActiveGameStep] = useState(0);
   
@@ -662,154 +679,284 @@ export default function CreatorsPage() {
           </div>
         </section>
 
-        {/* PRICING SECTION - Set against a flat #111 background to catch the bottom of the Tools section above it */}
+        {/* PRICING SECTION */}
         <section className="w-full bg-[#111] py-24 px-4 relative shadow-2xl">
           <div className="max-w-7xl mx-auto text-center">
-            <RevealOnScroll>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-white">
-                YOUR FANS ARE WAITING
-              </h2>
-              <p className="text-gray-400 mb-8 max-w-2xl mx-auto font-medium text-sm md:text-base">
-                Build your Crowd. Build your income. Choose the plan that gives you the tools to grow, engage, and monetize your fans.
-              </p>
-              <div className="inline-block bg-[#a3e635]/10 text-[#a3e635] border border-[#a3e635]/50 px-4 py-1.5 rounded-full font-bold text-[10px] uppercase tracking-widest mb-12 shadow-sm">
-                Commit for a year and save 14-33%
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll delay={100}>
-              <div className="flex justify-center items-center gap-2 mb-12 bg-gray-900 p-1.5 rounded-full inline-flex border border-gray-800">
-                <button 
-                  onClick={() => setPricingInterval('yearly')}
-                  className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${pricingInterval === 'yearly' ? 'bg-[#a3e635] text-black shadow-md' : 'text-gray-500 hover:text-white'}`}
-                >
-                  Yearly
-                </button>
-                <button 
-                  onClick={() => setPricingInterval('monthly')}
-                  className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${pricingInterval === 'monthly' ? 'bg-[#a3e635] text-black shadow-md' : 'text-gray-500 hover:text-white'}`}
-                >
-                  Monthly
-                </button>
-              </div>
-            </RevealOnScroll>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-left relative z-10">
-              
-              <RevealOnScroll delay={0} className="relative z-20 transform md:-translate-y-4">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#a3e635] text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-md whitespace-nowrap z-30">
-                  Most Valuable
-                </div>
-                <div className="bg-[#1a1a1a] border-2 border-[#a3e635] rounded-2xl p-6 flex flex-col h-full shadow-[0_10px_30px_rgba(163,230,53,0.1)] relative overflow-hidden">
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">H.O.F.</h3>
-                  <div className="text-4xl font-black text-[#a3e635] mb-6 flex items-baseline">
-                    ${pricingInterval === 'yearly' ? '85' : '100'}
-                    <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
-                  </div>
-                  <ul className="space-y-3 mb-2 flex-1">
-                    {[
-                      "Brand Badge", "Unlimited Crowds", "6% commissions", "Place Ads in Crowd", "WordPress Plugin", "YouTube Auto-Import", "Sell on marketplace", "Onboarding setup"
-                    ].map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs font-medium text-gray-300">
-                        <Check size={14} className="text-[#a3e635] shrink-0 mt-0.5 font-bold" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+            
+            {/* Hiding the standard copy if Enterprise is selected */}
+            <div className={`transition-all duration-500 ${pricingInterval === 'enterprise' ? 'opacity-0 h-0 overflow-hidden mb-0' : 'opacity-100 h-auto mb-12'}`}>
+              <RevealOnScroll>
+                <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-white">
+                  YOUR FANS ARE WAITING
+                </h2>
+                <p className="text-gray-400 mb-8 max-w-2xl mx-auto font-medium text-sm md:text-base">
+                  Build your Crowd. Build your income. Choose the plan that gives you the tools to grow, engage, and monetize your fans.
+                </p>
+                <div className="inline-block bg-[#a3e635]/10 text-[#a3e635] border border-[#a3e635]/50 px-4 py-1.5 rounded-full font-bold text-[10px] uppercase tracking-widest shadow-sm">
+                  Commit for a year and save 14-33%
                 </div>
               </RevealOnScroll>
-
-              <RevealOnScroll delay={100}>
-                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">All-Star</h3>
-                  <div className="text-3xl font-black text-white mb-6 flex items-baseline">
-                    ${pricingInterval === 'yearly' ? '42' : '50'}
-                    <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
-                  </div>
-                  <ul className="space-y-3 mb-2 flex-1">
-                    {[
-                      "Brand Badge", "Unlimited Crowds", "8% commissions", "Place Ads in Crowd", "WordPress Plugin", "YouTube Auto-Import", "Sell on marketplace", "Onboarding setup"
-                    ].map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs font-medium text-gray-400">
-                        <Check size={14} className="text-white shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </RevealOnScroll>
-
-              <RevealOnScroll delay={200}>
-                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Rookie</h3>
-                  <div className="text-3xl font-black text-white mb-6 flex items-baseline">
-                    ${pricingInterval === 'yearly' ? '16' : '19'}
-                    <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
-                  </div>
-                  <ul className="space-y-3 mb-2 flex-1">
-                    {[
-                      {text: "Brand Badge", available: true},
-                      {text: "Unlimited Crowds", available: true},
-                      {text: "10% commissions", available: true},
-                      {text: "Place Ads in Crowd", available: false},
-                      {text: "WordPress Plugin", available: false},
-                      {text: "YouTube Auto-Import", available: false},
-                    ].map((feature, i) => (
-                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
-                        <div className="shrink-0 mt-0.5">
-                          {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
-                        </div>
-                        <span>{feature.text}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </RevealOnScroll>
-
-              <RevealOnScroll delay={300}>
-                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Teammate</h3>
-                  <div className="text-3xl font-black text-white mb-6 flex items-baseline">
-                    $2
-                    <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
-                  </div>
-                  <ul className="space-y-3 mb-2 flex-1">
-                    {[
-                      {text: "Brand Badge", available: true},
-                      {text: "Post Content", available: true},
-                      {text: "No Crowds", available: false},
-                      {text: "No Monetization", available: false},
-                      {text: "No Tools", available: false}
-                    ].map((feature, i) => (
-                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
-                        <div className="shrink-0 mt-0.5">
-                          {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
-                        </div>
-                        <span>{feature.text}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </RevealOnScroll>
-
             </div>
 
-            <RevealOnScroll delay={400} className="mt-12 flex justify-center relative z-10">
-              <a 
-                href="https://www.selloutcrowds.com/create-crowd-profile" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#a3e635] text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-colors shadow-[0_0_20px_rgba(163,230,53,0.4)] hover:shadow-[0_0_30px_rgba(163,230,53,0.6)] flex items-center gap-2 hover:-translate-y-1"
-              >
-                Build Your Crowd <ArrowRight size={18}/>
-              </a>
+            {/* Interval Toggle */}
+            <RevealOnScroll delay={100}>
+              <div className="flex justify-center items-center gap-2 mb-12 bg-gray-900 p-1.5 rounded-full inline-flex border border-gray-800">
+                {['yearly', 'monthly', 'enterprise'].map((type) => (
+                  <button 
+                    key={type}
+                    onClick={() => setPricingInterval(type)}
+                    className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${pricingInterval === type ? 'bg-[#a3e635] text-black shadow-md' : 'text-gray-500 hover:text-white'}`}
+                  >
+                    {type === 'enterprise' ? 'Enterprise' : type === 'yearly' ? 'Yearly' : 'Monthly'}
+                  </button>
+                ))}
+              </div>
             </RevealOnScroll>
+
+            {/* Conditionally Render Enterprise Block OR Grid */}
+            {pricingInterval === 'enterprise' ? (
+              
+              <RevealOnScroll className="bg-[#1a1a1a] border border-[#333] rounded-3xl p-8 md:p-16 w-full max-w-5xl mx-auto shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+                   
+                   <div className="lg:col-span-2 text-left flex flex-col justify-center">
+                      <div className="inline-block bg-[#a3e635]/10 text-[#a3e635] px-3 py-1 rounded-full font-black text-[10px] uppercase tracking-widest mb-4 w-fit border border-[#a3e635]/30">
+                        Custom Infrastructure
+                      </div>
+                      <h3 className="text-4xl md:text-5xl font-black uppercase text-white mb-6 tracking-tight leading-none">Enterprise</h3>
+                      <p className="text-gray-400 font-medium mb-10 leading-relaxed text-sm md:text-base">
+                        Tailored infrastructure for high-volume creators and media empires. Take full control of your revenue and scale your community without limits.
+                      </p>
+                      <button 
+                        onClick={(e) => { e.preventDefault(); setIsContactModalOpen(true); }}
+                        className="bg-white text-black px-8 py-3.5 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-[#a3e635] transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] flex items-center justify-center gap-2 hover:-translate-y-1 w-fit"
+                      >
+                        Contact Sales <ArrowRight size={16}/>
+                      </button>
+                   </div>
+                   
+                   <div className="lg:col-span-3 bg-[#111] p-6 md:p-8 rounded-2xl border border-gray-800">
+                      <h4 className="text-white font-black uppercase tracking-widest text-sm mb-6 text-left border-b border-gray-800 pb-4">Everything Included:</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+                        {enterpriseFeatures.map((feature, i) => (
+                          <div key={i} className="flex items-start gap-2 text-sm font-medium text-gray-300 text-left">
+                            <Check size={16} className="text-[#a3e635] shrink-0 mt-0.5 font-bold" />
+                            <span>{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                   </div>
+
+                 </div>
+              </RevealOnScroll>
+
+            ) : (
+
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-left relative z-10">
+                
+                <RevealOnScroll delay={0} className="relative z-20 transform md:-translate-y-4">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#a3e635] text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-md whitespace-nowrap z-30">
+                    Most Valuable
+                  </div>
+                  <div className="bg-[#1a1a1a] border-2 border-[#a3e635] rounded-2xl p-6 flex flex-col h-full shadow-[0_10px_30px_rgba(163,230,53,0.1)] relative overflow-hidden">
+                    <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">H.O.F.</h3>
+                    <div className="text-4xl font-black text-[#a3e635] mb-6 flex items-baseline">
+                      ${pricingInterval === 'yearly' ? '85' : '100'}
+                      <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+                    </div>
+                    <ul className="space-y-3 mb-2 flex-1">
+                      {[
+                        {text: "Brand Badge", available: true},
+                        {text: "Unlimited Crowds", available: true},
+                        {text: "6% commissions", available: true},
+                        {text: "6 Teammates Included", available: true},
+                        {text: "Place Ads in Crowd", available: true},
+                        {text: "WordPress Plugin", available: true},
+                        {text: "YouTube Auto-Import", available: true},
+                        {text: "Sell on marketplace", available: true},
+                        {text: "Link in Bio Page", available: true},
+                        {text: "Digital Business Card", available: true},
+                        {text: "Address Book", available: true},
+                        {text: "Onboarding setup", available: true}
+                      ].map((feature, i) => (
+                        <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-300'}`}>
+                          <div className="shrink-0 mt-0.5">
+                            {feature.available ? <Check size={14} className="text-[#a3e635] font-bold"/> : <X size={14} className="text-gray-600"/>}
+                          </div>
+                          <span>{feature.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </RevealOnScroll>
+
+                <RevealOnScroll delay={100}>
+                  <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
+                    <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">All-Star</h3>
+                    <div className="text-3xl font-black text-white mb-6 flex items-baseline">
+                      ${pricingInterval === 'yearly' ? '42' : '50'}
+                      <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+                    </div>
+                    <ul className="space-y-3 mb-2 flex-1">
+                      {[
+                        {text: "Brand Badge", available: true},
+                        {text: "3 Crowds", available: true},
+                        {text: "8% commissions", available: true},
+                        {text: "3 Teammates Included", available: true},
+                        {text: "Place Ads in Crowd", available: true},
+                        {text: "WordPress Plugin", available: true},
+                        {text: "YouTube Auto-Import", available: true},
+                        {text: "Sell on marketplace", available: true},
+                        {text: "Link in Bio Page", available: true},
+                        {text: "Digital Business Card", available: true},
+                        {text: "Address Book", available: true},
+                        {text: "Onboarding setup", available: false}
+                      ].map((feature, i) => (
+                        <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
+                          <div className="shrink-0 mt-0.5">
+                            {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
+                          </div>
+                          <span>{feature.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </RevealOnScroll>
+
+                <RevealOnScroll delay={200}>
+                  <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
+                    <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Rookie</h3>
+                    <div className="text-3xl font-black text-white mb-6 flex items-baseline">
+                      ${pricingInterval === 'yearly' ? '16' : '19'}
+                      <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+                    </div>
+                    <ul className="space-y-3 mb-2 flex-1">
+                      {[
+                        {text: "Brand Badge", available: true},
+                        {text: "1 Crowd", available: true},
+                        {text: "10% commissions", available: true},
+                        {text: "No Teammates Included", available: false},
+                        {text: "Place Ads in Crowd", available: false},
+                        {text: "WordPress Plugin", available: false},
+                        {text: "YouTube Auto-Import", available: false},
+                        {text: "Link in Bio Page", available: false},
+                        {text: "Digital Business Card", available: true},
+                        {text: "Address Book", available: true},
+                        {text: "Onboarding setup", available: false}
+                      ].map((feature, i) => (
+                        <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
+                          <div className="shrink-0 mt-0.5">
+                            {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
+                          </div>
+                          <span>{feature.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </RevealOnScroll>
+
+                <RevealOnScroll delay={300}>
+                  <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
+                    <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Teammate</h3>
+                    <div className="text-3xl font-black text-white mb-6 flex items-baseline">
+                      $2
+                      <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+                    </div>
+                    <ul className="space-y-3 mb-2 flex-1">
+                      {[
+                        {text: "Brand Badge", available: true},
+                        {text: "Post Content", available: true},
+                        {text: "Digital Business Card", available: true},
+                        {text: "Address Book", available: true},
+                        {text: "No Crowds", available: false},
+                        {text: "No Monetization", available: false}
+                      ].map((feature, i) => (
+                        <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
+                          <div className="shrink-0 mt-0.5">
+                            {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
+                          </div>
+                          <span>{feature.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </RevealOnScroll>
+
+              </div>
+            )}
+
+            {/* Generic Build Crowd CTA - Hides when in Enterprise mode */}
+            {pricingInterval !== 'enterprise' && (
+              <RevealOnScroll delay={400} className="mt-12 flex justify-center relative z-10">
+                <a 
+                  href="https://www.selloutcrowds.com/create-crowd-profile" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#a3e635] text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-colors shadow-[0_0_20px_rgba(163,230,53,0.4)] hover:shadow-[0_0_30px_rgba(163,230,53,0.6)] flex items-center gap-2 hover:-translate-y-1"
+                >
+                  Build Your Crowd <ArrowRight size={18}/>
+                </a>
+              </RevealOnScroll>
+            )}
+            
           </div>
         </section>
       </main>
 
       <Footer />
       <FeatureModal feature={activeModalFeature} onClose={() => setActiveModalFeature(null)} />
+      
+      {/* Enterprise Contact Modal */}
+      {isContactModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
+          <div className="bg-[#111] border border-gray-800 rounded-3xl w-full max-w-lg shadow-[0_0_50px_rgba(0,0,0,1)] overflow-hidden relative">
+            {/* Close button */}
+            <button onClick={() => setIsContactModalOpen(false)} className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors z-10">
+              <X size={24} />
+            </button>
+            
+            <div className="p-8 md:p-10 relative">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#a3e635]/10 blur-[80px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
+              
+              <h3 className="text-3xl font-black uppercase text-white mb-2 relative z-10">Contact Sales</h3>
+              <p className="text-gray-400 font-medium mb-8 text-sm relative z-10">Fill out the form below and our Enterprise team will reach out shortly.</p>
+              
+              {/* FormSubmit handles the POST request securely without exposing your email or opening an email client */}
+              <form action="https://formsubmit.co/info@selloutcrowds.com" method="POST" className="flex flex-col gap-5 relative z-10">
+                {/* Formsubmit config hidden fields */}
+                <input type="hidden" name="_subject" value="New Enterprise Sales Inquiry" />
+                <input type="hidden" name="_captcha" value="false" />
+                
+                <div className="flex flex-col gap-2 text-left">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Name</label>
+                  <input type="text" name="name" required className="bg-[#1a1a1a] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3.5 text-white text-sm outline-none transition-colors" placeholder="Your Name" />
+                </div>
+                
+                <div className="flex flex-col gap-2 text-left">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Email</label>
+                  <input type="email" name="email" required className="bg-[#1a1a1a] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3.5 text-white text-sm outline-none transition-colors" placeholder="you@example.com" />
+                </div>
+
+                <div className="flex flex-col gap-2 text-left">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Crowd / Brand Name</label>
+                  <input type="text" name="brand" className="bg-[#1a1a1a] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3.5 text-white text-sm outline-none transition-colors" placeholder="What are you building?" />
+                </div>
+                
+                <div className="flex flex-col gap-2 text-left">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Message</label>
+                  <textarea name="message" required rows={4} className="bg-[#1a1a1a] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3.5 text-white text-sm outline-none transition-colors resize-none" placeholder="Tell us about your needs..."></textarea>
+                </div>
+                
+                <button type="submit" className="mt-2 bg-[#a3e635] text-black px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] flex items-center justify-center gap-2">
+                  Send Message <Send size={16} />
+                </button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
