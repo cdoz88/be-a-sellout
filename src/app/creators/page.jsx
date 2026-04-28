@@ -25,7 +25,49 @@ const FoamFingerSVG = ({ size = 42, className = "" }) => (
   </svg>
 );
 
-// Modular configuration for each play/card with custom SVG rendering support inside the objects
+// Custom SVG Icon for Exclusive Content
+const ExclusiveContentSVG = ({ size = 24, className = "" }) => (
+  <svg viewBox="0 0 16 16" width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+    <path d="M14,7.5H12.5V2A1.5017,1.5017,0,0,0,11,.5H2A1.5017,1.5017,0,0,0,.5,2V14A1.5017,1.5017,0,0,0,2,15.5H13.5a2.0027,2.0027,0,0,0,2-2V9A1.5017,1.5017,0,0,0,14,7.5Zm-12,7a.501.501,0,0,1-.5-.5V2A.5006.5006,0,0,1,2,1.5h9a.5006.5006,0,0,1,.5.5V13.5a1.9729,1.9729,0,0,0,.0634.4753c.0114.0467.0274.09.0421.1354a1.9749,1.9749,0,0,0,.13.3109c.0131.025.0187.054.0329.0784Zm12.5-1a1,1,0,0,1-2,0v-5H14a.5006.5006,0,0,1,.5.5Z"/>
+    <path d="M8.5,7.0921V6a2,2,0,0,0-4,0V7.0921A1.4977,1.4977,0,0,0,3.5,8.5v2A1.5017,1.5017,0,0,0,5,12H8a1.5017,1.5017,0,0,0,1.5-1.5v-2A1.4977,1.4977,0,0,0,8.5,7.0921ZM5.5,6a1,1,0,0,1,2,0V7h-2Zm3,4.5A.501.501,0,0,1,8,11H5a.501.501,0,0,1-.5-.5v-2A.5006.5006,0,0,1,5,8H8a.5006.5006,0,0,1,.5.5Z"/>
+  </svg>
+);
+
+// Custom SVG Icon for Sell Ad Space
+const SellAdSpaceSVG = ({ size = 24, className = "" }) => (
+  <svg viewBox="0 0 1024 1024" width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+    <g>
+      <path d="m163.1 817-79.8-138.3 472.2-525.3 298.6 517.3-532.5 112.7zm-6-130.5 36.2 62.8 115.9-24.6 203.8-43.2 247.9-52.4-216-374.1z"/>
+      <path d="m37.3 703.3h222v60h-222z" transform="matrix(.507 .862 -.862 .507 704.982 233.411)"/>
+      <path d="m368.5 393.7h618.4v60h-618.4z" transform="matrix(.5 .866 -.866 .5 705.465 -375.067)"/>
+      <path d="m806.2 277.8h60v116.9h-60z" transform="matrix(.5 .866 -.866 .5 708.828 -555.978)"/>
+      <path d="m710.4 151.9h60v116.9h-60z" transform="matrix(.828 .56 -.56 .828 245.053 -378.83)"/>
+      <path d="m867.4 423.7h60v116.9h-60z" transform="matrix(.072 .997 -.997 .072 1313.882 -447.524)"/>
+      <path d="m422 882.1h-9.5c-70.1 0-127.2-57.1-127.2-127.2v-25.2l263.9-55.8v81c0 70.1-57.1 127.2-127.2 127.2zm-72.8-104.6c9.3 26 34.2 44.6 63.3 44.6h9.5c37.1 0 67.2-30.1 67.2-67.2v-7z"/>
+    </g>
+  </svg>
+);
+
+// Custom SVG Icon for Gear / Settings
+const GearSVG = ({ size = 32, className = "" }) => (
+  <svg viewBox="0 0 908.77 908.77" width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+    <path d="M852.92,398.53c-27.04,0-49.58,19.21-54.74,44.73h-105.96c-2.64-57.36-25.57-109.43-61.79-149.18l74.92-74.92c21.69,14.39,51.22,12.04,70.33-7.08,21.81-21.81,21.81-57.18,0-78.99s-57.18-21.81-78.99,0c-19.12,19.12-21.48,48.64-7.08,70.33l-74.92,74.92c-39.75-36.22-91.82-59.15-149.18-61.79v-105.96c25.52-5.16,44.73-27.7,44.73-54.74,0-30.85-25.01-55.85-55.85-55.85s-55.85,25.01-55.85,55.85c0,27.04,19.21,49.58,44.73,54.74v105.96c-57.36,2.64-109.43,25.57-149.18,61.79l-74.92-74.92c14.39-21.69,12.04-51.22-7.08-70.33-21.81-21.81-57.18-21.81-78.99,0-21.81,21.81-21.81,57.18,0,78.99,19.12,19.12,48.64,21.48,70.33,7.08l74.92,74.92c-36.22,39.75-59.15,91.82-61.79,149.18h-105.96c-5.16-25.52-27.7-44.73-54.74-44.73-30.85,0-55.85,25.01-55.85,55.85s25.01,55.85,55.85,55.85c27.04,0,49.58-19.21,54.74-44.73h105.96c2.64,57.36,25.57,109.43,61.79,149.18l-74.92,74.92c-21.69-14.39-51.22-12.04-70.33,7.08-21.81,21.81-21.81,57.18,0,78.99,21.81,21.81,57.18,21.81,78.99,0,19.12-19.12,21.48-48.64,7.08-70.33l74.92-74.92c39.75,36.22,91.82,59.15,149.18,61.79v105.96c-25.52,5.16-44.73,27.7-44.73,54.74,0,30.85,25.01,55.85,55.85,55.85s55.85-25.01,55.85-55.85c0-27.04-19.21-49.58-44.73-54.74v-105.96c57.36-2.64,109.43-25.57,149.18-61.79l74.92,74.92c-14.4,21.69-12.04,51.22,7.08,70.33,21.81,21.81,57.18,21.81,78.99,0,21.81-21.81,21.81-57.18,0-78.99-19.12-19.12-48.64-21.48-70.33-7.08l-74.92-74.92c36.22-39.75,59.15-91.82,61.79-149.18h105.96c5.16,25.52,27.7,44.73,54.74,44.73,30.85,0,55.85-25.01,55.85-55.85s-25.01-55.85-55.85-55.85Z"/>
+  </svg>
+);
+
+// Custom SVG Icon for Keep Your Money
+const KeepYourMoneySVG = ({ size = 24, className = "" }) => (
+  <svg viewBox="0 0 512 512" width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+    <path d="m455.3461 180.7954c-6.4312-14.0732-14.8675-27.3652-25.1858-39.6744-1.1122-19.0046 6.4995-38.9162 20.0605-51.783l13.1992-12.5226-14.1088-11.4881c-19.5382-15.9088-44.8597-22.9185-71.3002-19.7442-22.8897 2.7496-44.1606 12.713-58.9494 27.2719-20.2549-5.3034-41.287-7.9871-62.6662-7.9871-56.5299 0-109.7941 18.6306-149.9797 52.4597-17.1752 14.4583-31.1022 30.9614-41.503 48.8727-14.9119-2.5488-22.89-11.1653-27.0749-18.5846-7.5126-13.3203-7.7704-31.5828-.6127-43.4239l-27.3816-16.5513c-13.1709 21.7888-13.1202 52.2073.1264 75.6931 9.1166 16.164 23.6512 27.3998 41.4146 32.5037-5.6032 16.4445-8.5156 33.6749-8.5156 51.3098 0 54.8285 28.1014 105.6917 77.3403 140.422l21.4598 79.5949h55.7819l26.4424-39.8672c21.5535 2.7926 43.4688 2.7916 64.9774.002l26.442 39.8653h55.7805l21.4612-79.569c28.1434-19.8692 49.6261-45.2405 62.7965-74.0957h32.7618l23.8873-132.704zm6.0167 100.7085h-27.7328l-3.9052 10.3506c-10.7841 28.5847-31.5081 53.6729-59.9317 72.5529l-5.0232 3.3369-18.1858 67.4243h-14.0995l-28.3553-42.7502-10.2856 1.7771c-24.6268 4.2562-50.2256 4.2592-74.93-.001l-10.2822-1.7727-28.3528 42.7467h-14.0985l-18.1863-67.455-5.0281-3.3374c-43.2794-28.7292-68.1014-71.4579-68.1014-117.2291 0-82.8669 81.4345-150.2838 181.5313-150.2838 21.7195 0 42.9937 3.168 63.232 9.4151l10.705 3.3047 6.7656-8.9308c9.0763-11.9817 26.6338-21.1283 44.7293-23.3023 11.7976-1.4183 23.1758.1162 33.2232 4.3534-13.2696 19.6871-19.3478 44.3583-16.1754 68.1371l.6464 4.846 3.2446 3.6567c11.9026 13.4131 20.9735 28.2513 26.9609 44.103l3.9076 10.3447h40.0962zm-224.1617-65.4646c0 8.9557 1.8015 11.0897 22.486 15.4387 9.6422 2.0271 20.5707 4.3251 29.7071 10.3466 8.2986 5.4699 18.1912 16.2257 18.1912 36.4024 0 20.8336-14.7791 38.5398-35.1921 44.7369v21.5035h-31.9954v-21.5035c-20.413-6.1971-35.1922-23.9033-35.1922-44.7369h31.9954c0 8.1907 8.7902 15.1101 19.1945 15.1101 10.4042 0 19.1945-6.9194 19.1945-15.1101 0-8.9557-1.8015-11.0897-22.486-15.4387-9.6422-2.0271-20.5707-4.3251-29.7071-10.3466-8.2986-5.4699-18.1912-16.2257-18.1912-36.4024 0-20.8336 14.7791-38.5398 35.1922-44.7369v-21.503h31.9954v21.503c20.4131 6.1971 35.1921 23.9033 35.1921 44.7369h-31.9955c0-8.1907-8.7903-15.1101-19.1945-15.1101s-19.1944 6.9194-19.1944 15.1101z"/>
+  </svg>
+);
+
+// Our SVG Paths Collection
+const chalkArrowPath = "m20.3547 24.1532c1.9932 3.4623 4.9029 7.1202 6.2527 10.5277.6068 1.5318-.4089 3.11-1.8376 3.4008-1.9171.3902-3.1918-1.4908-4.1923-2.8791-1.7336-2.4057-3.5559-4.7475-5.4618-7.0191-.8522-1.0157-1.8188-2.0859-2.5592-3.1734-.9053-1.3297-1.6584-2.6312-1.5427-3.9623.2609-2.8172 6.514-4.9255 8.5834-6.1083 4.0635-2.3226 7.4042-5.6254 10.8337-8.7838 1.1135-1.0255 2.3852-1.6273 3.963-1.4811 1.5711.1457 2.6279 2.0935 1.8616 3.4817-2.5931 4.0981-6.8605 6.5947-10.2581 9.9603 2.6688.0215 6.3441.2827 9.5691 1.1022 10.1425 2.5772 14.7686 10.674 16.2329 16.0098 1.0592 3.8595 2.14 10.0946-.1805 16.6378-.6299 1.7761-1.2446 3.524-2.6069 4.8646-.7157.7039-3.2245 2.9779-4.3302 2.5668-2.1144-.7912 1.3622-6.9904 1.8153-8.2754 1.5587-4.4202 1.7915-9.7959.152-14.2287-1.8227-4.9285-6.9323-9.7772-11.9069-11.3818-4.7249-1.524-9.6509-1.205-14.3875-1.2587z";
+const chalkStraightArrowPath = "M81.3,16.5c-1.2-1.2-3.1-1.2-4.2,0L25.3,68.3l0.8-17.7c0.1-1.7-1.2-3.1-2.9-3.2c-1.7-0.1-3.1,1.2-3.2,2.9l-1.2,25.4c0,0.8,0.3,1.6,0.8,2.2c0.6,0.6,1.4,0.9,2.2,0.9l25.4-1.2c1.7-0.1,3-1.5,2.9-3.2c-0.1-1.7-1.5-3-3.2-2.9l-17.7,0.8L81.3,20.7C82.5,19.6,82.5,17.7,81.3,16.5z";
+const chalkCurvedArrow3Path = "m87.82 42.7c-.45-7.06-1.84-14.49-7-19.76-4.71-4.85-11.51-6.89-18.09-7.42-9.14-.74-18.17 1.7-27.3 1.64-2.76 0-2.76 4.26 0 4.27 8 .06 15.79-1.73 23.74-1.77 5.85 0 12.24 1.08 17 4.79 5.23 4.1 6.8 10.77 7.3 17.09a203.67 203.67 0 0 1 .21 23.57 255.53 255.53 0 0 1 -2.53 27.2 2.19 2.19 0 0 0 1.49 2.62 2.15 2.15 0 0 0 2.63-1.49 242 242 0 0 0 2.55-50.74zm-49.33-6c-4-2.8-8-5.68-11.85-8.7-1.88-1.47-3.75-3-5.59-4.48l-2.93-2.52c-.45-.38-1.09-.8-1.61-1.27l1-.67 1.91-1.31q2.19-1.5 4.41-3 4.34-2.89 8.72-5.71c2.3-1.48.16-5.18-2.16-3.69q-6 3.87-12 7.91l-3.06 2.1a13.7 13.7 0 0 0 -2.71 2.07 3.18 3.18 0 0 0 -.54 3.57 7 7 0 0 0 2 2.2 273.83 273.83 0 0 0 22.25 17.15 2.14 2.14 0 1 0 2.16-3.69z";
+
+// Game Plan Features
 const gamePlanFeatures = [
   { 
     icon: <FoamFingerSVG size={42} className="text-currentColor" />, 
@@ -45,7 +87,7 @@ const gamePlanFeatures = [
     }
   },
   { 
-    icon: <DollarSign size={32} color="currentColor" />, 
+    icon: <KeepYourMoneySVG size={32} className="text-currentColor" />, 
     title: "Keep Your Money", 
     desc: "No cash out requests or minimum payouts. Connect your Stripe account and take direct payments from your fans!", 
     mark: 'O',
@@ -54,7 +96,7 @@ const gamePlanFeatures = [
       render: () => (
         <svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="none">
           <g transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,99.94363784790039,100.0075159072876)">
-            <path d="m87.82 42.7c-.45-7.06-1.84-14.49-7-19.76-4.71-4.85-11.51-6.89-18.09-7.42-9.14-.74-18.17 1.7-27.3 1.64-2.76 0-2.76 4.26 0 4.27 8 .06 15.79-1.73 23.74-1.77 5.85 0 12.24 1.08 17 4.79 5.23 4.1 6.8 10.77 7.3 17.09a203.67 203.67 0 0 1 .21 23.57 255.53 255.53 0 0 1 -2.53 27.2 2.19 2.19 0 0 0 1.49 2.62 2.15 2.15 0 0 0 2.63-1.49 242 242 0 0 0 2.55-50.74zm-49.33-6c-4-2.8-8-5.68-11.85-8.7-1.88-1.47-3.75-3-5.59-4.48l-2.93-2.52c-.45-.38-1.09-.8-1.61-1.27l1-.67 1.91-1.31q2.19-1.5 4.41-3 4.34-2.89 8.72-5.71c2.3-1.48.16-5.18-2.16-3.69q-6 3.87-12 7.91l-3.06 2.1a13.7 13.7 0 0 0 -2.71 2.07 3.18 3.18 0 0 0 -.54 3.57 7 7 0 0 0 2 2.2 273.83 273.83 0 0 0 22.25 17.15 2.14 2.14 0 1 0 2.16-3.69z" fill="#ffffff" opacity="0.9" />
+            <path d={chalkCurvedArrow3Path} fill="#ffffff" opacity="0.9" />
           </g>
         </svg>
       )
@@ -95,7 +137,7 @@ const gamePlanFeatures = [
     }
   },
   { 
-    icon: <BarChart3 size={32} color="currentColor" />, 
+    icon: <GearSVG size={32} className="text-currentColor" />, 
     title: "Creator Hub", 
     desc: "Command your empire from one toolkit. Get granular control over who accesses your community, seamlessly sync your existing website subscribers, and tap into powerful business tools built to help you win.", 
     mark: 'X',
@@ -103,10 +145,60 @@ const gamePlanFeatures = [
   }
 ];
 
+// Data for the Clock 'Up Your Game' Section
+const clockFeatures = [
+  {
+    index: 0,
+    position: 12,
+    icon: <KeepYourMoneySVG />,
+    title: "Monetize",
+    desc: "Turn your passion into profit. Set your own subscription prices and keep the lion's share of your revenue. It's your franchise, build it your way!",
+  },
+  {
+    index: 1,
+    position: 3,
+    icon: <ExclusiveContentSVG />, // Using the new custom SVG
+    title: "Exclusive Content",
+    desc: "Post articles, videos, and podcasts directly to your Crowds and Spaces. You have total control over who gets access to your premium content.",
+  },
+  {
+    index: 2,
+    position: 6,
+    icon: <ShoppingCart />,
+    soon: true,
+    title: "Sell Stuff",
+    desc: "Launch your own digital storefront directly inside your Crowd. Selling custom apparel or premium guides has never been easier.",
+  },
+  {
+    index: 3,
+    position: 9,
+    icon: <SellAdSpaceSVG />, // Using the new custom SVG
+    title: "Sell Ad Space",
+    desc: "You own your audience, which means you own the ad space. Place custom ads directly in front of your fans and keep 100% of the revenue.",
+  }
+];
+
+// Calculate absolute positions for a 12-hour clock face
+const clockPositions = [
+  { pos: 12, top: '0%', left: '50%' },
+  { pos: 1, top: '6.7%', left: '75%' },
+  { pos: 2, top: '25%', left: '93.3%' },
+  { pos: 3, top: '50%', left: '100%' },
+  { pos: 4, top: '75%', left: '93.3%' },
+  { pos: 5, top: '93.3%', left: '75%' },
+  { pos: 6, top: '100%', left: '50%' },
+  { pos: 7, top: '93.3%', left: '25%' },
+  { pos: 8, top: '75%', left: '6.7%' },
+  { pos: 9, top: '50%', left: '0%' },
+  { pos: 10, top: '25%', left: '6.7%' },
+  { pos: 11, top: '6.7%', left: '25%' },
+];
+
 export default function CreatorsPage() {
   const [pricingInterval, setPricingInterval] = useState('yearly');
   const [activeModalFeature, setActiveModalFeature] = useState(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [activeGameStep, setActiveGameStep] = useState(0);
   
   // Game Plan Sticky Scroll State
   const gamePlanRef = useRef(null);
@@ -151,6 +243,32 @@ export default function CreatorsPage() {
   return (
     <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 bg-[#0a0a0a] min-h-screen flex flex-col font-sans selection:bg-[#a3e635] selection:text-black overflow-x-clip">
       <GlobalStyles />
+      
+      {/* Custom Keyframes for Animations */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes soft-fade-in {
+          0% { opacity: 0; transform: translateY(15px); filter: blur(4px); }
+          100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        .animate-text-fade {
+          animation: soft-fade-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes clock-pulse {
+          0%, 8.33%, 100% { 
+            transform: translate(-50%, -50%) scale(1); 
+            filter: brightness(1) drop-shadow(0 0 0px rgba(163,230,53,0)); 
+          }
+          4.16% { 
+            transform: translate(-50%, -50%) scale(1.1); 
+            filter: brightness(1.3) drop-shadow(0 0 20px rgba(163,230,53,0.8)); 
+          }
+        }
+        .animate-clock-pulse {
+          animation: clock-pulse 12s infinite linear;
+        }
+      `}} />
+
       <Header />
       
       <main className="flex-1 w-full relative">
@@ -284,98 +402,87 @@ export default function CreatorsPage() {
           </div>
         </section>
 
-        <section className="py-32 px-6 text-center relative overflow-hidden bg-[#0a0a0a]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-[#a3e635]/5 -skew-y-6 transform-gpu"></div>
+        {/* CLOCK / UP YOUR GAME SECTION */}
+        <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-[#050505] to-[#0a0a0a]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-[#a3e635]/5 -skew-y-6 transform-gpu pointer-events-none"></div>
           
-          <RevealOnScroll>
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 text-white relative z-10">
-              TIME TO UP YOUR GAME
-            </h2>
-            <p className="text-gray-400 mb-20 font-medium text-xl relative z-10">Sell admission to your Crowd and start earning.</p>
-          </RevealOnScroll>
-
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-            {[
-              { 
-                icon: <DollarSign />, 
-                title: "Monetize", 
-                desc: "Create a paywall for your fans to gain access to you and your expertise.", 
-                detailedDesc: (
-                  <>
-                    Turn your passion into profit. Set your own monthly or annual subscription prices and keep the lion's share of your revenue.
-                    <br /><br />
-                    It's your franchise, build it your way! Crowds and Spaces are customizable and can be structured however fits your business model best. You choose how to build it out and when and where your fans will have to pay admission.
-                  </>
-                ),
-                delay: 0 
-              },
-              { 
-                icon: <Tag />, 
-                title: "Exclusive Content", 
-                desc: "Post exclusive content within your Crowd so that only your fans can view it!", 
-                detailedDesc: (
-                  <>
-                    Post articles, videos, and podcasts directly to your Crowds and Spaces. You have total control over how your community is customized and who gets access to your premium content.
-                    <br /><br />
-                    We also offer built-in tools—like automatic YouTube syncing and WordPress integration—to make dropping new content into your community completely effortless.
-                  </>
-                ),
-                delay: 100 
-              },
-              { 
-                icon: <ShoppingCart />, 
-                title: "Sell Stuff", 
-                desc: "Utilize the marketplace to sell your merchandise.", 
-                detailedDesc: (
-                  <>
-                    Why send your fans to a third-party site? Launch your own digital storefront directly inside your Crowd.
-                    <br /><br />
-                    Whether you're selling custom apparel, premium draft guides, or personalized shoutouts, you keep your fans in one place and the profits in your pocket. Selling out has never been easier.
-                  </>
-                ),
-                soon: true, 
-                delay: 200 
-              },
-              { 
-                icon: <MonitorSmartphone />, 
-                title: "Sell Ad Space", 
-                desc: "Leverage your audience and sell ad space within your Crowd.", 
-                detailedDesc: (
-                  <>
-                    You own your audience, which means you own the ad space. Whether you're pushing an affiliate deal, dropping new merch, or featuring a brand sponsor, you can place custom ads directly in front of your fans.
-                    <br /><br />
-                    The best part? You keep 100% of your ad revenue. Go ahead, be a sellout.
-                  </>
-                ),
-                delay: 300 
-              }
-            ].map((item, i) => (
-              <RevealOnScroll key={i} delay={item.delay}>
-                <div className="glass-panel p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 border border-white/10 hover:border-[#a3e635]/50 group h-full flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-2xl bg-black/50 border border-white/5 flex items-center justify-center mb-6 group-hover:bg-[#a3e635] group-hover:text-black text-white transition-all duration-500 transform group-hover:rotate-12 shadow-xl">
-                    {React.cloneElement(item.icon, { size: 28 })}
-                  </div>
-                  <h4 className="font-black text-xl mb-3 tracking-tight text-white">{item.title}</h4>
-                  {item.soon && <span className="inline-block text-[10px] font-black uppercase tracking-widest text-black bg-[#a3e635] px-2.5 py-1 rounded-sm mb-4 shadow-sm">Coming Soon</span>}
-                  <p className="text-gray-400 text-sm font-medium leading-relaxed flex-1">{item.desc}</p>
-                  <div className="flex flex-col items-center gap-3 mt-4 w-full">
-                    {item.detailedDesc && (
-                      <button 
-                        onClick={(e) => { e.preventDefault(); setActiveModalFeature(item); }}
-                        className="text-[#a3e635] text-[10px] font-bold uppercase tracking-widest flex items-center gap-1 hover:text-white transition-colors"
-                      >
-                        Learn More <ChevronRight size={12} />
-                      </button>
-                    )}
-                  </div>
-                </div>
+          <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+            
+            {/* Left Side: Header & Subheader */}
+            <div className="text-center lg:text-left lg:pr-10">
+              <RevealOnScroll>
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-6 text-white leading-[0.9]">
+                  TIME TO <br className="hidden lg:block"/>UP YOUR GAME
+                </h2>
+                <p className="text-gray-400 font-medium text-lg md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
+                  Execute a winning game plan. Select a play on the clock to see how we help you dominate every second of the game.
+                </p>
               </RevealOnScroll>
-            ))}
+            </div>
+
+            {/* Right Side: The Floating Clock */}
+            <RevealOnScroll delay={100} className="w-full flex justify-center mt-8 lg:mt-0">
+               <div className="relative w-full max-w-[340px] md:max-w-[480px] aspect-square mx-auto z-10">
+
+                  {/* Inner Content Area (Text in the middle) */}
+                  <div className="absolute inset-[15%] md:inset-[20%] rounded-full flex flex-col items-center justify-center p-2 text-center z-20">
+                     <div key={activeGameStep} className="animate-text-fade flex flex-col items-center w-full">
+                       {clockFeatures[activeGameStep].soon && (
+                          <span className="inline-block bg-[#a3e635] text-black text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm mb-2 shadow-[0_0_15px_rgba(163,230,53,0.6)]">
+                            Coming Soon
+                          </span>
+                       )}
+                       <h3 className="text-xl md:text-3xl font-black text-white uppercase tracking-tight mb-2 md:mb-3 leading-none drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                         {clockFeatures[activeGameStep].title}
+                       </h3>
+                       <p className="text-gray-300 text-xs md:text-sm font-medium leading-relaxed max-w-[220px] md:max-w-[280px] mx-auto">
+                         {clockFeatures[activeGameStep].desc}
+                       </p>
+                     </div>
+                  </div>
+
+                  {/* Floating Clock Markers & Icons */}
+                  <div className="absolute inset-2 md:inset-4">
+                    {clockPositions.map(({pos, top, left}) => {
+                      const feature = clockFeatures.find(f => f.position === pos);
+                      const isIcon = !!feature;
+                      const isActive = feature && activeGameStep === feature.index;
+                      
+                      // Maps positions 12, 1, 2... to 0, 1, 2 for sequential delays on a 12s loop (1s pulse each)
+                      const delayIndex = pos === 12 ? 0 : pos;
+
+                      return (
+                        <div 
+                          key={pos}
+                          className="absolute -translate-x-1/2 -translate-y-1/2 z-30 flex items-center justify-center animate-clock-pulse"
+                          style={{ top, left, animationDelay: `${delayIndex * 1}s` }}
+                        >
+                          {isIcon ? (
+                             <button 
+                               onClick={() => setActiveGameStep(feature.index)}
+                               className={`w-14 h-14 md:w-20 md:h-20 rounded-full flex items-center justify-center transition-all duration-500 border border-[#a3e635]/30 ${
+                                 isActive 
+                                   ? 'bg-[#a3e635] text-black scale-110 shadow-[0_0_30px_rgba(163,230,53,0.9),inset_0_0_15px_rgba(255,255,255,0.4)] border-[#a3e635]' 
+                                   : 'bg-[#050505]/80 backdrop-blur-md text-[#a3e635] hover:bg-[#a3e635]/10 hover:border-[#a3e635] hover:scale-105 shadow-[0_0_15px_rgba(163,230,53,0.1)] hover:shadow-[0_0_25px_rgba(163,230,53,0.4)]'
+                               }`}
+                             >
+                               {React.cloneElement(feature.icon, { size: isActive ? 28 : 24 })}
+                             </button>
+                          ) : (
+                             <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#a3e635] shadow-[0_0_12px_rgba(163,230,53,1),0_0_4px_rgba(255,255,255,0.6)]"></div>
+                          )}
+                        </div>
+                      )
+                    })}
+                  </div>
+
+               </div>
+            </RevealOnScroll>
           </div>
         </section>
 
         {/* COMBINED GAME PLAN & PLAYBOOK SECTION - STICKY TELESTRATOR LAYOUT */}
-        <section ref={gamePlanRef} className="relative w-full h-[500vh] bg-[#111] border-t border-white/5">
+        <section ref={gamePlanRef} className="relative w-full h-[500vh] bg-[#111]">
           <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
             
             {/* Chalkboard Background - Pans slightly up as you scroll to enhance movement */}
@@ -502,7 +609,7 @@ export default function CreatorsPage() {
         </section>
 
         {/* TEAMMATE / TOOLS SECTION */}
-        <section className="relative w-full py-24 md:py-32 overflow-hidden flex flex-col items-center bg-[#111] border-t border-white/5">
+        <section className="relative w-full py-24 md:py-32 overflow-hidden flex flex-col items-center bg-[#111]">
           {/* Background Image with Parallax (bg-fixed) */}
           <div 
             className="absolute inset-0 bg-center bg-cover bg-fixed opacity-30 grayscale mix-blend-luminosity"
