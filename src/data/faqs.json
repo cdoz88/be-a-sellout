@@ -1,0 +1,30 @@
+{
+  "fans": [
+    {
+      "id": "general",
+      "icon": "MessageCircleQuestion",
+      "title": "General",
+      "faqs": [
+        {
+          "id": "f1",
+          "q": "Does Sellout Crowds cost?",
+          "a": "Admission to Sellout Crowds is free! If you want to be the main event, we have multiple levels that can be found on our <a href=\"/creators\" target=\"_blank\" class=\"text-[#a3e635] hover:underline\">Creators page</a>."
+        }
+      ]
+    }
+  ],
+  "creators": [
+    {
+      "id": "getting-started",
+      "icon": "Zap",
+      "title": "Getting Started",
+      "faqs": [
+        {
+          "id": "c1",
+          "q": "How do I upgrade to a Creator account?",
+          "a": "Head over to the Creators page and select the pricing tier that fits your needs. Once you complete the checkout process, your account will instantly be upgraded with all your new tools."
+        }
+      ]
+    }
+  ]
+}
