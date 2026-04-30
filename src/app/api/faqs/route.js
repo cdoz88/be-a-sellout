@@ -6,18 +6,25 @@ import fs from 'fs';
 
 export const dynamic = 'force-dynamic';
 
-// --- THE FIX: Smart .env Locator ---
+// --- DEBUGGER: Find out exactly where Hostinger is running ---
 const localEnvPath = path.join(process.cwd(), '.env');
-const hostingerVaultPath = path.join(process.cwd(), '../.env'); // Looks one folder up!
+const hostingerVaultPath = path.join(process.cwd(), '../.env');
 
-if (fs.existsSync(localEnvPath)) {
-    // If testing on your local computer, use the normal .env
-    dotenv.config({ path: localEnvPath }); 
-} else if (fs.existsSync(hostingerVaultPath)) {
-    // If on Hostinger and the local .env was wiped, use the safe vault
-    dotenv.config({ path: hostingerVaultPath }); 
+let debugInfo = {
+    currentWorkingDirectory: process.cwd(),
+    foundLocalEnv: fs.existsSync(localEnvPath),
+    foundVaultEnv: fs.existsSync(hostingerVaultPath),
+    loadedPath: 'None'
+};
+
+if (debugInfo.foundLocalEnv) {
+    dotenv.config({ path: localEnvPath });
+    debugInfo.loadedPath = localEnvPath;
+} else if (debugInfo.foundVaultEnv) {
+    dotenv.config({ path: hostingerVaultPath });
+    debugInfo.loadedPath = hostingerVaultPath;
 }
-// -----------------------------------
+// -----------------------------------------------------------
 
 const pool = mysql.createPool({
     host: process.env.DB_HOST || '127.0.0.1',
@@ -57,9 +64,14 @@ export async function GET() {
         return NextResponse.json(faqData);
     } catch (error) {
         console.error("Database GET Error:", error);
+        // If it crashes, it will print our debug info to the screen!
         return NextResponse.json({ 
-            error: 'Failed to read from database', 
-            details: error.message 
+            error: 'Database Connection Failed', 
+            details: error.message,
+            debug: {
+                ...debugInfo,
+                dbUserLoaded: process.env.DB_USER ? "Yes" : "No"
+            }
         }, { status: 500 });
     }
 }
@@ -68,15 +80,9 @@ export async function POST(request) {
     try {
         const data = await request.json();
         await initDB();
-        
         await pool.query('UPDATE site_data SET faqs = ? WHERE id = 1', [JSON.stringify(data)]);
-        
         return NextResponse.json({ success: true });
     } catch (error) {
-        console.error("Database POST Error:", error);
-        return NextResponse.json({ 
-            error: 'Failed to save to database', 
-            details: error.message 
-        }, { status: 500 });
+        return NextResponse.json({ error: 'Failed to save', details: error.message }, { status: 500 });
     }
 }
