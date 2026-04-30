@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import mysql from 'mysql2/promise';
 
+// THIS LINE FIXES THE CACHING BUG: It forces Next.js to always read fresh from the database!
+export const dynamic = 'force-dynamic';
+
 // Connect to your Hostinger MySQL Database
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
