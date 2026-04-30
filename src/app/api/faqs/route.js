@@ -1,11 +1,26 @@
 import { NextResponse } from 'next/server';
 import mysql from 'mysql2/promise';
-import 'dotenv/config'; // This forces the server to read the hidden .env file
+import dotenv from 'dotenv';
+import path from 'path';
+import fs from 'fs';
 
 export const dynamic = 'force-dynamic';
 
+// --- THE FIX: Smart .env Locator ---
+const localEnvPath = path.join(process.cwd(), '.env');
+const hostingerVaultPath = path.join(process.cwd(), '../.env'); // Looks one folder up!
+
+if (fs.existsSync(localEnvPath)) {
+    // If testing on your local computer, use the normal .env
+    dotenv.config({ path: localEnvPath }); 
+} else if (fs.existsSync(hostingerVaultPath)) {
+    // If on Hostinger and the local .env was wiped, use the safe vault
+    dotenv.config({ path: hostingerVaultPath }); 
+}
+// -----------------------------------
+
 const pool = mysql.createPool({
-    host: process.env.DB_HOST || '127.0.0.1', // Fallback to 127.0.0.1 just in case
+    host: process.env.DB_HOST || '127.0.0.1',
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
