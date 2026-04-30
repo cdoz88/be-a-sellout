@@ -6,6 +6,9 @@ import {
 } from "lucide-react";
 import { GlobalStyles, Header, Footer, RevealOnScroll } from "../../components/SharedUI";
 
+// Default SVG to use if no code is provided
+const DEFAULT_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>`;
+
 export default function FAQsPage() {
   const [data, setData] = useState({ fans: [], creators: [] });
   const [isLoading, setIsLoading] = useState(true);
@@ -28,8 +31,10 @@ export default function FAQsPage() {
     fetch('/api/faqs')
       .then(res => res.json())
       .then(json => {
-        setData(json);
-        if (json.fans && json.fans.length > 0) setActiveCategory(json.fans[0].id);
+        // Ensure data is always a valid object to prevent iterable errors
+        const safeData = json || { fans: [], creators: [] };
+        setData(safeData);
+        if (safeData.fans && safeData.fans.length > 0) setActiveCategory(safeData.fans[0].id);
         setIsLoading(false);
       })
       .catch(err => {
@@ -73,54 +78,65 @@ export default function FAQsPage() {
     setEditingCategory({
       id: "cat_" + Date.now(),
       title: "",
-      icon: "❓", // Default Emoji
+      icon: DEFAULT_SVG,
       isNew: true
     });
   };
 
   const handleEditCategory = (id) => {
-    const cat = data[activeMode].find(c => c.id === id);
-    setEditingCategory({ ...cat, isNew: false });
+    const safeData = data || { fans: [], creators: [] };
+    const modeData = safeData[activeMode] || [];
+    const cat = modeData.find(c => c.id === id);
+    if (cat) {
+      setEditingCategory({ ...cat, isNew: false });
+    }
   };
 
   const handleSaveCategory = () => {
     if (!editingCategory.title) { alert("Please enter a category title."); return; }
     
-    const currentModeData = [...data[activeMode]];
+    // Safely create a copy of the active mode array to prevent iterable errors
+    const safeData = data || { fans: [], creators: [] };
+    const currentModeData = [...(safeData[activeMode] || [])];
     
     if (editingCategory.isNew) {
       const { isNew, ...rest } = editingCategory;
       rest.faqs = []; 
       currentModeData.push(rest);
-      saveToServer({ ...data, [activeMode]: currentModeData });
+      saveToServer({ ...safeData, [activeMode]: currentModeData });
       setActiveCategory(rest.id);
     } else {
       const index = currentModeData.findIndex(c => c.id === editingCategory.id);
-      currentModeData[index] = { ...currentModeData[index], title: editingCategory.title, icon: editingCategory.icon };
-      saveToServer({ ...data, [activeMode]: currentModeData });
+      if (index !== -1) {
+        currentModeData[index] = { ...currentModeData[index], title: editingCategory.title, icon: editingCategory.icon };
+        saveToServer({ ...safeData, [activeMode]: currentModeData });
+      }
     }
     setEditingCategory(null);
   };
 
   const handleDeleteCategory = (id) => {
     if (!window.confirm("Are you sure you want to delete this category AND all its questions?")) return;
-    const newData = { ...data, [activeMode]: data[activeMode].filter(c => c.id !== id) };
+    const safeData = data || { fans: [], creators: [] };
+    const newData = { ...safeData, [activeMode]: (safeData[activeMode] || []).filter(c => c.id !== id) };
     saveToServer(newData);
-    if (activeCategory === id) setActiveCategory(newData[activeMode][0] ? newData[activeMode][0].id : null);
+    if (activeCategory === id) setActiveCategory(newData[activeMode] && newData[activeMode][0] ? newData[activeMode][0].id : null);
   };
 
   const moveCatUp = (index) => {
     if (index === 0) return;
-    const currentCats = [...data[activeMode]];
+    const safeData = data || { fans: [], creators: [] };
+    const currentCats = [...(safeData[activeMode] || [])];
     [currentCats[index - 1], currentCats[index]] = [currentCats[index], currentCats[index - 1]];
-    saveToServer({ ...data, [activeMode]: currentCats });
+    saveToServer({ ...safeData, [activeMode]: currentCats });
   };
 
   const moveCatDown = (index) => {
-    const currentCats = [...data[activeMode]];
+    const safeData = data || { fans: [], creators: [] };
+    const currentCats = [...(safeData[activeMode] || [])];
     if (index === currentCats.length - 1) return;
     [currentCats[index + 1], currentCats[index]] = [currentCats[index], currentCats[index + 1]];
-    saveToServer({ ...data, [activeMode]: currentCats });
+    saveToServer({ ...safeData, [activeMode]: currentCats });
   };
 
   // --- FAQ Management ---
@@ -130,24 +146,32 @@ export default function FAQsPage() {
 
   const handleSaveFaq = () => {
     if (!editingFaq.q || !editingFaq.a) { alert("Please fill out both Question and Answer."); return; }
-    const currentCats = [...data[activeMode]];
+    const safeData = data || { fans: [], creators: [] };
+    const currentCats = [...(safeData[activeMode] || [])];
     const catIndex = currentCats.findIndex(c => c.id === activeCategory);
-    if (editingFaq.isNew) {
-      const { isNew, ...rest } = editingFaq;
-      currentCats[catIndex].faqs.push(rest);
-    } else {
-      currentCats[catIndex].faqs = currentCats[catIndex].faqs.map(f => f.id === editingFaq.id ? editingFaq : f);
+    
+    if (catIndex !== -1) {
+      if (editingFaq.isNew) {
+        const { isNew, ...rest } = editingFaq;
+        currentCats[catIndex].faqs.push(rest);
+      } else {
+        currentCats[catIndex].faqs = currentCats[catIndex].faqs.map(f => f.id === editingFaq.id ? editingFaq : f);
+      }
+      saveToServer({ ...safeData, [activeMode]: currentCats });
     }
-    saveToServer({ ...data, [activeMode]: currentCats });
     setEditingFaq(null);
   };
 
   const handleDeleteFaq = (faqId) => {
     if (!window.confirm("Delete this FAQ?")) return;
-    const currentCats = [...data[activeMode]];
+    const safeData = data || { fans: [], creators: [] };
+    const currentCats = [...(safeData[activeMode] || [])];
     const catIndex = currentCats.findIndex(c => c.id === activeCategory);
-    currentCats[catIndex].faqs = currentCats[catIndex].faqs.filter(f => f.id !== faqId);
-    saveToServer({ ...data, [activeMode]: currentCats });
+    
+    if (catIndex !== -1) {
+      currentCats[catIndex].faqs = currentCats[catIndex].faqs.filter(f => f.id !== faqId);
+      saveToServer({ ...safeData, [activeMode]: currentCats });
+    }
   };
 
   const handleFaqDragStart = (e, index) => {
@@ -159,17 +183,20 @@ export default function FAQsPage() {
     e.preventDefault();
     if (draggedFaqIndex === null || draggedFaqIndex === index) return;
     
-    const currentCats = [...data[activeMode]];
+    const safeData = data || { fans: [], creators: [] };
+    const currentCats = [...(safeData[activeMode] || [])];
     const catIndex = currentCats.findIndex(c => c.id === activeCategory);
-    const faqs = [...currentCats[catIndex].faqs];
     
-    const draggedItem = faqs[draggedFaqIndex];
-    faqs.splice(draggedFaqIndex, 1);
-    faqs.splice(index, 0, draggedItem);
-    
-    currentCats[catIndex].faqs = faqs;
-    setData({ ...data, [activeMode]: currentCats });
-    setDraggedFaqIndex(index);
+    if (catIndex !== -1) {
+      const faqs = [...currentCats[catIndex].faqs];
+      const draggedItem = faqs[draggedFaqIndex];
+      faqs.splice(draggedFaqIndex, 1);
+      faqs.splice(index, 0, draggedItem);
+      
+      currentCats[catIndex].faqs = faqs;
+      setData({ ...safeData, [activeMode]: currentCats });
+      setDraggedFaqIndex(index);
+    }
   };
 
   const handleFaqDragEnd = () => {
@@ -179,7 +206,8 @@ export default function FAQsPage() {
 
   const handleModeSwitch = (mode) => {
     setActiveMode(mode);
-    setActiveCategory(data[mode][0] ? data[mode][0].id : null);
+    const modeData = data ? data[mode] : [];
+    setActiveCategory(modeData && modeData[0] ? modeData[0].id : null);
     setOpenAccordion(null);
     setSearchQuery("");
   };
@@ -208,19 +236,23 @@ export default function FAQsPage() {
     );
   }
 
-  const currentCategories = data[activeMode] || [];
+  const safeData = data || { fans: [], creators: [] };
+  const currentCategories = safeData[activeMode] || [];
   let displayedFaqs = [];
+  
   if (searchQuery.trim() !== "") {
     currentCategories.forEach(cat => {
-      cat.faqs.forEach(faq => {
-        if (faq.q.toLowerCase().includes(searchQuery.toLowerCase()) || faq.a.toLowerCase().includes(searchQuery.toLowerCase())) {
-          displayedFaqs.push({ ...faq, _catTitle: cat.title });
-        }
-      });
+      if (cat.faqs) {
+        cat.faqs.forEach(faq => {
+          if (faq.q.toLowerCase().includes(searchQuery.toLowerCase()) || faq.a.toLowerCase().includes(searchQuery.toLowerCase())) {
+            displayedFaqs.push({ ...faq, _catTitle: cat.title });
+          }
+        });
+      }
     });
   } else {
     const category = currentCategories.find(c => c.id === activeCategory);
-    if (category) displayedFaqs = category.faqs;
+    if (category && category.faqs) displayedFaqs = category.faqs;
   }
 
   return (
@@ -287,9 +319,10 @@ export default function FAQsPage() {
                           onClick={() => { setActiveCategory(category.id); setSearchQuery(""); setOpenAccordion(null); }}
                           className={"flex items-center gap-3 w-full text-left px-4 py-3 md:py-4 rounded-xl transition-all duration-200 whitespace-nowrap md:whitespace-normal font-bold text-sm " + (isActive ? "bg-[#1a1a1a] text-[#a3e635] border border-[#a3e635]/30 shadow-sm" : "text-gray-400 border border-transparent hover:bg-white/5 hover:text-white")}
                         >
-                          <span className={`${isActive ? "text-[#a3e635]" : "text-gray-500"} text-lg leading-none`}>
-                             {category.icon || "❓"}
-                          </span>
+                          <span 
+                            className={`${isActive ? "text-[#a3e635]" : "text-gray-500"} w-5 h-5 flex items-center justify-center shrink-0 [&>svg]:w-full [&>svg]:h-full`}
+                            dangerouslySetInnerHTML={{ __html: category.icon || DEFAULT_SVG }}
+                          />
                           <span className="truncate flex-1">{category.title}</span>
                         </button>
                         
@@ -423,16 +456,15 @@ export default function FAQsPage() {
               </div>
               
               <div>
-                <label className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-3 block">Icon Emoji</label>
-                <input 
-                  type="text" 
+                <label className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-2 block">Icon SVG Code</label>
+                <textarea 
+                  rows="4"
                   value={editingCategory.icon || ''} 
                   onChange={e => setEditingCategory({...editingCategory, icon: e.target.value})} 
-                  className="w-20 bg-black border border-white/10 rounded-xl px-4 py-3 text-2xl text-center text-white font-bold focus:border-[#a3e635] outline-none" 
-                  placeholder="❓"
-                  maxLength={4}
+                  className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-xs text-gray-400 font-mono focus:border-[#a3e635] outline-none resize-y" 
+                  placeholder="<svg>...</svg>"
                 />
-                <p className="text-[10px] text-gray-600 mt-2">Paste a single emoji here to represent this category (e.g. 🏈, 💰, 🛠️).</p>
+                <p className="text-[10px] text-gray-600 mt-2">Paste raw SVG code here. It will automatically size to fit.</p>
               </div>
             </div>
 
