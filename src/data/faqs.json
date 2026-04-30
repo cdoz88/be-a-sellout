@@ -8,7 +8,12 @@
         {
           "id": "f1",
           "q": "Does Sellout Crowds cost?",
-          "a": "Admission to Sellout Crowds is free! Now, if you want to be the main event, we have multiple levels that can be found on our <a href=\"/creators\" target=\"_blank\" class=\"text-[#a3e635] hover:underline\">Creators page</a>."
+          "a": "Admission to Sellout Crowds is free! If you want to be the main event, we have multiple levels that can be found on our <a href=\"/creators\" target=\"_blank\" class=\"text-[#a3e635] hover:underline\">Creators page</a>."
+        },
+        {
+          "id": "faq_1777501719214",
+          "q": "Why is my FanFeed Empty?",
+          "a": "Your FanFeed only shows content from the Crowds and Spaces that you join, so go out there and find your favorite teams, leagues and creators to join in on the action."
         }
       ]
     }
