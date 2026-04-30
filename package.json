@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.2",
+    "dotenv": "^17.4.2",
     "lucide-react": "^0.460.0",
     "mysql2": "^3.22.3",
     "next": "14.2.3",

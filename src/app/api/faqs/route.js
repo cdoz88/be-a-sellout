@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server';
 import mysql from 'mysql2/promise';
+import 'dotenv/config'; // <-- THIS IS THE FIX. It forces Node to read the .env file!
 
 // THIS LINE FIXES THE CACHING BUG: It forces Next.js to always read fresh from the database!
 export const dynamic = 'force-dynamic';
 
 // Connect to your Hostinger MySQL Database
 const pool = mysql.createPool({
-    host: process.env.DB_HOST,
+    host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
@@ -48,7 +49,10 @@ export async function GET() {
         return NextResponse.json(faqData);
     } catch (error) {
         console.error("Database GET Error:", error);
-        return NextResponse.json({ error: 'Failed to read from database' }, { status: 500 });
+        return NextResponse.json({ 
+            error: 'Failed to read from database', 
+            details: error.message 
+        }, { status: 500 });
     }
 }
 
@@ -63,6 +67,9 @@ export async function POST(request) {
         return NextResponse.json({ success: true });
     } catch (error) {
         console.error("Database POST Error:", error);
-        return NextResponse.json({ error: 'Failed to save to database' }, { status: 500 });
+        return NextResponse.json({ 
+            error: 'Failed to save to database', 
+            details: error.message 
+        }, { status: 500 });
     }
 }
