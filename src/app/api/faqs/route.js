@@ -3,12 +3,11 @@ import mysql from 'mysql2/promise';
 
 export const dynamic = 'force-dynamic';
 
-// HARDCODED TEST: Bypassing the .env file entirely
 const pool = mysql.createPool({
-    host: '127.0.0.1', // Usually 'localhost' or '127.0.0.1' on Hostinger
-    user: 'u577181692_sellout', // EXACT user from Hostinger panel
-    password: 'duhtw4$I4KB*ZxBi@bKVjw', // EXACT password
-    database: 'u577181692_faqs_db', // EXACT database name from Hostinger panel
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
