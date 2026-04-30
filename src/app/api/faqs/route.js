@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import mysql from 'mysql2/promise';
+import 'dotenv/config'; // Forces the custom server to read your secure .env vault
 
 export const dynamic = 'force-dynamic';
 
