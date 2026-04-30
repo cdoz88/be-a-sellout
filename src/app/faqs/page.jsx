@@ -3,12 +3,15 @@ import React, { useState, useRef, useEffect } from "react";
 import { 
   ChevronDown, MessageCircleQuestion, Search, Users, ShieldAlert, Zap, 
   LayoutDashboard, CreditCard, MonitorPlay, HelpCircle, 
-  Plus, Trash2, Pencil, Save, X, Bold, Italic, Link2, GripVertical, ChevronUp, Loader2
+  Plus, Trash2, Pencil, Save, X, Bold, Italic, Link2, GripVertical, ChevronUp, Loader2,
+  Star, Settings, Globe, Mail, Phone, ShoppingBag, Award, Info, FileText, Video, Camera
 } from "lucide-react";
 import { GlobalStyles, Header, Footer, RevealOnScroll } from "../../components/SharedUI";
 
+// We map string names to the actual components so we can safely save them as text in your JSON!
 const ICON_MAP = {
-  MessageCircleQuestion, Users, ShieldAlert, Zap, LayoutDashboard, CreditCard, MonitorPlay, HelpCircle
+  MessageCircleQuestion, Users, ShieldAlert, Zap, LayoutDashboard, CreditCard, MonitorPlay, HelpCircle,
+  Star, Settings, Globe, Mail, Phone, ShoppingBag, Award, Info, FileText, Video, Camera
 };
 
 export default function FAQsPage() {
@@ -23,39 +26,14 @@ export default function FAQsPage() {
   
   const [isAdmin, setIsAdmin] = useState(false);
   const [secretClickCount, setSecretClickCount] = useState(0);
+  
+  // Modals state
   const [editingFaq, setEditingFaq] = useState(null);
   const [editingCategory, setEditingCategory] = useState(null);
   const [draggedFaqIndex, setDraggedFaqIndex] = useState(null);
 
-  // 1. Fetch data from API or Migrate from Local Storage!
+  // 1. Fetch data from our API route on load
   useEffect(() => {
-    // AUTOMATIC MIGRATION: Check if they have old data saved in the browser
-    const legacyData = localStorage.getItem("soc_faqs_data");
-    
-    if (legacyData) {
-      try {
-        const parsedData = JSON.parse(legacyData);
-        // Save the old browser data to the new JSON file automatically
-        fetch('/api/faqs', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(parsedData)
-        }).then(() => {
-          // Clean up the browser storage so it relies on the file from now on
-          localStorage.removeItem("soc_faqs_data");
-          setData(parsedData);
-          if (parsedData.fans && parsedData.fans.length > 0) {
-            setActiveCategory(parsedData.fans[0].id);
-          }
-          setIsLoading(false);
-        });
-        return; // Stop here so we don't load the default JSON file over it
-      } catch(e) {
-        console.error("Migration failed", e);
-      }
-    }
-
-    // NORMAL LOAD: If no legacy browser data is found, load from the JSON file normally
     fetch('/api/faqs')
       .then(res => res.json())
       .then(json => {
