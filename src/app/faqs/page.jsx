@@ -24,38 +24,10 @@ export default function FAQsPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [secretClickCount, setSecretClickCount] = useState(0);
   const [editingFaq, setEditingFaq] = useState(null);
-  const [editingCategory, setEditingCategory] = useState(null);
   const [draggedFaqIndex, setDraggedFaqIndex] = useState(null);
 
-  // 1. Fetch data from API or Migrate from Local Storage!
+  // 1. Fetch data from our new API route on load
   useEffect(() => {
-    // AUTOMATIC MIGRATION: Check if they have old data saved in the browser
-    const legacyData = localStorage.getItem("soc_faqs_data");
-    
-    if (legacyData) {
-      try {
-        const parsedData = JSON.parse(legacyData);
-        // Save the old browser data to the new JSON file automatically
-        fetch('/api/faqs', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(parsedData)
-        }).then(() => {
-          // Clean up the browser storage so it relies on the file from now on
-          localStorage.removeItem("soc_faqs_data");
-          setData(parsedData);
-          if (parsedData.fans && parsedData.fans.length > 0) {
-            setActiveCategory(parsedData.fans[0].id);
-          }
-          setIsLoading(false);
-        });
-        return; // Stop here so we don't load the default JSON file over it
-      } catch(e) {
-        console.error("Migration failed", e);
-      }
-    }
-
-    // NORMAL LOAD: If no legacy browser data is found, load from the JSON file normally
     fetch('/api/faqs')
       .then(res => res.json())
       .then(json => {
@@ -104,36 +76,20 @@ export default function FAQsPage() {
 
   // --- Category Management ---
   const handleAddCategory = () => {
-    setEditingCategory({
-      id: "cat_" + Date.now(),
-      title: "",
-      icon: "HelpCircle", // Default icon
-      isNew: true
-    });
+    const title = window.prompt("Enter Category Title:");
+    if (!title) return;
+    const newCat = { id: "cat_" + Date.now(), icon: "HelpCircle", title: title, faqs: [] };
+    const newData = { ...data, [activeMode]: [...data[activeMode], newCat] };
+    saveToServer(newData);
+    setActiveCategory(newCat.id);
   };
 
   const handleEditCategory = (id) => {
     const cat = data[activeMode].find(c => c.id === id);
-    setEditingCategory({ ...cat, isNew: false });
-  };
-
-  const handleSaveCategory = () => {
-    if (!editingCategory.title) { alert("Please enter a category title."); return; }
-    
-    const currentModeData = [...data[activeMode]];
-    
-    if (editingCategory.isNew) {
-      const { isNew, ...rest } = editingCategory;
-      rest.faqs = []; // New categories start with no faqs
-      currentModeData.push(rest);
-      saveToServer({ ...data, [activeMode]: currentModeData });
-      setActiveCategory(rest.id);
-    } else {
-      const index = currentModeData.findIndex(c => c.id === editingCategory.id);
-      currentModeData[index] = { ...currentModeData[index], title: editingCategory.title, icon: editingCategory.icon };
-      saveToServer({ ...data, [activeMode]: currentModeData });
-    }
-    setEditingCategory(null);
+    const newTitle = window.prompt("Edit Category Title:", cat.title);
+    if (!newTitle) return;
+    const newData = { ...data, [activeMode]: data[activeMode].map(c => c.id === id ? { ...c, title: newTitle } : c) };
+    saveToServer(newData);
   };
 
   const handleDeleteCategory = (id) => {
@@ -435,57 +391,7 @@ export default function FAQsPage() {
 
       <Footer />
 
-      {/* ADMIN EDIT CATEGORY MODAL */}
-      {isAdmin && editingCategory && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-[#111] border border-gray-800 rounded-3xl w-full max-w-lg shadow-2xl flex flex-col overflow-hidden">
-            <div className="p-6 border-b border-white/5 flex justify-between items-center bg-[#0a0a0a]">
-              <h3 className="text-xl font-black uppercase text-white">{editingCategory.isNew ? "Add Category" : "Edit Category"}</h3>
-              <button onClick={() => setEditingCategory(null)} className="text-gray-500 hover:text-white"><X size={20}/></button>
-            </div>
-            
-            <div className="p-6 space-y-6">
-              <div>
-                <label className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-2 block">Category Title</label>
-                <input 
-                  type="text" 
-                  value={editingCategory.title} 
-                  onChange={e => setEditingCategory({...editingCategory, title: e.target.value})} 
-                  className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-sm text-white font-bold focus:border-[#a3e635] outline-none" 
-                  placeholder="e.g. Monetization & Stripe"
-                />
-              </div>
-              
-              <div>
-                <label className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-3 block">Select an Icon</label>
-                <div className="grid grid-cols-5 sm:grid-cols-6 gap-3">
-                  {Object.keys(ICON_MAP).map(iconName => {
-                    const IconComp = ICON_MAP[iconName];
-                    const isSelected = editingCategory.icon === iconName;
-                    return (
-                      <button
-                        key={iconName}
-                        onClick={() => setEditingCategory({...editingCategory, icon: iconName})}
-                        className={`flex items-center justify-center p-3 rounded-xl border transition-all ${isSelected ? 'bg-[#a3e635] text-black border-[#a3e635] shadow-lg shadow-[#a3e635]/20 scale-110 z-10' : 'bg-black border-white/10 text-gray-400 hover:border-white/30 hover:text-white'}`}
-                        title={iconName}
-                      >
-                        <IconComp size={20} />
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            <div className="p-6 border-t border-white/5 flex justify-end gap-3 bg-[#0a0a0a]">
-              <button onClick={() => setEditingCategory(null)} className="px-6 py-3 text-gray-400 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors">Cancel</button>
-              <button onClick={handleSaveCategory} className="px-8 py-3 bg-[#a3e635] text-black rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-white transition-colors flex items-center gap-2"><Save size={14}/> Save Category</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ADMIN EDIT FAQ MODAL */}
+      {/* ADMIN EDIT MODAL */}
       {isAdmin && editingFaq && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-[#111] border border-gray-800 rounded-3xl w-full max-w-2xl shadow-2xl flex flex-col overflow-hidden">
