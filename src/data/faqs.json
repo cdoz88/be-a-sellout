@@ -9,70 +9,6 @@
           "id": "f1",
           "q": "Does Sellout Crowds cost?",
           "a": "Admission to Sellout Crowds is free! Now, if you want to be the main event, we have multiple levels that can be found on our <a href=\"/creators\" target=\"_blank\" class=\"text-[#a3e635] hover:underline\">Creators page</a>."
-        },
-        {
-          "id": "f2",
-          "q": "Why is my FanFeed empty?",
-          "a": "Your FanFeed only shows content from the Crowds you join, so go out there and find your favorite teams, leagues and creators to join in on the action."
-        },
-        {
-          "id": "f3",
-          "q": "What is a Crowd?",
-          "a": "Crowds are communities dedicated to a sport, league, event, creator, or brand. there are many free Crowds for users to join for general interaction, news and information. There are also paid, subscription-based Crowds that users can join to connect with their favorite brands and creators."
-        },
-        {
-          "id": "f4",
-          "q": "Who can create a Crowd?",
-          "a": "Crowds can be created by users that upgrade their account to one of our creator packages. Free users are not able to create Crowds….but they can join as many as they like!"
-        },
-        {
-          "id": "f5",
-          "q": "What are Spaces?",
-          "a": "Spaces are groups within Crowds for more focused conversation or more exclusive access."
-        },
-        {
-          "id": "f6",
-          "q": "Who can post content?",
-          "a": "Articles, videos, and podcasts can be posted by Crowd owners and teammates. Fans can find their seats and enjoy the show."
-        },
-        {
-          "id": "f7",
-          "q": "Can I sync my fantasy teams?",
-          "a": "Yes, users can sync their fantasy team scores to the scoreboard. Only Sleeper football leagues are available at the moment with plans to expand into more sports and platforms in the near future."
-        },
-        {
-          "id": "f8",
-          "q": "Who can create Spaces?",
-          "a": "Anyone can create a Space! Fans can create Spaces within all of the free, public Crowds of their favorite leagues and teams. Content Creators can create those Spaces, too, but they can also create Spaces within their own Crowds to help organize topics or audiences."
-        }
-      ]
-    },
-    {
-      "id": "account",
-      "icon": "Users",
-      "title": "Account & Profile",
-      "faqs": [
-        {
-          "id": "f9",
-          "q": "How do I reset my password?",
-          "a": "You can easily reset your password from the login screen by clicking the 'Forgot Password' link. We'll send a secure reset link directly to your registered email address."
-        },
-        {
-          "id": "f10",
-          "q": "How do I edit my profile information?",
-          "a": "Once logged in, click on your avatar in the top right corner and navigate to 'Settings'. From there, you can update your bio, profile picture, and display name."
-        }
-      ]
-    },
-    {
-      "id": "safety",
-      "icon": "ShieldAlert",
-      "title": "Safety & Privacy",
-      "faqs": [
-        {
-          "id": "f11",
-          "q": "How do I report inappropriate content?",
-          "a": "We take community safety seriously. If you see a post or comment that violates our guidelines, click the three dots (...) next to the content and select 'Report'. Our moderation team will review it immediately."
         }
       ]
     }
@@ -87,67 +23,6 @@
           "id": "c1",
           "q": "How do I upgrade to a Creator account?",
           "a": "Head over to the Creators page and select the pricing tier that fits your needs. Once you complete the checkout process, your account will instantly be upgraded with all your new tools."
-        }
-      ]
-    },
-    {
-      "id": "customization",
-      "icon": "LayoutDashboard",
-      "title": "Customize Your Space",
-      "faqs": [
-        {
-          "id": "c2",
-          "q": "How do I add a Brand Badge?",
-          "a": "Upload your custom logo in the Creator Hub settings. Your Brand Badge will appear next to your name globally across the platform, letting fans know you're an official creator."
-        },
-        {
-          "id": "c3",
-          "q": "How can I add or remove tabs in my Crowd?",
-          "a": "You can completely customize your Crowd's layout from the Creator Hub. Choose which tabs (like Spaces, Leaderboards, or specific Content feeds) are visible to your fans."
-        },
-        {
-          "id": "c4",
-          "q": "Can I hide or show fans on the leaderboard?",
-          "a": "Yes! You have full control over the privacy of your leaderboards in the settings menu. You can make them completely public, private, or hide specific elements."
-        }
-      ]
-    },
-    {
-      "id": "monetization",
-      "icon": "CreditCard",
-      "title": "Monetization & Stripe",
-      "faqs": [
-        {
-          "id": "c5",
-          "q": "How do I connect my Stripe account?",
-          "a": "You can securely connect your existing Stripe account through your Creator Dashboard under the Monetization tab. We use official Stripe APIs to ensure all transactions are routed safely directly to you."
-        },
-        {
-          "id": "c6",
-          "q": "What is a Stripe Webhook and do I need it?",
-          "a": "Stripe webhooks can be configured in your Creator Hub. This ensures your Crowd perfectly syncs with fan payments in real-time, automatically granting or revoking access based on subscription status."
-        },
-        {
-          "id": "c7",
-          "q": "How do I place ads and offers in my Crowd?",
-          "a": "As a Creator, you own your ad space! You can inject custom banner ads, affiliate links, and sponsored content directly into your Crowd's feed from the Ad Management tool in your Hub."
-        }
-      ]
-    },
-    {
-      "id": "integrations",
-      "icon": "MonitorPlay",
-      "title": "YouTube & Integrations",
-      "faqs": [
-        {
-          "id": "c8",
-          "q": "How do I add a YouTube Playlist?",
-          "a": "Start syncing your YouTube content and automatically post videos by adding your channel link and Playlist ID directly into the Integrations tab in your Creator Hub."
-        },
-        {
-          "id": "c9",
-          "q": "Where do I get my YouTube API Key?",
-          "a": "Your YouTube API Key is needed to allow us to securely fetch your videos. You can generate one for free from the Google Cloud Console. Check out our detailed guide in the Creator Hub for step-by-step instructions."
         }
       ]
     }
