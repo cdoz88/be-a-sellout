@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server';
 import mysql from 'mysql2/promise';
-import 'dotenv/config'; // Forces the custom server to read your secure .env vault
+import 'dotenv/config'; // This forces the server to read the hidden .env file
 
 export const dynamic = 'force-dynamic';
 
 const pool = mysql.createPool({
-    host: process.env.DB_HOST,
+    host: process.env.DB_HOST || '127.0.0.1', // Fallback to 127.0.0.1 just in case
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
