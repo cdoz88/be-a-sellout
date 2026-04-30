@@ -28,10 +28,10 @@ export default function FAQsPage() {
   const [draggedFaqIndex, setDraggedFaqIndex] = useState(null);
 
   useEffect(() => {
-    fetch('/api/faqs')
+    // FIX: Added a timestamp to the URL and cache:'no-store' to guarantee fresh data
+    fetch(`/api/faqs?t=${Date.now()}`, { cache: 'no-store' })
       .then(res => res.json())
       .then(json => {
-        // Ensure data is always a valid object to prevent iterable errors
         const safeData = json || { fans: [], creators: [] };
         setData(safeData);
         if (safeData.fans && safeData.fans.length > 0) setActiveCategory(safeData.fans[0].id);
