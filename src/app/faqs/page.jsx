@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { GlobalStyles, Header, Footer, RevealOnScroll } from "../../components/SharedUI";
 
-// We map string names to the actual components so we can safely save them as text in your JSON!
+// We map string names to the actual components so we can safely save them as text in your JSON
 const ICON_MAP = {
   MessageCircleQuestion, Users, ShieldAlert, Zap, LayoutDashboard, CreditCard, MonitorPlay, HelpCircle,
   Star, Settings, Globe, Mail, Phone, ShoppingBag, Award, Info, FileText, Video, Camera
