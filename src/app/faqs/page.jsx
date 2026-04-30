@@ -1,15 +1,10 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { 
-  ChevronDown, MessageCircleQuestion, Search, Users, ShieldAlert, Zap, 
-  LayoutDashboard, CreditCard, MonitorPlay, HelpCircle, 
+  ChevronDown, MessageCircleQuestion, Search, 
   Plus, Trash2, Pencil, Save, X, Bold, Italic, Link2, GripVertical, ChevronUp, Loader2
 } from "lucide-react";
 import { GlobalStyles, Header, Footer, RevealOnScroll } from "../../components/SharedUI";
-
-const ICON_MAP = {
-  MessageCircleQuestion, Users, ShieldAlert, Zap, LayoutDashboard, CreditCard, MonitorPlay, HelpCircle
-};
 
 export default function FAQsPage() {
   const [data, setData] = useState({ fans: [], creators: [] });
@@ -23,18 +18,18 @@ export default function FAQsPage() {
   
   const [isAdmin, setIsAdmin] = useState(false);
   const [secretClickCount, setSecretClickCount] = useState(0);
+  
+  // Modals state
   const [editingFaq, setEditingFaq] = useState(null);
+  const [editingCategory, setEditingCategory] = useState(null);
   const [draggedFaqIndex, setDraggedFaqIndex] = useState(null);
 
-  // 1. Fetch data from our new API route on load
   useEffect(() => {
     fetch('/api/faqs')
       .then(res => res.json())
       .then(json => {
         setData(json);
-        if (json.fans && json.fans.length > 0) {
-          setActiveCategory(json.fans[0].id);
-        }
+        if (json.fans && json.fans.length > 0) setActiveCategory(json.fans[0].id);
         setIsLoading(false);
       })
       .catch(err => {
@@ -43,7 +38,6 @@ export default function FAQsPage() {
       });
   }, []);
 
-  // 2. Save data to our API route
   const saveToServer = async (newData) => {
     setIsSaving(true);
     try {
@@ -76,20 +70,36 @@ export default function FAQsPage() {
 
   // --- Category Management ---
   const handleAddCategory = () => {
-    const title = window.prompt("Enter Category Title:");
-    if (!title) return;
-    const newCat = { id: "cat_" + Date.now(), icon: "HelpCircle", title: title, faqs: [] };
-    const newData = { ...data, [activeMode]: [...data[activeMode], newCat] };
-    saveToServer(newData);
-    setActiveCategory(newCat.id);
+    setEditingCategory({
+      id: "cat_" + Date.now(),
+      title: "",
+      icon: "❓", // Default Emoji
+      isNew: true
+    });
   };
 
   const handleEditCategory = (id) => {
     const cat = data[activeMode].find(c => c.id === id);
-    const newTitle = window.prompt("Edit Category Title:", cat.title);
-    if (!newTitle) return;
-    const newData = { ...data, [activeMode]: data[activeMode].map(c => c.id === id ? { ...c, title: newTitle } : c) };
-    saveToServer(newData);
+    setEditingCategory({ ...cat, isNew: false });
+  };
+
+  const handleSaveCategory = () => {
+    if (!editingCategory.title) { alert("Please enter a category title."); return; }
+    
+    const currentModeData = [...data[activeMode]];
+    
+    if (editingCategory.isNew) {
+      const { isNew, ...rest } = editingCategory;
+      rest.faqs = []; 
+      currentModeData.push(rest);
+      saveToServer({ ...data, [activeMode]: currentModeData });
+      setActiveCategory(rest.id);
+    } else {
+      const index = currentModeData.findIndex(c => c.id === editingCategory.id);
+      currentModeData[index] = { ...currentModeData[index], title: editingCategory.title, icon: editingCategory.icon };
+      saveToServer({ ...data, [activeMode]: currentModeData });
+    }
+    setEditingCategory(null);
   };
 
   const handleDeleteCategory = (id) => {
@@ -140,7 +150,6 @@ export default function FAQsPage() {
     saveToServer({ ...data, [activeMode]: currentCats });
   };
 
-  // --- Drag and Drop Logic ---
   const handleFaqDragStart = (e, index) => {
     setDraggedFaqIndex(index);
     e.dataTransfer.effectAllowed = 'move';
@@ -165,7 +174,7 @@ export default function FAQsPage() {
 
   const handleFaqDragEnd = () => {
     setDraggedFaqIndex(null);
-    saveToServer(data); // Save the new order to the backend!
+    saveToServer(data);
   };
 
   const handleModeSwitch = (mode) => {
@@ -271,7 +280,6 @@ export default function FAQsPage() {
                 <div className="bg-[#111] border border-gray-800 rounded-3xl p-2 md:p-4 flex flex-row md:flex-col overflow-x-auto no-scrollbar shadow-xl gap-2">
                   
                   {currentCategories.map((category, index) => {
-                    const IconComp = ICON_MAP[category.icon] || HelpCircle;
                     const isActive = activeCategory === category.id && searchQuery === "";
                     return (
                       <div key={category.id} className="relative group flex items-center">
@@ -279,7 +287,9 @@ export default function FAQsPage() {
                           onClick={() => { setActiveCategory(category.id); setSearchQuery(""); setOpenAccordion(null); }}
                           className={"flex items-center gap-3 w-full text-left px-4 py-3 md:py-4 rounded-xl transition-all duration-200 whitespace-nowrap md:whitespace-normal font-bold text-sm " + (isActive ? "bg-[#1a1a1a] text-[#a3e635] border border-[#a3e635]/30 shadow-sm" : "text-gray-400 border border-transparent hover:bg-white/5 hover:text-white")}
                         >
-                          <span className={isActive ? "text-[#a3e635]" : "text-gray-500"}><IconComp size={18}/></span>
+                          <span className={`${isActive ? "text-[#a3e635]" : "text-gray-500"} text-lg leading-none`}>
+                             {category.icon || "❓"}
+                          </span>
                           <span className="truncate flex-1">{category.title}</span>
                         </button>
                         
@@ -391,7 +401,50 @@ export default function FAQsPage() {
 
       <Footer />
 
-      {/* ADMIN EDIT MODAL */}
+      {/* ADMIN EDIT CATEGORY MODAL */}
+      {isAdmin && editingCategory && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-[#111] border border-gray-800 rounded-3xl w-full max-w-lg shadow-2xl flex flex-col overflow-hidden">
+            <div className="p-6 border-b border-white/5 flex justify-between items-center bg-[#0a0a0a]">
+              <h3 className="text-xl font-black uppercase text-white">{editingCategory.isNew ? "Add Category" : "Edit Category"}</h3>
+              <button onClick={() => setEditingCategory(null)} className="text-gray-500 hover:text-white"><X size={20}/></button>
+            </div>
+            
+            <div className="p-6 space-y-6">
+              <div>
+                <label className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-2 block">Category Title</label>
+                <input 
+                  type="text" 
+                  value={editingCategory.title} 
+                  onChange={e => setEditingCategory({...editingCategory, title: e.target.value})} 
+                  className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-sm text-white font-bold focus:border-[#a3e635] outline-none" 
+                  placeholder="e.g. Monetization & Stripe"
+                />
+              </div>
+              
+              <div>
+                <label className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-3 block">Icon Emoji</label>
+                <input 
+                  type="text" 
+                  value={editingCategory.icon || ''} 
+                  onChange={e => setEditingCategory({...editingCategory, icon: e.target.value})} 
+                  className="w-20 bg-black border border-white/10 rounded-xl px-4 py-3 text-2xl text-center text-white font-bold focus:border-[#a3e635] outline-none" 
+                  placeholder="❓"
+                  maxLength={4}
+                />
+                <p className="text-[10px] text-gray-600 mt-2">Paste a single emoji here to represent this category (e.g. 🏈, 💰, 🛠️).</p>
+              </div>
+            </div>
+
+            <div className="p-6 border-t border-white/5 flex justify-end gap-3 bg-[#0a0a0a]">
+              <button onClick={() => setEditingCategory(null)} className="px-6 py-3 text-gray-400 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors">Cancel</button>
+              <button onClick={handleSaveCategory} className="px-8 py-3 bg-[#a3e635] text-black rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-white transition-colors flex items-center gap-2"><Save size={14}/> Save Category</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ADMIN EDIT FAQ MODAL */}
       {isAdmin && editingFaq && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-[#111] border border-gray-800 rounded-3xl w-full max-w-2xl shadow-2xl flex flex-col overflow-hidden">
