@@ -9,75 +9,20 @@ export const ASSETS = {
   logo: "https://admin.beasellout.com/wp-content/uploads/2025/04/Logo.png"
 };
 
+// RESTORED: Clean, scalable UserBrushSVG (Underline)
 export const UserBrushSVG = ({ className = "" }) => (
-  <svg id="b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 277.38 22.32" className={className} preserveAspectRatio="none">
-    <g id="c">
-      <path d="M56.14,16.17c-.15.06-.41.09-.72.12.07-.08.47-.17.72-.12Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M44.27,8.22c-.22.06-.91.2-.85.04.39-.05.56-.03.85-.04Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M43.05,8.13c-.05.08-.6.06-.85.11,0-.09.69-.14.85-.11Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M39.78,9.81c-.17.06-.63.15-.85.11.05-.08.6-.06.85-.11Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M38.09,8.53c-.28.11-.78.19-1.45.23.23-.12.93-.17,1.45-.23Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M34.58,15.99c-.74.08-2.23.36-2.77.27.91,0,1.93-.26,2.77-.27Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M32.28,13.12c-.9.28-2.58.24-3.74.49-.18-.14,1.73-.2,2.05-.36.28-.02.5,0,.72,0,.33-.05.62-.18.97-.13Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M20.92,13.85c.03.08-.04.14-.36.17-.09-.02-.13-.06-.12-.12l.48-.05Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M16.35,15.47c-.73.23-2.43.42-3.38.43-.12.04-.12.09-.36.11-.56.09-1.82.18-.6.04,1.49-.29,2.69-.32,4.34-.57Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M15.6,13.92c-.17.07-.47.12-.84.15.08-.09.7-.17.84-.15Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M14.95,18.26c-.13.09-.76.09-1.08.15.23-.07.81-.19,1.08-.15Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M14.77,14.56c-.29.12-.96.17-1.32.27-.34-.09.87-.21,1.32-.27Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M14.16,14.17c-.23.12-.93.18-1.45.26.3-.11.98-.18,1.45-.26Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M13.88,19.16c-.03.11-.5.16-.84.23.06-.11.55-.15.84-.23Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M13.26,18.45c-.38.14-1.73.27-2.4.34.84-.18,1.48-.25,2.4-.34Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M12.47,14.46c-.6.22-1.53.22-2.05.26.56-.15,1.41-.1,2.05-.26Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M11.05,16.15c-.23.08-.63.14-.96.21-.08-.13.56-.15.96-.21Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M9.96,15.95c-.28.11-.54.11-.96.14.09-.08.68-.09.96-.14Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M8.87,15.68c-.12.1-1.03.23-.85.03.26-.04.23.02.24.07.29-.02.26-.09.6-.1Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M6.63,18.45c.58-.2,1.62-.13,0,0h0Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M5.46,19.79c-.49.13-.97.17-1.56.22.36-.09,1.31-.22,1.56-.22Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M5.11,20.03c.19.08-.78.19-.6.07l.6-.07Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M4.2,21.87c-.16.09-.54.15-.83.17.08-.09.69-.18.83-.17Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M.86,22.15c-.96.28-1.33.17,0,0h0Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M27.84,19.05c-.2.06-.47.11-.6.19-.39-.09-1.05.09-1.56.09.6-.21,1.28-.09,2.17-.27Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M14.09,17.76c-.29.05-.26-.03-.6.04-.04-.05.11-.07.12-.11-.6.05-.93.14-1.44.2.06-.03.12-.07.12-.11-.66.25-1.48.08-2.89.33,1.33-.34,4.35-.58,5.53-.75-.16.14-1.21.15-1.32.31-.02.1.67-.06.48.11Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M12.48,14.88c-.14.02-.07.04,0,.03-.03.08-.53.08-.6.07.14-.11,1.74-.25.6-.1Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M3.56,16.33v-.13c-.77.11-2,.29-2.54.24.9-.21,2.86-.23,3.49-.52.16.01.45-.02.6,0,2.1-.47,4.44-.52,6.63-.92-.95.46-3.25.26-4.34.75-.19,0,0-.03.12-.05-.98.12-2.74.26-3.97.63Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M4.88,20.32c-.18.08-.51.14-.71.22-.11,0,.46-.27.71-.22Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-    </g>
+  <svg viewBox="0 0 300 20" className={className} preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2,10 Q50,4 150,10 T298,8 Q200,16 100,14 T2,10 Z" fill="currentColor" />
+    <path d="M5,14 Q60,6 160,12 T290,12 Q180,20 80,16 T5,14 Z" fill="currentColor" opacity="0.6"/>
+    <path d="M15,8 Q70,2 170,8 T280,6 Q190,14 90,10 T15,8 Z" fill="currentColor" opacity="0.4"/>
   </svg>
 );
 
+// RESTORED: Clean, scalable ScratchSVG (Cross-out scribble)
 export const ScratchSVG = ({ className = "" }) => (
-  <svg id="b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 277.38 22.32" className={className} preserveAspectRatio="none">
-    <g id="c">
-      <path d="M56.14,16.17c-.15.06-.41.09-.72.12.07-.08.47-.17.72-.12Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M44.27,8.22c-.22.06-.91.2-.85.04.39-.05.56-.03.85-.04Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M43.05,8.13c-.05.08-.6.06-.85.11,0-.09.69-.14.85-.11Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M39.78,9.81c-.17.06-.63.15-.85.11.05-.08.6-.06.85-.11Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M38.09,8.53c-.28.11-.78.19-1.45.23.23-.12.93-.17,1.45-.23Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M34.58,15.99c-.74.08-2.23.36-2.77.27.91,0,1.93-.26,2.77-.27Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M32.28,13.12c-.9.28-2.58.24-3.74.49-.18-.14,1.73-.2,2.05-.36.28-.02.5,0,.72,0,.33-.05.62-.18.97-.13Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M20.92,13.85c.03.08-.04.14-.36.17-.09-.02-.13-.06-.12-.12l.48-.05Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M16.35,15.47c-.73.23-2.43.42-3.38.43-.12.04-.12.09-.36.11-.56.09-1.82.18-.6.04,1.49-.29,2.69-.32,4.34-.57Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M15.6,13.92c-.17.07-.47.12-.84.15.08-.09.7-.17.84-.15Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M14.95,18.26c-.13.09-.76.09-1.08.15.23-.07.81-.19,1.08-.15Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M14.77,14.56c-.29.12-.96.17-1.32.27-.34-.09.87-.21,1.32-.27Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M14.16,14.17c-.23.12-.93.18-1.45.26.3-.11.98-.18,1.45-.26Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M13.88,19.16c-.03.11-.5.16-.84.23.06-.11.55-.15.84-.23Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M13.26,18.45c-.38.14-1.73.27-2.4.34.84-.18,1.48-.25,2.4-.34Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M12.47,14.46c-.6.22-1.53.22-2.05.26.56-.15,1.41-.1,2.05-.26Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M11.05,16.15c-.23.08-.63.14-.96.21-.08-.13.56-.15.96-.21Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M9.96,15.95c-.28.11-.54.11-.96.14.09-.08.68-.09.96-.14Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M8.87,15.68c-.12.1-1.03.23-.85.03.26-.04.23.02.24.07.29-.02.26-.09.6-.1Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M6.63,18.45c.58-.2,1.62-.13,0,0h0Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M5.46,19.79c-.49.13-.97.17-1.56.22.36-.09,1.31-.22,1.56-.22Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M5.11,20.03c.19.08-.78.19-.6.07l.6-.07Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M4.2,21.87c-.16.09-.54.15-.83.17.08-.09.69-.18.83-.17Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M.86,22.15c-.96.28-1.33.17,0,0h0Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M27.84,19.05c-.2.06-.47.11-.6.19-.39-.09-1.05.09-1.56.09.6-.21,1.28-.09,2.17-.27Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M14.09,17.76c-.29.05-.26-.03-.6.04-.04-.05.11-.07.12-.11-.6.05-.93.14-1.44.2.06-.03.12-.07.12-.11-.66.25-1.48.08-2.89.33,1.33-.34,4.35-.58,5.53-.75-.16.14-1.21.15-1.32.31-.02.1.67-.06.48.11Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M12.48,14.88c-.14.02-.07.04,0,.03-.03.08-.53.08-.6.07.14-.11,1.74-.25.6-.1Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M3.56,16.33v-.13c-.77.11-2,.29-2.54.24.9-.21,2.86-.23,3.49-.52.16.01.45-.02.6,0,2.1-.47,4.44-.52,6.63-.92-.95.46-3.25.26-4.34.75-.19,0,0-.03.12-.05-.98.12-2.74.26-3.97.63Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-      <path d="M4.88,20.32c-.18.08-.51.14-.71.22-.11,0,.46-.27.71-.22Z" style={{fill:'#9df01c', fillRule:'evenodd'}}/>
-    </g>
+  <svg viewBox="0 0 300 30" className={className} preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5,15 L35,5 L65,25 L95,5 L125,25 L155,5 L185,25 L215,5 L245,25 L275,5 L295,15 L275,10 L245,30 L215,10 L185,30 L155,10 L125,30 L95,10 L65,30 L35,10 Z" fill="currentColor" />
+    <path d="M10,18 L40,8 L70,28 L100,8 L130,28 L160,8 L190,28 L220,8 L250,28 L280,8 L290,18 L280,12 L250,32 L220,12 L190,32 L160,12 L130,32 L100,12 L70,32 L40,12 Z" fill="currentColor" opacity="0.5"/>
   </svg>
 );
 
@@ -177,6 +122,7 @@ export const FeatureModal = ({ feature, onClose }) => {
          
          <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-2 leading-none uppercase">{feature.title}</h3>
          
+         {/* Added Coming Soon badge explicitly inside the modal */}
          {feature.soon && (
             <div className="mb-4">
               <span className="inline-block text-[10px] font-black uppercase tracking-widest text-black bg-[#a3e635] px-3 py-1 rounded-full shadow-[0_0_15px_rgba(163,230,53,0.3)]">
@@ -258,7 +204,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 w-full z-50 pointer-events-none transition-all duration-300 ${isScrolled ? 'bg-[#050505]/80 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-5'}`}>
+    <header className={`fixed top-0 w-full z-50 pointer-events-none transition-all duration-300 ${isScrolled ? 'bg-[#050505]/95 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-5'}`}>
       <div className={`w-full px-6 md:px-12 flex justify-between items-center ${isFunnel ? 'opacity-0 translate-y-[-10px]' : 'opacity-100 translate-y-0'} transition-all duration-500 pointer-events-auto`}>
         
         <div className="flex items-center gap-8">
