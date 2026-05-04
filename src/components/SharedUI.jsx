@@ -4,74 +4,23 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
+// IMPORT ALL YOUR ICONS FROM THE NEW FILE!
+import { 
+  UserBrushSVG, 
+  ScratchSVG, 
+  DiscordSVG, 
+  FacebookSVG, 
+  PatreonSVG, 
+  RedditSVG, 
+  AppStoreSVG, 
+  GooglePlaySVG, 
+  WordpressSVG 
+} from './Icons';
+
 export const ASSETS = {
   heroVideo: "https://admin.beasellout.com/wp-content/uploads/2025/08/All-Sports.mp4",
   logo: "https://admin.beasellout.com/wp-content/uploads/2025/04/Logo.png"
 };
-
-// RESTORED: Clean, scalable UserBrushSVG (Underline)
-export const UserBrushSVG = ({ className = "" }) => (
-  <svg viewBox="0 0 300 20" className={className} preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M2,10 Q50,4 150,10 T298,8 Q200,16 100,14 T2,10 Z" fill="currentColor" />
-    <path d="M5,14 Q60,6 160,12 T290,12 Q180,20 80,16 T5,14 Z" fill="currentColor" opacity="0.6"/>
-    <path d="M15,8 Q70,2 170,8 T280,6 Q190,14 90,10 T15,8 Z" fill="currentColor" opacity="0.4"/>
-  </svg>
-);
-
-// RESTORED: Clean, scalable ScratchSVG (Cross-out scribble)
-export const ScratchSVG = ({ className = "" }) => (
-  <svg viewBox="0 0 300 30" className={className} preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M5,15 L35,5 L65,25 L95,5 L125,25 L155,5 L185,25 L215,5 L245,25 L275,5 L295,15 L275,10 L245,30 L215,10 L185,30 L155,10 L125,30 L95,10 L65,30 L35,10 Z" fill="currentColor" />
-    <path d="M10,18 L40,8 L70,28 L100,8 L130,28 L160,8 L190,28 L220,8 L250,28 L280,8 L290,18 L280,12 L250,32 L220,12 L190,32 L160,12 L130,32 L100,12 L70,32 L40,12 Z" fill="currentColor" opacity="0.5"/>
-  </svg>
-);
-
-export const DiscordSVG = ({ size = 24, className = "" }) => (
-  <svg viewBox="0 0 512 512" width={size} height={size} className={className} fill="currentColor">
-    <path d="M433.43,93.222c-32.633-14.973-67.627-26.005-104.216-32.324c-0.666-0.122-1.332,0.183-1.675,0.792c-4.501,8.005-9.486,18.447-12.977,26.655c-39.353-5.892-78.505-5.892-117.051,0c-3.492-8.39-8.658-18.65-13.179-26.655c-0.343-0.589-1.009-0.894-1.675-0.792c-36.568,6.298-71.562,17.33-104.216,32.324c-0.283,0.122-0.525,0.325-0.686,0.589c-66.376,99.165-84.56,195.893-75.64,291.421c0.04,0.467,0.303,0.914,0.666,1.198c43.793,32.161,86.215,51.685,127.848,64.627c0.666,0.203,1.372-0.04,1.796-0.589c9.848-13.449,18.627-27.63,26.154-42.543c0.444-0.873,0.02-1.909-0.888-2.255c-13.925-5.282-27.184-11.723-39.939-19.036c-1.009-0.589-1.09-2.032-0.161-2.723c2.684-2.011,5.369-4.104,7.932-6.217c0.464-0.386,1.11-0.467,1.655-0.224c83.792,38.257,174.507,38.257,257.31,0c0.545-0.264,1.191-0.182,1.675,0.203c2.564,2.113,5.248,4.226,7.952,6.237c0.928,0.691,0.867,2.134-0.141,2.723c-12.755,7.456-26.014,13.754-39.959,19.016c-0.908,0.345-1.312,1.402-0.867,2.275c7.689,14.892,16.468,29.073,26.134,42.523c0.404,0.569,1.13,0.813,1.796,0.609c41.835-12.941,84.257-32.466,128.05-64.627c0.384-0.284,0.626-0.711,0.666-1.178c10.676-110.441-17.881-206.376-75.7-291.421C433.954,93.547,433.712,93.344,433.43,93.222z M171.094,327.065c-25.227,0-46.014-23.16-46.014-51.604s20.383-51.604,46.014-51.604c25.831,0,46.417,23.364,46.013,51.604C217.107,303.905,196.723,327.065,171.094,327.065z M341.221,327.065c-25.226,0-46.013-23.16-46.013-51.604s20.383-51.604,46.013-51.604c25.832,0,46.417,23.364,46.014,51.604C387.235,303.905,367.054,327.065,341.221,327.065z"/>
-  </svg>
-);
-
-export const FacebookSVG = ({ size = 24, className = "" }) => (
-  <svg viewBox="0 0 155.139 155.139" width={size} height={size} className={className} fill="currentColor">
-    <path d="M89.584,155.139V84.378h23.742l3.562-27.585H89.584V39.184 c0-7.984,2.208-13.425,13.67-13.425l14.595-0.006V1.08C115.325,0.752,106.661,0,96.577,0C75.52,0,61.104,12.853,61.104,36.452 v20.341H37.29v27.585h23.814v70.761H89.584z"/>
-  </svg>
-);
-
-export const PatreonSVG = ({ size = 24, className = "" }) => (
-  <svg viewBox="0 0 569 546" width={size} height={size} className={className} fill="currentColor">
-    <circle cx="362.59" cy="204.59" r="204.59"/>
-    <rect height="545.8" width="100" x="0" y="0"/>
-  </svg>
-);
-
-export const RedditSVG = ({ size = 24, className = "" }) => (
-  <svg viewBox="0 0 152 152" width={size} height={size} className={className} fill="currentColor">
-    <path d="m141.1 76.9c-.3-7.9-7-14-14.9-13.7-3.5.1-6.8 1.5-9.3 4-11.1-7.7-24.2-11.9-37.7-12.2l6.4-30.5 21 4.4c.6 5.4 5.4 9.2 10.8 8.7 5.4-.6 9.2-5.4 8.7-10.8-.6-5.4-5.4-9.2-10.8-8.7-3.1.3-5.8 2.1-7.4 4.8l-24-4.8c-1.6-.4-3.3.7-3.6 2.3l-7.2 34c-13.6.2-26.9 4.4-38.2 12-5.9-5.2-15-4.6-20.2 1.3-5 5.7-4.7 14.2.6 19.5 1.1 1.1 2.4 1.9 3.8 2.6-.1 1.4-.1 2.9 0 4.3 0 21.9 25.5 39.7 57 39.7s57-17.8 57-39.7c.1-1.4.1-2.9 0-4.3 5-2.4 8.1-7.4 8-12.9zm-97.8 9.8c0-5.4 4.4-9.8 9.8-9.8s9.8 4.4 9.8 9.8-4.4 9.8-9.8 9.8c-5.5-.1-9.8-4.4-9.8-9.8zm56.8 26.9c-6.9 5.2-15.5 7.9-24.2 7.5-8.7.4-17.2-2.3-24.2-7.5-1-1.1-.8-2.8.3-3.7 1-.9 2.5-.9 3.5 0 5.9 4.3 13.1 6.5 20.4 6.2 7.3.4 14.5-1.7 20.4-6 1.1-1.1 2.8-1 3.9 0 1.1 1.1 1 2.8 0 3.9zm-1.8-16.8c-2.8-2.6-2.9-7-.2-9.8 2.6-2.8 7-2.9 9.8-.2 2.8 2.6 2.9 7 .2 9.8-2.5 2.6-6.6 2.9-9.4.6h-.5z"/>
-  </svg>
-);
-
-export const AppStoreSVG = ({ size = 24, className = "" }) => (
-  <svg viewBox="0 0 100 100" width={size} height={size} className={className}>
-    <path fill="currentColor" d="m63.6 5c9 0 13.5 0 18.4 1.5 5.3 1.9 9.5 6.1 11.4 11.4 1.6 4.9 1.6 9.5 1.6 18.5v27.2c0 9 0 13.5-1.5 18.4-1.9 5.3-6.1 9.5-11.4 11.4-5 1.6-9.5 1.6-18.5 1.6h-27.2c-9 0-13.5 0-18.4-1.5-5.4-2-9.5-6.1-11.5-11.5-1.5-4.8-1.5-9.3-1.5-18.4v-27.2c0-9 0-13.5 1.5-18.4 2-5.3 6.1-9.5 11.5-11.4 4.8-1.6 9.3-1.6 18.4-1.6z"/>
-    <path fill="#0a0a0a" d="m25.3 68.3c.1-.2.3-.3.5-.4.8-.2 1.6-.4 2.4-.4 2.2 0 4.2.8 5.8 2.2.2.2.2.5.1.7l-4.1 7c-.8 1.4-2.3 2.2-3.8 2.2-.9 0-1.8-.3-2.6-.9-1.8-1.3-2.2-3.9-1.1-5.8zm53.3-10.7c2.3 0 4.3 1.7 4.5 3.9.2 2.6-1.8 4.8-4.3 4.8h-5.3l3.9 6.7c1.1 1.9.7 4.5-1.1 5.8-.8.6-1.7.9-2.6.9-1.5 0-3-.8-3.8-2.2l-9.4-16.3-7.4-12.8c-.1-.1-.1-.2-.1-.4 0-.5-.1-1-.1-1.5 0-3.5.8-7 2.4-9.8.2-.3.7-.3.9 0l12.2 20.8h10.2zm-23 .2c2.2 1.3 3.6 3.8 3.6 6.6 0 .6-.1 1.1-.2 1.7 0 .1-.2.2-.3.2h-14-23.3c-2.5 0-4.6-2.2-4.3-4.8.2-2.3 2.2-3.9 4.5-3.9h9.9l13.5-23.2-3.7-6.3c-1.3-2.2-.4-5.1 2-6.1 2.1-.9 4.5 0 5.7 1.9l1.1 1.9 1.2-2c1.3-2.2 4.2-2.9 6.3-1.4 1.9 1.3 2.3 3.9 1.1 5.9l-17.2 29.3h7 6.4c.3 0 .5.1.7.2z"/>
-  </svg>
-);
-
-export const GooglePlaySVG = ({ size = 24, className = "" }) => (
-  <svg viewBox="0 0 512 512" width={size} height={size} className={className} fill="currentColor">
-    <path opacity="0.8" d="M35.395,7.913c-5.789,6.127-9.212,15.64-9.212,27.966v440.242c0,12.336,3.424,21.839,9.212,27.966l1.473,1.435l246.615-246.613v-2.908v-2.91L36.868,6.468L35.395,7.913z"/>
-    <path opacity="1" d="M365.683,341.149l-82.2-82.24v-2.908v-2.91l82.219-82.219l1.853,1.057l97.396,55.341c27.821,15.805,27.821,41.667,0,57.482l-97.396,55.341L365.683,341.149z"/>
-    <path opacity="0.6" d="M367.556,340.082l-84.073-84.081L35.395,504.087c9.173,9.708,24.309,10.91,41.367,1.222L367.556,340.082"/>
-    <path opacity="0.4" d="M367.556,171.918L76.762,6.691C59.704-2.997,44.568-1.795,35.395,7.913l248.088,248.088L367.556,171.918z"/>
-  </svg>
-);
-
-export const WordpressSVG = ({ size = 24, className = "" }) => (
-  <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="currentColor">
-    <path d="m12 0c-6.615 0-12 5.381-12 12 0 6.615 5.385 12 12 12s12-5.385 12-12c0-6.62-5.385-12-12-12zm-10.79 11.999c0-1.563.333-3.048.934-4.389l5.148 14.1c-3.601-1.751-6.082-5.442-6.082-9.711zm10.79 10.791c-1.06 0-2.081-.155-3.048-.441l3.237-9.406 3.315 9.087c.024.054.049.101.077.15-1.118.392-2.323.61-3.581.61zm1.485-15.845v-.001c.648-.034 1.233-.101 1.233-.101.581-.068.513-.924-.068-.891 0 0-1.747.135-2.874.135-1.06 0-2.841-.135-2.841-.135-.58-.034-.647.857-.067.891 0 0 .551.068 1.132.101l1.679 4.606-2.361 7.079-3.928-11.685c.649-.034 1.234-.101 1.234-.101.581-.068.513-.924-.068-.891 0 0-1.747.135-2.874.135-.203 0-.441-.005-.697-.014 1.931-2.928 5.245-4.863 9.015-4.863 2.807 0 5.366 1.075 7.287 2.83-.049-.005-.092-.009-.14-.009-1.06 0-1.81.924-1.81 1.916 0 .89.513 1.64 1.06 2.531.411.716.891 1.64.891 2.976 0 .924-.353 1.993-.823 3.489l-1.075 3.595zm7.985-.122c.842 1.539 1.321 3.3 1.321 5.178 0 3.982-2.158 7.456-5.366 9.324l-.001-.001 3.295-9.528c.614-1.539.823-2.767.823-3.866 0-.396-.024-.764-.072-1.107z"/>
-  </svg>
-);
 
 export const GlobalStyles = () => (
   <style>{`
@@ -122,7 +71,6 @@ export const FeatureModal = ({ feature, onClose }) => {
          
          <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-2 leading-none uppercase">{feature.title}</h3>
          
-         {/* Added Coming Soon badge explicitly inside the modal */}
          {feature.soon && (
             <div className="mb-4">
               <span className="inline-block text-[10px] font-black uppercase tracking-widest text-black bg-[#a3e635] px-3 py-1 rounded-full shadow-[0_0_15px_rgba(163,230,53,0.3)]">
@@ -286,7 +234,6 @@ export const Footer = () => (
 
       <div className="flex flex-col items-center md:items-end gap-5">
         <div className="flex flex-wrap justify-center gap-3">
-            {/* UPDATED APPLE LINK */}
             <a href="https://apple.selloutcrowds.com/" target="_blank" rel="noopener noreferrer" className="bg-[#111] border border-gray-800 rounded-xl px-4 py-2.5 flex items-center gap-2 cursor-pointer hover:border-gray-500 transition-all duration-300 group shadow-md">
               <AppStoreSVG size={24} className="text-white group-hover:text-gray-300 transition-colors" />
               <div className="flex flex-col text-left">
@@ -295,7 +242,6 @@ export const Footer = () => (
               </div>
             </a>
             
-            {/* UPDATED GOOGLE LINK */}
             <a href="https://android.selloutcrowds.com/" target="_blank" rel="noopener noreferrer" className="bg-[#111] border border-gray-800 rounded-xl px-4 py-2.5 flex items-center gap-2 cursor-pointer hover:border-gray-500 transition-all duration-300 group shadow-md">
               <GooglePlaySVG size={24} className="text-white group-hover:text-gray-300 transition-colors" />
               <div className="flex flex-col text-left">
