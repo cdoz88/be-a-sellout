@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
-// IMPORT ALL YOUR ICONS FROM THE NEW FILE!
+// IMPORT ALL YOUR ICONS FROM THE NEW FILE
 import { 
   UserBrushSVG, 
   ScratchSVG, 
@@ -16,6 +16,19 @@ import {
   GooglePlaySVG, 
   WordpressSVG 
 } from './Icons';
+
+// RE-EXPORT THEM SO OTHER PAGES CAN STILL FIND THEM HERE
+export { 
+  UserBrushSVG, 
+  ScratchSVG, 
+  DiscordSVG, 
+  FacebookSVG, 
+  PatreonSVG, 
+  RedditSVG, 
+  AppStoreSVG, 
+  GooglePlaySVG, 
+  WordpressSVG 
+};
 
 export const ASSETS = {
   heroVideo: "https://admin.beasellout.com/wp-content/uploads/2025/08/All-Sports.mp4",
