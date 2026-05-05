@@ -797,13 +797,13 @@ export default function CreatorsPage() {
 
               <RevealOnScroll delay={300}>
                 <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Add-Ons</h3>
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Expansions</h3>
                   <div className="text-[10px] uppercase tracking-widest text-[#a3e635] font-bold mb-6 mt-2">
                     Available for all tiers
                   </div>
                   <ul className="space-y-3 mb-2 flex-1">
                     {[
-                      {text: "Sync Existing Subscribers (pay per fan)", available: true},
+                      {text: "Sync Existing Subscribers ($0.50 per fan)", available: true},
                       {text: "Add teammates ($2/month per Teammate)", available: true}
                     ].map((feature, i) => (
                       <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
