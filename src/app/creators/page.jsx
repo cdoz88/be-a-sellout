@@ -178,22 +178,6 @@ const clockFeatures = [
   }
 ];
 
-// Data for the Enterprise Section
-const enterpriseFeatures = [
-  "Brand Badge",
-  "Unlimited Crowds",
-  "Sync Existing Subscribers",
-  "No commissions - pay per fan",
-  "Pay per Teammate",
-  "Place Ads in Crowd",
-  "WordPress Plugin",
-  "YouTube Auto-Import",
-  "Sell on Marketplace",
-  "Access to All Business Tools",
-  "White Glove Setup",
-  "VIP Contact Form"
-];
-
 // Calculate absolute positions for a 12-hour clock face
 const clockPositions = [
   { pos: 12, top: '0%', left: '50%' },
@@ -213,7 +197,6 @@ const clockPositions = [
 export default function CreatorsPage() {
   const [pricingInterval, setPricingInterval] = useState('yearly');
   const [activeModalFeature, setActiveModalFeature] = useState(null);
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [activeGameStep, setActiveGameStep] = useState(0);
   
@@ -683,8 +666,7 @@ export default function CreatorsPage() {
         <section className="w-full bg-[#111] py-24 px-4 relative shadow-2xl">
           <div className="max-w-7xl mx-auto text-center">
             
-            {/* Hiding the standard copy if Enterprise is selected */}
-            <div className={`transition-all duration-500 ${pricingInterval === 'enterprise' ? 'opacity-0 h-0 overflow-hidden mb-0' : 'opacity-100 h-auto mb-12'}`}>
+            <div className="transition-all duration-500 opacity-100 h-auto mb-12">
               <RevealOnScroll>
                 <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-white">
                   YOUR FANS ARE WAITING
@@ -701,203 +683,153 @@ export default function CreatorsPage() {
             {/* Interval Toggle */}
             <RevealOnScroll delay={100}>
               <div className="flex justify-center items-center gap-2 mb-12 bg-gray-900 p-1.5 rounded-full inline-flex border border-gray-800">
-                {['yearly', 'monthly', 'enterprise'].map((type) => (
+                {['yearly', 'monthly'].map((type) => (
                   <button 
                     key={type}
                     onClick={() => setPricingInterval(type)}
                     className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${pricingInterval === type ? 'bg-[#a3e635] text-black shadow-md' : 'text-gray-500 hover:text-white'}`}
                   >
-                    {type === 'enterprise' ? 'Enterprise' : type === 'yearly' ? 'Yearly' : 'Monthly'}
+                    {type === 'yearly' ? 'Yearly' : 'Monthly'}
                   </button>
                 ))}
               </div>
             </RevealOnScroll>
 
-            {/* Conditionally Render Enterprise Block OR Grid */}
-            {pricingInterval === 'enterprise' ? (
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-left relative z-10">
               
-              <RevealOnScroll className="bg-[#1a1a1a] border border-[#333] rounded-3xl p-8 md:p-16 w-full max-w-5xl mx-auto shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-                   
-                   <div className="lg:col-span-2 text-left flex flex-col justify-center">
-                      <div className="inline-block bg-[#a3e635]/10 text-[#a3e635] px-3 py-1 rounded-full font-black text-[10px] uppercase tracking-widest mb-4 w-fit border border-[#a3e635]/30">
-                        Custom Infrastructure
-                      </div>
-                      <h3 className="text-4xl md:text-5xl font-black uppercase text-white mb-6 tracking-tight leading-none">Enterprise</h3>
-                      <p className="text-gray-400 font-medium mb-10 leading-relaxed text-sm md:text-base">
-                        Tailored infrastructure for high-volume creators and media empires. Take full control of your revenue and scale your community without limits.
-                      </p>
-                      <button 
-                        onClick={(e) => { e.preventDefault(); setIsContactModalOpen(true); }}
-                        className="bg-white text-black px-8 py-3.5 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-[#a3e635] transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] flex items-center justify-center gap-2 hover:-translate-y-1 w-fit"
-                      >
-                        Contact Sales <ArrowRight size={16}/>
-                      </button>
-                   </div>
-                   
-                   <div className="lg:col-span-3 bg-[#111] p-6 md:p-8 rounded-2xl border border-gray-800">
-                      <h4 className="text-white font-black uppercase tracking-widest text-sm mb-6 text-left border-b border-gray-800 pb-4">Everything Included:</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
-                        {enterpriseFeatures.map((feature, i) => (
-                          <div key={i} className="flex items-start gap-2 text-sm font-medium text-gray-300 text-left">
-                            <Check size={16} className="text-[#a3e635] shrink-0 mt-0.5 font-bold" />
-                            <span>{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                   </div>
-
-                 </div>
+              <RevealOnScroll delay={0} className="relative z-20 transform md:-translate-y-4">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#a3e635] text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-md whitespace-nowrap z-30">
+                  Most Valuable
+                </div>
+                <div className="bg-[#1a1a1a] border-2 border-[#a3e635] rounded-2xl p-6 flex flex-col h-full shadow-[0_10px_30px_rgba(163,230,53,0.1)] relative overflow-hidden">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">H.O.F.</h3>
+                  <div className="text-4xl font-black text-[#a3e635] mb-6 flex items-baseline">
+                    ${pricingInterval === 'yearly' ? '85' : '100'}
+                    <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+                  </div>
+                  <ul className="space-y-3 mb-2 flex-1">
+                    {[
+                      {text: "Brand Badge", available: true},
+                      {text: "Unlimited Crowds", available: true},
+                      {text: "6% commissions", available: true},
+                      {text: "Place Ads in Crowd", available: true},
+                      {text: "WordPress Plugin", available: true},
+                      {text: "YouTube Auto-Import", available: true},
+                      {text: "Sell on marketplace", available: true},
+                      {text: "Link in Bio Page", available: true},
+                      {text: "Digital Business Card", available: true},
+                      {text: "Address Book", available: true},
+                      {text: "Onboarding setup", available: true}
+                    ].map((feature, i) => (
+                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-300'}`}>
+                        <div className="shrink-0 mt-0.5">
+                          {feature.available ? <Check size={14} className="text-[#a3e635] font-bold"/> : <X size={14} className="text-gray-600"/>}
+                        </div>
+                        <span>{feature.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </RevealOnScroll>
 
-            ) : (
-
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-left relative z-10">
-                
-                <RevealOnScroll delay={0} className="relative z-20 transform md:-translate-y-4">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#a3e635] text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-md whitespace-nowrap z-30">
-                    Most Valuable
+              <RevealOnScroll delay={100}>
+                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">All-Star</h3>
+                  <div className="text-3xl font-black text-white mb-6 flex items-baseline">
+                    ${pricingInterval === 'yearly' ? '42' : '50'}
+                    <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
                   </div>
-                  <div className="bg-[#1a1a1a] border-2 border-[#a3e635] rounded-2xl p-6 flex flex-col h-full shadow-[0_10px_30px_rgba(163,230,53,0.1)] relative overflow-hidden">
-                    <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">H.O.F.</h3>
-                    <div className="text-4xl font-black text-[#a3e635] mb-6 flex items-baseline">
-                      ${pricingInterval === 'yearly' ? '85' : '100'}
-                      <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
-                    </div>
-                    <ul className="space-y-3 mb-2 flex-1">
-                      {[
-                        {text: "Brand Badge", available: true},
-                        {text: "Unlimited Crowds", available: true},
-                        {text: "6% commissions", available: true},
-                        {text: "6 Teammates Included", available: true},
-                        {text: "Place Ads in Crowd", available: true},
-                        {text: "WordPress Plugin", available: true},
-                        {text: "YouTube Auto-Import", available: true},
-                        {text: "Sell on marketplace", available: true},
-                        {text: "Link in Bio Page", available: true},
-                        {text: "Digital Business Card", available: true},
-                        {text: "Address Book", available: true},
-                        {text: "Onboarding setup", available: true}
-                      ].map((feature, i) => (
-                        <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-300'}`}>
-                          <div className="shrink-0 mt-0.5">
-                            {feature.available ? <Check size={14} className="text-[#a3e635] font-bold"/> : <X size={14} className="text-gray-600"/>}
-                          </div>
-                          <span>{feature.text}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </RevealOnScroll>
-
-                <RevealOnScroll delay={100}>
-                  <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                    <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">All-Star</h3>
-                    <div className="text-3xl font-black text-white mb-6 flex items-baseline">
-                      ${pricingInterval === 'yearly' ? '42' : '50'}
-                      <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
-                    </div>
-                    <ul className="space-y-3 mb-2 flex-1">
-                      {[
-                        {text: "Brand Badge", available: true},
-                        {text: "3 Crowds", available: true},
-                        {text: "8% commissions", available: true},
-                        {text: "3 Teammates Included", available: true},
-                        {text: "Place Ads in Crowd", available: true},
-                        {text: "WordPress Plugin", available: true},
-                        {text: "YouTube Auto-Import", available: true},
-                        {text: "Sell on marketplace", available: true},
-                        {text: "Link in Bio Page", available: true},
-                        {text: "Digital Business Card", available: true},
-                        {text: "Address Book", available: true},
-                        {text: "Onboarding setup", available: false}
-                      ].map((feature, i) => (
-                        <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
-                          <div className="shrink-0 mt-0.5">
-                            {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
-                          </div>
-                          <span>{feature.text}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </RevealOnScroll>
-
-                <RevealOnScroll delay={200}>
-                  <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                    <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Rookie</h3>
-                    <div className="text-3xl font-black text-white mb-6 flex items-baseline">
-                      ${pricingInterval === 'yearly' ? '16' : '19'}
-                      <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
-                    </div>
-                    <ul className="space-y-3 mb-2 flex-1">
-                      {[
-                        {text: "Brand Badge", available: true},
-                        {text: "1 Crowd", available: true},
-                        {text: "10% commissions", available: true},
-                        {text: "No Teammates Included", available: false},
-                        {text: "Place Ads in Crowd", available: false},
-                        {text: "WordPress Plugin", available: false},
-                        {text: "YouTube Auto-Import", available: false},
-                        {text: "Link in Bio Page", available: false},
-                        {text: "Digital Business Card", available: true},
-                        {text: "Address Book", available: true},
-                        {text: "Onboarding setup", available: false}
-                      ].map((feature, i) => (
-                        <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
-                          <div className="shrink-0 mt-0.5">
-                            {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
-                          </div>
-                          <span>{feature.text}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </RevealOnScroll>
-
-                <RevealOnScroll delay={300}>
-                  <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                    <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Teammate</h3>
-                    <div className="text-3xl font-black text-white mb-6 flex items-baseline">
-                      $2
-                      <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
-                    </div>
-                    <ul className="space-y-3 mb-2 flex-1">
-                      {[
-                        {text: "Brand Badge", available: true},
-                        {text: "Post Content", available: true},
-                        {text: "Digital Business Card", available: true},
-                        {text: "Address Book", available: true},
-                        {text: "No Crowds", available: false},
-                        {text: "No Monetization", available: false}
-                      ].map((feature, i) => (
-                        <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
-                          <div className="shrink-0 mt-0.5">
-                            {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
-                          </div>
-                          <span>{feature.text}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </RevealOnScroll>
-
-              </div>
-            )}
-
-            {/* Generic Build Crowd CTA - Hides when in Enterprise mode */}
-            {pricingInterval !== 'enterprise' && (
-              <RevealOnScroll delay={400} className="mt-12 flex justify-center relative z-10">
-                <a 
-                  href="https://www.selloutcrowds.com/create-crowd-profile" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#a3e635] text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-colors shadow-[0_0_20px_rgba(163,230,53,0.4)] hover:shadow-[0_0_30px_rgba(163,230,53,0.6)] flex items-center gap-2 hover:-translate-y-1"
-                >
-                  Build Your Crowd <ArrowRight size={18}/>
-                </a>
+                  <ul className="space-y-3 mb-2 flex-1">
+                    {[
+                      {text: "Brand Badge", available: true},
+                      {text: "3 Crowds", available: true},
+                      {text: "8% commissions", available: true},
+                      {text: "Place Ads in Crowd", available: true},
+                      {text: "WordPress Plugin", available: true},
+                      {text: "YouTube Auto-Import", available: true},
+                      {text: "Sell on marketplace", available: true},
+                      {text: "Link in Bio Page", available: true},
+                      {text: "Digital Business Card", available: true},
+                      {text: "Address Book", available: true},
+                      {text: "Onboarding setup", available: false}
+                    ].map((feature, i) => (
+                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
+                        <div className="shrink-0 mt-0.5">
+                          {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
+                        </div>
+                        <span>{feature.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </RevealOnScroll>
-            )}
+
+              <RevealOnScroll delay={200}>
+                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Rookie</h3>
+                  <div className="text-3xl font-black text-white mb-6 flex items-baseline">
+                    ${pricingInterval === 'yearly' ? '16' : '19'}
+                    <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
+                  </div>
+                  <ul className="space-y-3 mb-2 flex-1">
+                    {[
+                      {text: "Brand Badge", available: true},
+                      {text: "1 Crowd", available: true},
+                      {text: "10% commissions", available: true},
+                      {text: "Place Ads in Crowd", available: false},
+                      {text: "WordPress Plugin", available: false},
+                      {text: "YouTube Auto-Import", available: false},
+                      {text: "Link in Bio Page", available: true},
+                      {text: "Digital Business Card", available: true},
+                      {text: "Address Book", available: true},
+                      {text: "Onboarding setup", available: false}
+                    ].map((feature, i) => (
+                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
+                        <div className="shrink-0 mt-0.5">
+                          {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
+                        </div>
+                        <span>{feature.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </RevealOnScroll>
+
+              <RevealOnScroll delay={300}>
+                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Add-Ons</h3>
+                  <div className="text-[10px] uppercase tracking-widest text-[#a3e635] font-bold mb-6 mt-2">
+                    Available for all tiers
+                  </div>
+                  <ul className="space-y-3 mb-2 flex-1">
+                    {[
+                      {text: "Sync Existing Subscribers (pay per fan)", available: true},
+                      {text: "Add teammates ($2/month per Teammate)", available: true}
+                    ].map((feature, i) => (
+                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
+                        <div className="shrink-0 mt-0.5">
+                          {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
+                        </div>
+                        <span>{feature.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </RevealOnScroll>
+
+            </div>
+
+            {/* Generic Build Crowd CTA */}
+            <RevealOnScroll delay={400} className="mt-12 flex justify-center relative z-10">
+              <a 
+                href="https://www.selloutcrowds.com/create-crowd-profile" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#a3e635] text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-colors shadow-[0_0_20px_rgba(163,230,53,0.4)] hover:shadow-[0_0_30px_rgba(163,230,53,0.6)] flex items-center gap-2 hover:-translate-y-1"
+              >
+                Build Your Crowd <ArrowRight size={18}/>
+              </a>
+            </RevealOnScroll>
             
           </div>
         </section>
@@ -906,57 +838,6 @@ export default function CreatorsPage() {
       <Footer />
       <FeatureModal feature={activeModalFeature} onClose={() => setActiveModalFeature(null)} />
       
-      {/* Enterprise Contact Modal */}
-      {isContactModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-[#111] border border-gray-800 rounded-3xl w-full max-w-lg shadow-[0_0_50px_rgba(0,0,0,1)] overflow-hidden relative">
-            {/* Close button */}
-            <button onClick={() => setIsContactModalOpen(false)} className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors z-10">
-              <X size={24} />
-            </button>
-            
-            <div className="p-8 md:p-10 relative">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#a3e635]/10 blur-[80px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
-              
-              <h3 className="text-3xl font-black uppercase text-white mb-2 relative z-10">Contact Sales</h3>
-              <p className="text-gray-400 font-medium mb-8 text-sm relative z-10">Fill out the form below and our Enterprise team will reach out shortly.</p>
-              
-              {/* FormSubmit handles the POST request securely without exposing your email or opening an email client */}
-              <form action="https://formsubmit.co/info@selloutcrowds.com" method="POST" className="flex flex-col gap-5 relative z-10">
-                {/* Formsubmit config hidden fields */}
-                <input type="hidden" name="_subject" value="New Enterprise Sales Inquiry" />
-                <input type="hidden" name="_captcha" value="false" />
-                
-                <div className="flex flex-col gap-2 text-left">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Name</label>
-                  <input type="text" name="name" required className="bg-[#1a1a1a] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3.5 text-white text-sm outline-none transition-colors" placeholder="Your Name" />
-                </div>
-                
-                <div className="flex flex-col gap-2 text-left">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Email</label>
-                  <input type="email" name="email" required className="bg-[#1a1a1a] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3.5 text-white text-sm outline-none transition-colors" placeholder="you@example.com" />
-                </div>
-
-                <div className="flex flex-col gap-2 text-left">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Crowd / Brand Name</label>
-                  <input type="text" name="brand" className="bg-[#1a1a1a] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3.5 text-white text-sm outline-none transition-colors" placeholder="What are you building?" />
-                </div>
-                
-                <div className="flex flex-col gap-2 text-left">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Message</label>
-                  <textarea name="message" required rows={4} className="bg-[#1a1a1a] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3.5 text-white text-sm outline-none transition-colors resize-none" placeholder="Tell us about your needs..."></textarea>
-                </div>
-                
-                <button type="submit" className="mt-2 bg-[#a3e635] text-black px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] flex items-center justify-center gap-2">
-                  Send Message <Send size={16} />
-                </button>
-              </form>
-
-            </div>
-          </div>
-        </div>
-      )}
-
     </div>
   );
 }
