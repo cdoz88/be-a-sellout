@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { 
   Tag, MonitorSmartphone, ShoppingCart, Users, ArrowRight, Check, X, 
   Play, Rocket, Monitor, ListOrdered, ChevronRight, Zap, Mic, Link2, Contact, Book, Mail, Send,
-  LayoutDashboard, BarChart3
+  LayoutDashboard, BarChart3, Plus, UserPlus
 } from 'lucide-react';
 import { ASSETS, GlobalStyles, Header, Footer, RevealOnScroll, FeatureModal, FacebookSVG, RedditSVG, PatreonSVG, DiscordSVG, WordpressSVG, UserBrushSVG, ScratchSVG } from '../../components/SharedUI';
 
@@ -695,7 +695,8 @@ export default function CreatorsPage() {
               </div>
             </RevealOnScroll>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-left relative z-10">
+            {/* 3-Tier Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left relative z-10 max-w-5xl mx-auto">
               
               <RevealOnScroll delay={0} className="relative z-20 transform md:-translate-y-4">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#a3e635] text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-md whitespace-nowrap z-30">
@@ -797,33 +798,40 @@ export default function CreatorsPage() {
                   </ul>
                 </div>
               </RevealOnScroll>
-
-              <RevealOnScroll delay={300}>
-                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Expansions</h3>
-                  <div className="text-[10px] uppercase tracking-widest text-[#a3e635] font-bold mb-6 mt-2">
-                    Available for all tiers
-                  </div>
-                  <ul className="space-y-3 mb-2 flex-1">
-                    {[
-                      {text: "Sync Existing Subscribers ($0.50 per fan)", available: true},
-                      {text: "Add teammates ($2/month per Teammate)", available: true}
-                    ].map((feature, i) => (
-                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
-                        <div className="shrink-0 mt-0.5">
-                          {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
-                        </div>
-                        <span>{feature.text}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </RevealOnScroll>
-
             </div>
 
+            {/* ADD-ONS BANNER */}
+            <RevealOnScroll delay={400} className="mt-8 max-w-5xl mx-auto relative z-10">
+              <div className="bg-[#1a1a1a] border border-gray-800 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg hover:border-gray-700 transition-colors">
+                <div className="text-center md:text-left">
+                  <h3 className="text-xl font-black uppercase tracking-tight text-white flex items-center justify-center md:justify-start gap-2">
+                    <Plus size={20} className="text-[#a3e635]" /> Optional Add-Ons
+                  </h3>
+                  <p className="text-sm text-gray-400 font-medium mt-1">Available to add to any tier at any time.</p>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                  <div className="bg-[#111] border border-gray-800 rounded-xl px-5 py-3 flex items-center gap-3 shadow-inner">
+                     <Users size={18} className="text-[#a3e635] shrink-0" />
+                     <div className="text-left">
+                       <div className="text-sm font-bold text-white">Sync Subscribers</div>
+                       <div className="text-xs text-gray-500 font-medium">$0.50 /mo per fan</div>
+                     </div>
+                  </div>
+                  
+                  <div className="bg-[#111] border border-gray-800 rounded-xl px-5 py-3 flex items-center gap-3 shadow-inner">
+                     <UserPlus size={18} className="text-[#a3e635] shrink-0" />
+                     <div className="text-left">
+                       <div className="text-sm font-bold text-white">Add Teammates</div>
+                       <div className="text-xs text-gray-500 font-medium">$2 /mo per teammate</div>
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </RevealOnScroll>
+
             {/* Generic Build Crowd CTA */}
-            <RevealOnScroll delay={400} className="mt-12 flex justify-center relative z-10">
+            <RevealOnScroll delay={500} className="mt-12 flex justify-center relative z-10">
               <a 
                 href="https://www.selloutcrowds.com/create-crowd-profile" 
                 target="_blank"
