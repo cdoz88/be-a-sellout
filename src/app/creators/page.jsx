@@ -720,8 +720,7 @@ export default function CreatorsPage() {
                       {text: "YouTube Auto-Import", available: false},
                       {text: "Link in Bio Page", available: true},
                       {text: "Digital Business Card", available: true},
-                      {text: "Address Book", available: true},
-                      {text: "Onboarding setup", available: false}
+                      {text: "Address Book", available: true}
                     ].map((feature, i) => (
                       <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
                         <div className="shrink-0 mt-0.5">
@@ -757,8 +756,7 @@ export default function CreatorsPage() {
                       {text: "Sell on marketplace", available: true},
                       {text: "Link in Bio Page", available: true},
                       {text: "Digital Business Card", available: true},
-                      {text: "Address Book", available: true},
-                      {text: "Onboarding setup", available: false}
+                      {text: "Address Book", available: true}
                     ].map((feature, i) => (
                       <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
                         <div className="shrink-0 mt-0.5">
@@ -797,8 +795,7 @@ export default function CreatorsPage() {
                       {text: "Sell on marketplace", available: true},
                       {text: "Link in Bio Page", available: true},
                       {text: "Digital Business Card", available: true},
-                      {text: "Address Book", available: true},
-                      {text: "Onboarding setup", available: true}
+                      {text: "Address Book", available: true}
                     ].map((feature, i) => (
                       <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-300'}`}>
                         <div className="shrink-0 mt-0.5">
