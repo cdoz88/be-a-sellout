@@ -695,37 +695,37 @@ export default function CreatorsPage() {
               </div>
             </RevealOnScroll>
 
-            {/* 3-Tier Grid */}
+            {/* 3-Tier Grid (Ordered Lowest to Highest) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left relative z-10 max-w-5xl mx-auto">
               
-              <RevealOnScroll delay={0} className="relative z-20 transform md:-translate-y-4">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#a3e635] text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-md whitespace-nowrap z-30">
-                  Most Valuable
-                </div>
-                <div className="bg-[#1a1a1a] border-2 border-[#a3e635] rounded-2xl p-6 flex flex-col h-full shadow-[0_10px_30px_rgba(163,230,53,0.1)] relative overflow-hidden">
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">H.O.F.</h3>
-                  <div className="text-4xl font-black text-[#a3e635] mb-6 flex items-baseline">
-                    ${pricingInterval === 'yearly' ? '85' : '100'}
+              {/* Rookie */}
+              <RevealOnScroll delay={0}>
+                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-2 text-white">Rookie</h3>
+                  <p className="text-xs text-gray-400 font-medium mb-5 leading-relaxed min-h-[3rem]">
+                    The perfect starter plan to get you off the bench and into the game.
+                  </p>
+                  <div className="text-3xl font-black text-white mb-6 flex items-baseline">
+                    ${pricingInterval === 'yearly' ? '16' : '19'}
                     <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
                   </div>
                   <ul className="space-y-3 mb-2 flex-1">
                     {[
                       {text: "Brand Badge", available: true},
-                      {text: "Unlimited Crowds", available: true},
-                      {text: "6% commissions", available: true},
-                      {text: "6 Teammates Included", available: true},
-                      {text: "Place Ads in Crowd", available: true},
-                      {text: "WordPress Plugin", available: true},
-                      {text: "YouTube Auto-Import", available: true},
-                      {text: "Sell on marketplace", available: true},
+                      {text: "1 Crowd", available: true},
+                      {text: "10% commissions", available: true},
+                      {text: "No Teammates Included", available: false},
+                      {text: "Place Ads in Crowd", available: false},
+                      {text: "WordPress Plugin", available: false},
+                      {text: "YouTube Auto-Import", available: false},
                       {text: "Link in Bio Page", available: true},
                       {text: "Digital Business Card", available: true},
                       {text: "Address Book", available: true},
-                      {text: "Onboarding setup", available: true}
+                      {text: "Onboarding setup", available: false}
                     ].map((feature, i) => (
-                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-300'}`}>
+                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
                         <div className="shrink-0 mt-0.5">
-                          {feature.available ? <Check size={14} className="text-[#a3e635] font-bold"/> : <X size={14} className="text-gray-600"/>}
+                          {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
                         </div>
                         <span>{feature.text}</span>
                       </li>
@@ -734,9 +734,13 @@ export default function CreatorsPage() {
                 </div>
               </RevealOnScroll>
 
+              {/* All-Star */}
               <RevealOnScroll delay={100}>
                 <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">All-Star</h3>
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-2 text-white">All-Star</h3>
+                  <p className="text-xs text-gray-400 font-medium mb-5 leading-relaxed min-h-[3rem]">
+                    For rising stars ready to play in the big leagues and fill the stands.
+                  </p>
                   <div className="text-3xl font-black text-white mb-6 flex items-baseline">
                     ${pricingInterval === 'yearly' ? '42' : '50'}
                     <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
@@ -767,30 +771,38 @@ export default function CreatorsPage() {
                 </div>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={200}>
-                <div className="bg-[#1a1a1a] rounded-2xl p-6 flex flex-col h-full border border-gray-800 hover:border-gray-600 transition-all">
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-white">Rookie</h3>
-                  <div className="text-3xl font-black text-white mb-6 flex items-baseline">
-                    ${pricingInterval === 'yearly' ? '16' : '19'}
+              {/* H.O.F. */}
+              <RevealOnScroll delay={200} className="relative z-20 transform md:-translate-y-4">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#a3e635] text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-md whitespace-nowrap z-30">
+                  Most Valuable
+                </div>
+                <div className="bg-[#1a1a1a] border-2 border-[#a3e635] rounded-2xl p-6 flex flex-col h-full shadow-[0_10px_30px_rgba(163,230,53,0.1)] relative overflow-hidden">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-2 text-white">H.O.F.</h3>
+                  <p className="text-xs text-gray-300 font-medium mb-5 leading-relaxed min-h-[3rem]">
+                    For legends ready to maximize their talents and cement their legacy.
+                  </p>
+                  <div className="text-4xl font-black text-[#a3e635] mb-6 flex items-baseline">
+                    ${pricingInterval === 'yearly' ? '85' : '100'}
                     <span className="text-xs text-gray-500 font-medium ml-1">/mo</span>
                   </div>
                   <ul className="space-y-3 mb-2 flex-1">
                     {[
                       {text: "Brand Badge", available: true},
-                      {text: "1 Crowd", available: true},
-                      {text: "10% commissions", available: true},
-                      {text: "No Teammates Included", available: false},
-                      {text: "Place Ads in Crowd", available: false},
-                      {text: "WordPress Plugin", available: false},
-                      {text: "YouTube Auto-Import", available: false},
+                      {text: "Unlimited Crowds", available: true},
+                      {text: "6% commissions", available: true},
+                      {text: "6 Teammates Included", available: true},
+                      {text: "Place Ads in Crowd", available: true},
+                      {text: "WordPress Plugin", available: true},
+                      {text: "YouTube Auto-Import", available: true},
+                      {text: "Sell on marketplace", available: true},
                       {text: "Link in Bio Page", available: true},
                       {text: "Digital Business Card", available: true},
                       {text: "Address Book", available: true},
-                      {text: "Onboarding setup", available: false}
+                      {text: "Onboarding setup", available: true}
                     ].map((feature, i) => (
-                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-400'}`}>
+                      <li key={i} className={`flex items-start gap-2 text-xs font-medium ${!feature.available ? 'text-gray-600 opacity-60' : 'text-gray-300'}`}>
                         <div className="shrink-0 mt-0.5">
-                          {feature.available ? <Check size={14} className="text-white"/> : <X size={14} className="text-gray-600"/>}
+                          {feature.available ? <Check size={14} className="text-[#a3e635] font-bold"/> : <X size={14} className="text-gray-600"/>}
                         </div>
                         <span>{feature.text}</span>
                       </li>
@@ -798,32 +810,33 @@ export default function CreatorsPage() {
                   </ul>
                 </div>
               </RevealOnScroll>
+
             </div>
 
             {/* ADD-ONS BANNER */}
-            <RevealOnScroll delay={400} className="mt-8 max-w-5xl mx-auto relative z-10">
+            <RevealOnScroll delay={300} className="mt-8 max-w-5xl mx-auto relative z-10">
               <div className="bg-[#1a1a1a] border border-gray-800 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg hover:border-gray-700 transition-colors">
                 <div className="text-center md:text-left">
                   <h3 className="text-xl font-black uppercase tracking-tight text-white flex items-center justify-center md:justify-start gap-2">
                     <Plus size={20} className="text-[#a3e635]" /> Optional Add-Ons
                   </h3>
-                  <p className="text-sm text-gray-400 font-medium mt-1">*Available for All-Star and H.O.F. users.</p>
+                  <p className="text-sm text-gray-400 font-medium mt-1">Available to add to any tier at any time.</p>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
                   <div className="bg-[#111] border border-gray-800 rounded-xl px-5 py-3 flex items-center gap-3 shadow-inner">
                      <Users size={18} className="text-[#a3e635] shrink-0" />
                      <div className="text-left">
-                       <div className="text-sm font-bold text-white">Sync Existing Subscribers*</div>
-                       <div className="text-xs text-gray-500 font-medium">$0.50 /mo per Fan</div>
+                       <div className="text-sm font-bold text-white">Sync Subscribers</div>
+                       <div className="text-xs text-gray-500 font-medium">$0.50 /mo per fan</div>
                      </div>
                   </div>
                   
                   <div className="bg-[#111] border border-gray-800 rounded-xl px-5 py-3 flex items-center gap-3 shadow-inner">
                      <UserPlus size={18} className="text-[#a3e635] shrink-0" />
                      <div className="text-left">
-                       <div className="text-sm font-bold text-white">Additional Teammates</div>
-                       <div className="text-xs text-gray-500 font-medium">$2 /mo per Teammate</div>
+                       <div className="text-sm font-bold text-white">Add Teammates</div>
+                       <div className="text-xs text-gray-500 font-medium">$2 /mo per teammate</div>
                      </div>
                   </div>
                 </div>
@@ -831,7 +844,7 @@ export default function CreatorsPage() {
             </RevealOnScroll>
 
             {/* Generic Build Crowd CTA */}
-            <RevealOnScroll delay={500} className="mt-12 flex justify-center relative z-10">
+            <RevealOnScroll delay={400} className="mt-12 flex justify-center relative z-10">
               <a 
                 href="https://www.selloutcrowds.com/create-crowd-profile" 
                 target="_blank"
