@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { 
   Tag, MonitorSmartphone, ShoppingCart, Users, ArrowRight, Check, X, 
   Play, Rocket, Monitor, ListOrdered, ChevronRight, Zap, Mic, Link2, Contact, Book, Mail, Send,
-  LayoutDashboard, BarChart3, Plus, UserPlus
+  LayoutDashboard, BarChart3, Plus, UserPlus, Globe
 } from 'lucide-react';
 import { ASSETS, GlobalStyles, Header, Footer, RevealOnScroll, FeatureModal, FacebookSVG, RedditSVG, PatreonSVG, DiscordSVG, WordpressSVG, UserBrushSVG, ScratchSVG } from '../../components/SharedUI';
 
@@ -645,7 +645,7 @@ export default function CreatorsPage() {
               { icon: <Contact size={22} color="currentColor" />, title: "Digital Business Card", desc: "A sleek digital card to share your Crowd and social links seamlessly." },
               { icon: <Link2 size={22} color="currentColor" />, title: "Link in Bio Page", desc: "A customizable landing page to funnel all your social traffic directly to your Crowd." },
               { icon: <Book size={22} color="currentColor" />, title: "Address Book", desc: "Keep track of your top fans and brand partners in one organized place." },
-              { icon: <Mail size={22} color="currentColor" />, title: "Email Signatures", desc: "Generate a professional email signature promoting your Crowd.", soon: true },
+              { icon: <Globe size={22} color="currentColor" />, title: "Custom Community URL", desc: "Create a custom branded redirect domain for your community." },
               { icon: <Send size={22} color="currentColor" />, title: "Newsletter Engine", desc: "Send beautifully crafted newsletters directly to your Crowd members.", soon: true }
             ].map((tool, i) => (
               <RevealOnScroll key={i} delay={i * 50}>
