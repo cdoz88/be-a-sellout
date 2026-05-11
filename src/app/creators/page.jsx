@@ -715,6 +715,7 @@ export default function CreatorsPage() {
                       {text: "1 Crowd", available: true},
                       {text: "10% commissions", available: true},
                       {text: "No Teammates Included", available: false},
+                      {text: "No Custom Community URL", available: false},
                       {text: "Place Ads in Crowd", available: false},
                       {text: "WordPress Plugin", available: false},
                       {text: "YouTube Auto-Import", available: false},
@@ -750,6 +751,7 @@ export default function CreatorsPage() {
                       {text: "3 Crowds", available: true},
                       {text: "8% commissions", available: true},
                       {text: "3 Teammates Included", available: true},
+                      {text: "1 Custom Community URL", available: true},
                       {text: "Place Ads in Crowd", available: true},
                       {text: "WordPress Plugin", available: true},
                       {text: "YouTube Auto-Import", available: true},
@@ -789,6 +791,7 @@ export default function CreatorsPage() {
                       {text: "Unlimited Crowds", available: true},
                       {text: "6% commissions", available: true},
                       {text: "6 Teammates Included", available: true},
+                      {text: "3 Custom Community URLs", available: true},
                       {text: "Place Ads in Crowd", available: true},
                       {text: "WordPress Plugin", available: true},
                       {text: "YouTube Auto-Import", available: true},
@@ -817,14 +820,14 @@ export default function CreatorsPage() {
                   <h3 className="text-xl font-black uppercase tracking-tight text-white flex items-center justify-center md:justify-start gap-2">
                     <Plus size={20} className="text-[#a3e635]" /> Optional Add-Ons
                   </h3>
-                  <p className="text-sm text-gray-400 font-medium mt-1">*Available to All-Star and H.O.F.</p>
+                  <p className="text-sm text-gray-400 font-medium mt-1">Available to add to any tier at any time.</p>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
                   <div className="bg-[#111] border border-gray-800 rounded-xl px-5 py-3 flex items-center gap-3 shadow-inner">
                      <Users size={18} className="text-[#a3e635] shrink-0" />
                      <div className="text-left">
-                       <div className="text-sm font-bold text-white">Sync Subscribers*</div>
+                       <div className="text-sm font-bold text-white">Sync Subscribers</div>
                        <div className="text-xs text-gray-500 font-medium">$0.50 /mo per fan</div>
                      </div>
                   </div>
