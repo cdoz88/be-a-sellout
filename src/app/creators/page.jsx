@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { 
   Tag, MonitorSmartphone, ShoppingCart, Users, ArrowRight, Check, X, 
   Play, Rocket, Monitor, ListOrdered, ChevronRight, Zap, Mic, Link2, Contact, Book, Mail, Send,
-  LayoutDashboard, BarChart3, Plus, UserPlus, Globe
+  LayoutDashboard, BarChart3, Plus, UserPlus, Globe, Calendar
 } from 'lucide-react';
 import { ASSETS, GlobalStyles, Header, Footer, RevealOnScroll, FeatureModal, FacebookSVG, RedditSVG, PatreonSVG, DiscordSVG, WordpressSVG, UserBrushSVG, ScratchSVG } from '../../components/SharedUI';
 
@@ -646,7 +646,7 @@ export default function CreatorsPage() {
               { icon: <Link2 size={22} color="currentColor" />, title: "Link in Bio Page", desc: "A customizable landing page to funnel all your social traffic directly to your Crowd." },
               { icon: <Book size={22} color="currentColor" />, title: "Address Book", desc: "Keep track of your top fans and brand partners in one organized place." },
               { icon: <Globe size={22} color="currentColor" />, title: "Custom Community URL", desc: "Create a custom branded redirect domain for your community." },
-              { icon: <Send size={22} color="currentColor" />, title: "Newsletter Engine", desc: "Send beautifully crafted newsletters directly to your Crowd members.", soon: true }
+              { icon: <Calendar size={22} color="currentColor" />, title: "Scheduled Posts", desc: "Draft and schedule posts to automatically publish to your communities." }
             ].map((tool, i) => (
               <RevealOnScroll key={i} delay={i * 50}>
                 <div className="bg-[#0a0a0a]/60 backdrop-blur-sm border border-white/5 hover:border-[#a3e635]/30 rounded-2xl p-5 transition-all duration-300 flex flex-col items-center text-center group shadow-lg h-full">
@@ -755,7 +755,7 @@ export default function CreatorsPage() {
                       {text: "Place Ads in Crowd", available: true},
                       {text: "WordPress Plugin", available: true},
                       {text: "YouTube Auto-Import", available: true},
-                      {text: "Sell on marketplace (coming soon)", available: true},
+                      {text: "Sell on marketplace", available: true},
                       {text: "Link in Bio Page", available: true},
                       {text: "Digital Business Card", available: true},
                       {text: "Address Book", available: true}
@@ -795,7 +795,7 @@ export default function CreatorsPage() {
                       {text: "Place Ads in Crowd", available: true},
                       {text: "WordPress Plugin", available: true},
                       {text: "YouTube Auto-Import", available: true},
-                      {text: "Sell on marketplace (coming soon)", available: true},
+                      {text: "Sell on marketplace", available: true},
                       {text: "Link in Bio Page", available: true},
                       {text: "Digital Business Card", available: true},
                       {text: "Address Book", available: true}
