@@ -719,6 +719,7 @@ export default function CreatorsPage() {
                       {text: "Place Ads in Crowd", available: false},
                       {text: "WordPress Plugin", available: false},
                       {text: "YouTube Auto-Import", available: false},
+                      {text: "Schedule Posts", available: true},
                       {text: "Link in Bio Page", available: true},
                       {text: "Digital Business Card", available: true},
                       {text: "Address Book", available: true}
@@ -756,6 +757,7 @@ export default function CreatorsPage() {
                       {text: "WordPress Plugin", available: true},
                       {text: "YouTube Auto-Import", available: true},
                       {text: "Sell on marketplace", available: true},
+                      {text: "Schedule Posts", available: true},
                       {text: "Link in Bio Page", available: true},
                       {text: "Digital Business Card", available: true},
                       {text: "Address Book", available: true}
@@ -796,6 +798,7 @@ export default function CreatorsPage() {
                       {text: "WordPress Plugin", available: true},
                       {text: "YouTube Auto-Import", available: true},
                       {text: "Sell on marketplace", available: true},
+                      {text: "Schedule Posts", available: true},
                       {text: "Link in Bio Page", available: true},
                       {text: "Digital Business Card", available: true},
                       {text: "Address Book", available: true}
