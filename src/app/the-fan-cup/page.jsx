@@ -2,12 +2,18 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { 
-  Trophy, Globe, Users, Star, ArrowRight, ChevronRight, Zap, Flag, Activity, Crown, ShieldCheck, Megaphone, Send
+  Trophy, Globe, Users, Star, ArrowRight, ChevronRight, Zap, Flag, Activity, Crown, ShieldCheck, Megaphone, Send, ChevronDown
 } from 'lucide-react';
 import { ASSETS, GlobalStyles, Header, Footer, RevealOnScroll, ScratchSVG } from '../../components/SharedUI';
 
+// Comprehensive list of countries for the dropdown
+const COUNTRIES = [
+  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "South Korea", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+];
+
 export default function FanCupPage() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [formStatus, setFormStatus] = useState('idle'); // idle, submitting, success, error
 
   const handleMouseMove = (e) => {
     if (typeof window !== 'undefined') {
@@ -15,6 +21,34 @@ export default function FanCupPage() {
       const x = (e.clientX / innerWidth - 0.5) * 30;
       const y = (e.clientY / innerHeight - 0.5) * 30;
       setMousePos({ x, y });
+    }
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      // Use FormSubmit's AJAX endpoint so we don't leave the page
+      const response = await fetch('https://formsubmit.co/ajax/info@selloutcrowds.com', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        form.reset();
+      } else {
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setFormStatus('error');
     }
   };
 
@@ -60,7 +94,7 @@ export default function FanCupPage() {
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#fans" className="w-full sm:w-auto bg-[#a3e635] text-black px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-all shadow-[0_0_20px_rgba(163,230,53,0.4)] hover:shadow-[0_0_30px_rgba(163,230,53,0.6)] flex items-center justify-center gap-2 hover:-translate-y-1">
-                  Join The Competition <ChevronRight size={18}/>
+                  Represent your Country <ChevronRight size={18}/>
                 </a>
                 <a href="#creators" className="w-full sm:w-auto bg-[#111] border border-gray-700 text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-gray-800 transition-colors shadow-lg flex items-center justify-center gap-2">
                   Apply as Captain <Flag size={18}/>
@@ -71,8 +105,14 @@ export default function FanCupPage() {
         </section>
 
         {/* FANS SECTION: HOW TO COMPETE */}
-        <section id="fans" className="relative py-24 px-6 bg-[#050505] z-10 border-t border-gray-900">
-          <div className="max-w-7xl mx-auto">
+        <section id="fans" className="relative py-24 px-6 bg-[#050505] z-10 border-t border-gray-900 overflow-hidden">
+          
+          {/* Decorative Crown Image */}
+          <div className="absolute top-1/2 -translate-y-1/2 -left-32 md:-left-48 lg:-left-16 w-80 md:w-[500px] -rotate-45 opacity-20 md:opacity-30 pointer-events-none z-0">
+             <img src="https://admin.beasellout.com/wp-content/uploads/2026/06/The-Sellout-Crown.webp" alt="The Sellout Crown" className="w-full h-auto drop-shadow-[0_0_50px_rgba(163,230,53,0.2)]" />
+          </div>
+
+          <div className="max-w-7xl mx-auto relative z-10">
             <RevealOnScroll className="text-center mb-16">
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-4">
                 HOW TO <span className="text-[#a3e635]">COMPETE</span>
@@ -242,41 +282,76 @@ export default function FanCupPage() {
 
                  {/* Right Side: Application Form */}
                  <RevealOnScroll delay={200} className="relative z-10 w-full max-w-md mx-auto lg:mx-0 lg:ml-auto">
-                    <div className="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                    <div className="bg-[#0a0a0a] border border-gray-800 rounded-3xl p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden min-h-[500px] flex flex-col justify-center">
                        <div className="absolute top-0 right-0 w-32 h-32 bg-[#a3e635]/10 blur-[40px] rounded-full pointer-events-none"></div>
                        
-                       <h3 className="text-2xl font-black uppercase text-white mb-2">Captain Application</h3>
-                       <p className="text-xs font-medium text-gray-400 mb-8">Submit your details to be considered for the inaugural draft.</p>
-                       
-                       <form action="https://formsubmit.co/info@selloutcrowds.com" method="POST" className="flex flex-col gap-4">
-                          <input type="hidden" name="_subject" value="New Captain Application - Fan Cup" />
-                          <input type="hidden" name="_captcha" value="false" />
-                          <input type="hidden" name="_next" value="https://www.selloutcrowds.com/the-fan-cup" />
-
-                          <div className="flex flex-col gap-1.5">
-                            <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Name / Handle</label>
-                            <input type="text" name="name" required className="bg-[#111] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="e.g. @SportsTakes" />
+                       {formStatus === 'success' ? (
+                          <div className="flex flex-col items-center justify-center py-10 text-center animate-in zoom-in duration-300">
+                             <div className="w-16 h-16 bg-[#a3e635]/10 text-[#a3e635] border border-[#a3e635]/30 rounded-2xl flex items-center justify-center mb-6">
+                               <ShieldCheck size={32} />
+                             </div>
+                             <h4 className="text-2xl font-black text-white uppercase tracking-tight mb-2">Application Received!</h4>
+                             <p className="text-gray-400 text-sm font-medium leading-relaxed mb-8">
+                               We have received your submission. Our scouting team will review your profile and be in touch soon.
+                             </p>
+                             <button 
+                               onClick={() => setFormStatus('idle')} 
+                               className="text-[#a3e635] text-xs font-bold uppercase tracking-widest hover:text-white transition-colors"
+                             >
+                               Submit Another Application
+                             </button>
                           </div>
+                       ) : (
+                         <>
+                           <h3 className="text-2xl font-black uppercase text-white mb-2 relative z-10">Captain Application</h3>
+                           <p className="text-xs font-medium text-gray-400 mb-8 relative z-10">Submit your details to be considered for the inaugural draft.</p>
+                           
+                           <form onSubmit={handleFormSubmit} className="flex flex-col gap-4 relative z-10">
+                              <input type="hidden" name="_subject" value="New Captain Application - Fan Cup" />
+                              <input type="hidden" name="_captcha" value="false" />
 
-                          <div className="flex flex-col gap-1.5">
-                            <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Email Address</label>
-                            <input type="email" name="email" required className="bg-[#111] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="you@example.com" />
-                          </div>
+                              <div className="flex flex-col gap-1.5">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Name / Handle</label>
+                                <input type="text" name="name" required className="bg-[#111] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="e.g. @SportsTakes" />
+                              </div>
 
-                          <div className="flex flex-col gap-1.5">
-                            <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Primary Social Link</label>
-                            <input type="url" name="social_link" required className="bg-[#111] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="URL to your largest following" />
-                          </div>
+                              <div className="flex flex-col gap-1.5">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Email Address</label>
+                                <input type="email" name="email" required className="bg-[#111] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="you@example.com" />
+                              </div>
 
-                          <div className="flex flex-col gap-1.5">
-                            <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Country You Represent</label>
-                            <input type="text" name="country" required className="bg-[#111] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="e.g. USA, UK, Brazil" />
-                          </div>
+                              <div className="flex flex-col gap-1.5">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Primary Social Link</label>
+                                <input type="url" name="social_link" required className="bg-[#111] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors" placeholder="URL to your largest following" />
+                              </div>
 
-                          <button type="submit" className="mt-4 bg-[#a3e635] text-black px-6 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-all shadow-lg hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] flex items-center justify-center gap-2 hover:-translate-y-1">
-                            Submit Application <Send size={16} />
-                          </button>
-                       </form>
+                              <div className="flex flex-col gap-1.5 relative">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Country You Represent</label>
+                                <div className="relative">
+                                  <select name="country" required defaultValue="" className="w-full bg-[#111] border border-gray-800 focus:border-[#a3e635] rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors appearance-none cursor-pointer">
+                                    <option value="" disabled>Select your country</option>
+                                    {COUNTRIES.map(country => (
+                                      <option key={country} value={country}>{country}</option>
+                                    ))}
+                                  </select>
+                                  <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+                                </div>
+                              </div>
+
+                              <button 
+                                type="submit" 
+                                disabled={formStatus === 'submitting'}
+                                className="mt-4 bg-[#a3e635] text-black px-6 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white transition-all shadow-lg hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] flex items-center justify-center gap-2 hover:-translate-y-1 disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
+                              >
+                                {formStatus === 'submitting' ? 'Submitting...' : 'Submit Application'} <Send size={16} />
+                              </button>
+                              
+                              {formStatus === 'error' && (
+                                <p className="text-red-500 text-xs font-medium text-center mt-2">Something went wrong. Please try again.</p>
+                              )}
+                           </form>
+                         </>
+                       )}
                     </div>
                  </RevealOnScroll>
 
