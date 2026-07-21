@@ -31,8 +31,9 @@ export {
 };
 
 export const ASSETS = {
-  heroVideo: "https://admin.beasellout.com/wp-content/uploads/2025/08/All-Sports.mp4",
-  logo: "https://admin.beasellout.com/wp-content/uploads/2025/04/Logo.png"
+  heroVideo: "/media/All-Sports.mp4",
+  logo: "/media/Logo.png",
+  mark: "/media/Mark.webp"
 };
 
 export const GlobalStyles = () => (
@@ -266,7 +267,7 @@ export const Footer = () => (
         
         <div className="flex items-center gap-3">
             <Link href="/">
-              <img src="https://admin.beasellout.com/wp-content/uploads/2025/04/Mark.webp" alt="Sellout Crowds Mark" className="h-8 w-auto opacity-50 hover:opacity-100 transition-opacity cursor-pointer" />
+              <img src={ASSETS.mark} alt="Sellout Crowds Mark" className="h-8 w-auto opacity-50 hover:opacity-100 transition-opacity cursor-pointer" />
             </Link>
             <p className="text-[10px] uppercase tracking-widest opacity-60 border-l border-gray-800 pl-3">&copy; {new Date().getFullYear()} Sellout Crowds. All Rights Reserved.</p>
         </div>

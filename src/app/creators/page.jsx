@@ -489,7 +489,7 @@ export default function CreatorsPage() {
             <div 
               className="absolute inset-0 bg-center bg-cover opacity-50 filter grayscale mix-blend-luminosity scale-[1.15]"
               style={{ 
-                backgroundImage: `url('https://admin.beasellout.com/wp-content/uploads/2026/01/Super-Bowl-American-Football-Concept-scaled.jpg')`,
+                backgroundImage: `url('/media/Super-Bowl-American-Football-Concept-scaled.jpg')`,
                 transform: `translateY(-${gamePlanProgress * 10}%)`
               }}
             />
@@ -613,7 +613,7 @@ export default function CreatorsPage() {
           {/* Background Image with Parallax (bg-fixed) */}
           <div 
             className="absolute inset-0 bg-center bg-cover bg-fixed opacity-30 grayscale mix-blend-luminosity"
-            style={{ backgroundImage: `url('https://admin.beasellout.com/wp-content/uploads/2025/04/wepik-202159-213820.webp')` }}
+            style={{ backgroundImage: `url('/media/wepik-202159-213820.webp')` }}
           />
           
           {/* Green Overlay */}

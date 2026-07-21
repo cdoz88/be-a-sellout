@@ -109,7 +109,7 @@ export default function FanCupPage() {
           
           {/* Decorative Crown Image */}
           <div className="absolute top-1/2 -translate-y-1/2 -left-32 md:-left-48 lg:-left-16 w-80 md:w-[500px] -rotate-45 opacity-20 md:opacity-30 pointer-events-none z-0">
-             <img src="https://admin.beasellout.com/wp-content/uploads/2026/06/The-Sellout-Crown.webp" alt="The Sellout Crown" className="w-full h-auto drop-shadow-[0_0_50px_rgba(163,230,53,0.2)]" />
+             <img src="/media/The-Sellout-Crown.webp" alt="The Sellout Crown" className="w-full h-auto drop-shadow-[0_0_50px_rgba(163,230,53,0.2)]" />
           </div>
 
           <div className="max-w-7xl mx-auto relative z-10">
