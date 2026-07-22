@@ -5,7 +5,7 @@ export const metadata = {
   title: 'Sellout Crowds | For Creators',
   description: 'Give your fans exclusive access, simplify how they connect with you, and enjoy tools designed specifically for your success.',
   icons: {
-    icon: 'https://admin.beasellout.com/wp-content/uploads/2025/04/cropped-Icon.webp',
+    icon: 'https://beasellout.com/media/Favicon.ico',
   },
 };
 
