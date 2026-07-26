@@ -194,12 +194,12 @@ export const Header = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3 mt-1">
-          <a href="#" className="bg-white/10 backdrop-blur-sm text-white border border-white/10 px-5 py-2.5 font-bold uppercase tracking-widest text-[10px] hover:bg-white hover:text-black transition-all duration-300 rounded-md">
+          <Link href="/signup" className="bg-white/10 backdrop-blur-sm text-white border border-white/10 px-5 py-2.5 font-bold uppercase tracking-widest text-[10px] hover:bg-white hover:text-black transition-all duration-300 rounded-md">
             Sign Up
-          </a>
-          <a href="#" className="bg-[#a3e635] text-black px-5 py-2.5 font-bold uppercase tracking-widest text-[10px] hover:bg-[#84cc16] transition-all duration-300 rounded-md shadow-[0_0_10px_rgba(163,230,53,0.2)] hover:shadow-[0_0_15px_rgba(163,230,53,0.4)]">
+          </Link>
+          <Link href="/login" className="bg-[#a3e635] text-black px-5 py-2.5 font-bold uppercase tracking-widest text-[10px] hover:bg-[#84cc16] transition-all duration-300 rounded-md shadow-[0_0_10px_rgba(163,230,53,0.2)] hover:shadow-[0_0_15px_rgba(163,230,53,0.4)]">
             Login
-          </a>
+          </Link>
         </div>
 
         {!isFunnel && (
@@ -214,8 +214,8 @@ export const Header = () => {
         <Link href="/creators" onClick={() => setMobileMenuOpen(false)} className={`text-left font-bold uppercase tracking-widest text-xs py-2 border-b border-white/5 ${pathname === '/creators' ? 'text-[#9df01c]' : 'text-white'}`}>For Creators</Link>
         <Link href="/faqs" onClick={() => setMobileMenuOpen(false)} className={`text-left font-bold uppercase tracking-widest text-xs py-2 border-b border-white/5 ${pathname === '/faqs' ? 'text-[#9df01c]' : 'text-white'}`}>FAQs</Link>
         <div className="flex gap-2 mt-1">
-          <a href="#" className="flex-1 bg-white/10 text-white text-center py-2.5 font-bold uppercase tracking-widest text-[10px] rounded-md">Sign Up</a>
-          <a href="#" className="flex-1 bg-[#a3e635] text-black text-center py-2.5 font-bold uppercase tracking-widest text-[10px] rounded-md">Login</a>
+          <Link href="/signup" className="flex-1 bg-white/10 text-white text-center py-2.5 font-bold uppercase tracking-widest text-[10px] rounded-md">Sign Up</Link>
+          <Link href="/login" className="flex-1 bg-[#a3e635] text-black text-center py-2.5 font-bold uppercase tracking-widest text-[10px] rounded-md">Login</Link>
         </div>
       </div>
     </header>
